@@ -2,7 +2,9 @@
 title: QR CODE
 date: 2021-06-01 23:23:21
 tags: QR
-categories: QR OTHER
+categories: 
+- QR 
+- OTHER
 ---
 
 ## QR 简单了解
