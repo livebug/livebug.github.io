@@ -1,5 +1,5 @@
 ---
-title: javascript 学习
+title: Javascript 学习
 date: 2021-06-01 23:36:51
 tags: 
 - javascript
@@ -22,3 +22,4 @@ categories: javascript
     在使用推荐模板在之后，在模板内输入自动提示就消失了
 
         "editor.quickSuggestions": true
+        "editor.suggest.snippetsPreventQuickSuggestions": false
