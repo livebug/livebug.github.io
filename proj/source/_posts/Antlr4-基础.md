@@ -49,7 +49,7 @@ antlr是指可以根据输入自动生成语法树并可视化的显示出来的
 
 
 
-![1](https://bkimg.cdn.bcebos.com/pic/7a899e510fb30f245f1f11a7ca95d143ac4b0388?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto)
+![1](1.png)
 图1 字符输入流、tokens和AST之间的关系
 
 树分析器可以用于对语法分析生成的抽象语法树进行遍历，并能执行一些相关的操作。

@@ -1,10 +1,10 @@
 ---
-title: Javascript 学习
+title: JavaScript 学习
 date: 2021-06-01 23:36:51
 tags: 
-- javascript
+- JavaScript
 - vscode
-categories: javascript
+categories: JavaScript
 ---
 ## 使用 vscode 
 学习的几个 vscode 设置
