@@ -15,7 +15,7 @@ timezone: ''
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://livebug.github.io/
-permalink: :year/:month/:day/:title/
+permalink: /:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -46,7 +46,7 @@ post_asset_folder: true
 marked:
   prependRoot: true
   postAsset: true
-relative_link: false
+relative_link: true
 future: true
 highlight:
   enable: true
