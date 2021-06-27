@@ -49,24 +49,64 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-  <article id="post-Scala3-入门/20" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <article id="post-Scala3-入门/2" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2021-06-25T16:00:00.000Z"><a href="../../Scala3-%E5%85%A5%E9%97%A8/20/">2021-06-26</a></time>
+        <time class="dt-published" datetime="2021-06-25T16:00:00.000Z"><a href="../../MD/Scala3-%E5%85%A5%E9%97%A8/2/">2021-06-26</a></time>
       
       
   
-    <h1 class="title"><a href="../../Scala3-%E5%85%A5%E9%97%A8/20/"></a></h1>
+    <h1 class="title"><a href="../../MD/Scala3-%E5%85%A5%E9%97%A8/2/"></a></h1>
   
 
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h1 id="20-Scala-for-Python-Developers-（面向Python）"><a href="#20-Scala-for-Python-Developers-（面向Python）" class="headerlink" title="20. Scala for Python Developers （面向Python）"></a>20. Scala for Python Developers （面向Python）</h1><p><a href="/Scala3-%E5%85%A5%E9%97%A8/19/">[上一篇:  19. Scala for JavaScript Developers （面向Js） ]</a>   <a href="/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a></p>
-<p><a href="/Scala3-%E5%85%A5%E9%97%A8/19/">[上一篇:  19. Scala for JavaScript Developers （面向Js） ]</a>   <a href="/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a></p>
+        <h1 id="Scala-3-Features-Scala3-特性"><a href="#Scala-3-Features-Scala3-特性" class="headerlink" title="Scala 3 Features (Scala3 特性)"></a>Scala 3 Features (Scala3 特性)</h1><p><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/1/">[上一篇: 1. Scala3 Book 简介 ]</a>   <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a>  <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/3/">[下一篇: 3. Why Scala 3? ]</a></p>
+<p>Scala这个名字来自scalable这个词，正是这个名字，Scala语言被用来为繁忙的网站提供动力和分析巨大的数据集。本节介绍使Scala成为可伸缩语言的特性。这些功能分为三个部分：</p>
+<!-- The name Scala comes from the word scalable, and true to that name, the Scala language is used to power busy websites and analyze huge data sets. This section introduces the features that make Scala a scalable language. These features are split into three sections: -->
+
+<ul>
+<li>High-level language features</li>
+<li>Lower-level language features （）</li>
+<li>Scala ecosystem features （Scala 生态系统特性）</li>
+</ul>
+<p>上一节介绍了 Scala 3 的高级特性，有趣的是，在高级别的方面，您可以对 Scala 2 和 Scala 3 做出相同的陈述。十年前，Scala 以理想特性的强大基础开始，并且正如您将在本节中看到的，Scala 3 改进了这些优势。</p>
+<p>从细节的“海平面”视图（即程序员每天使用的语言功能）来看，Scala 3 比 Scala 2 具有显着优势：</p>
+<ul>
+<li>使用枚举更简洁地创建代数数据类型（ADT）的能力</li>
+<li>更简洁易懂的语法：<ul>
+<li>“quiet”控件结构语法更易于阅读</li>
+<li>可选大括号<ul>
+<li>代码中的符号越少，产生的视觉噪声就越小，越容易阅读</li>
+</ul>
+</li>
+<li>在创建类实例时，通常不再需要<code>new</code>关键字</li>
+<li>包对象的形式已经被抛弃，取而代之的是更简单的“顶层”定义</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>更清晰的语法：<ul>
+<li>隐式关键字的多种不同用法已被删除；这些用法被更明显的关键字所取代，比如given、using和extension，重点放在意图而不是机制上（有关详细信息，请参见<code>Givens</code>部分）</li>
+<li>扩展方法用更清晰、更简单的机制替换隐式类</li>
+<li>为类添加<code>open</code>修饰符使开发人员有意声明类是开放的，以便进行修改，从而限制对代码基的特殊扩展</li>
+<li>多重等式排除了与==和！=(i、 例如，试图把一个人比作一个星球）</li>
+<li>宏的实现要容易得多</li>
+<li>并集和交集为模型类型提供了一种灵活的方法</li>
+<li>特征参数取代并简化了早期的初始化者</li>
+<li>不透明类型别名取代了值类的大多数用法，同时保证了没有装箱</li>
+<li>Export子句提供了一种简单而通用的方法来表示聚合，它可以替代以前从类继承的包对象的facade模式</li>
+<li>删除了过程语法，并更改了varargs语法，这两种语法都使语言更加一致</li>
+<li>@infix注释清楚地表明了您希望如何应用方法</li>
+<li>@targetName method注释为方法定义了一个备用名称，提高了Java互操作性，并允许您为符号运算符提供别名</li>
+</ul>
+</li>
+</ul>
+<p><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/1/">[上一篇: 1. Scala3 Book 简介 ]</a>   <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a>  <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/3/">[下一篇: 3. Why Scala 3? ]</a></p>
 
       
     </div>
@@ -108,19 +148,19 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="../../categories/C/">C#</a><small>1</small></li>
+    <li><a href="../../../categories/C/">C#</a><small>1</small></li>
   
-    <li><a href="../../categories/Java/">Java</a><small>2</small></li>
+    <li><a href="../../../categories/Java/">Java</a><small>2</small></li>
   
-    <li><a href="../../categories/JavaScript/">JavaScript</a><small>2</small></li>
+    <li><a href="../../../categories/JavaScript/">JavaScript</a><small>2</small></li>
   
-    <li><a href="../../categories/OTHER/">OTHER</a><small>4</small></li>
+    <li><a href="../../../categories/OTHER/">OTHER</a><small>4</small></li>
   
-    <li><a href="../../categories/Rust/">Rust</a><small>1</small></li>
+    <li><a href="../../../categories/Rust/">Rust</a><small>1</small></li>
   
-    <li><a href="../../categories/Scala/">Scala</a><small>3</small></li>
+    <li><a href="../../../categories/Scala/">Scala</a><small>3</small></li>
   
-    <li><a href="../../categories/hexo/">hexo</a><small>2</small></li>
+    <li><a href="../../../categories/hexo/">hexo</a><small>2</small></li>
   
   </ul>
 </div>
@@ -131,33 +171,33 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="../../tags/Antlr4/">Antlr4</a><small>1</small></li>
+    <li><a href="../../../tags/Antlr4/">Antlr4</a><small>1</small></li>
   
-    <li><a href="../../tags/C/">C#</a><small>1</small></li>
+    <li><a href="../../../tags/C/">C#</a><small>1</small></li>
   
-    <li><a href="../../tags/Java/">Java</a><small>3</small></li>
+    <li><a href="../../../tags/Java/">Java</a><small>3</small></li>
   
-    <li><a href="../../tags/JavaScript/">JavaScript</a><small>2</small></li>
+    <li><a href="../../../tags/JavaScript/">JavaScript</a><small>2</small></li>
   
-    <li><a href="../../tags/Maven/">Maven</a><small>1</small></li>
+    <li><a href="../../../tags/Maven/">Maven</a><small>1</small></li>
   
-    <li><a href="../../tags/QR/">QR</a><small>1</small></li>
+    <li><a href="../../../tags/QR/">QR</a><small>1</small></li>
   
-    <li><a href="../../tags/Rust/">Rust</a><small>1</small></li>
+    <li><a href="../../../tags/Rust/">Rust</a><small>1</small></li>
   
-    <li><a href="../../tags/Scala/">Scala</a><small>3</small></li>
+    <li><a href="../../../tags/Scala/">Scala</a><small>3</small></li>
   
-    <li><a href="../../tags/Ubuntu/">Ubuntu</a><small>4</small></li>
+    <li><a href="../../../tags/Ubuntu/">Ubuntu</a><small>4</small></li>
   
-    <li><a href="../../tags/ejs/">ejs</a><small>1</small></li>
+    <li><a href="../../../tags/ejs/">ejs</a><small>1</small></li>
   
-    <li><a href="../../tags/hexo/">hexo</a><small>3</small></li>
+    <li><a href="../../../tags/hexo/">hexo</a><small>3</small></li>
   
-    <li><a href="../../tags/vscode/">vscode</a><small>1</small></li>
+    <li><a href="../../../tags/vscode/">vscode</a><small>1</small></li>
   
-    <li><a href="../../tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><small>1</small></li>
+    <li><a href="../../../tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><small>1</small></li>
   
-    <li><a href="../../tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">模式匹配</a><small>1</small></li>
+    <li><a href="../../../tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">模式匹配</a><small>1</small></li>
   
   </ul>
 </div>

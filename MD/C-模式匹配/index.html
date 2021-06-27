@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>C# 模式匹配 | Livebug&#39;s Blog</title>
+  <meta name="author" content="sharif">
+  
+  <meta name="description" content="a blog for myself">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:title" content="C# 模式匹配"/>
+  <meta property="og:site_name" content="Livebug&#39;s Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link rel="shortcut icon" href="../../favicon.png">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Livebug&#39;s Blog</a></h1>
+  <h2><a href="/">first step in helloworld</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="../../index.html">Home</a></li>
+    
+      <li><a href="../../archives">Archives</a></li>
+    
+      <li><a href="../../https:/github.com/livebug/livebug.github.io/tree/public">Git</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-C-模式匹配" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2021-05-25T15:29:03.000Z"><a href="../../MD/C-%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">2021-05-25</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">C# 模式匹配</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/patterns">https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/patterns</a></p>
+<p>C# 在 C# 7.0 中引入了模式匹配。 自此之后，每个主要 C# 版本都扩展了模式匹配功能。 以下 C# 表达式和语句支持模式匹配：</p>
+<ul>
+<li><code>is</code>表达式</li>
+<li><code>switch</code> 语句</li>
+<li><code>switch</code> 表达式（在 C# 8.0 中引入）</li>
+</ul>
+<p>在这些构造中，可将输入表达式与以下任一模式进行匹配：</p>
+<ul>
+<li><a href="#%E5%A3%B0%E6%98%8E%E5%92%8C%E7%B1%BB%E5%9E%8B%E6%A8%A1%E5%BC%8F">声明模式</a>：用于检查表达式的运行时类型，如果匹配成功，则将表达式结果分配给声明的变量。 在 C# 7.0 中引入。</li>
+<li><a href="#%E7%B1%BB%E5%9E%8B%E6%A8%A1%E5%BC%8F">类型模式</a>：用于检查表达式的运行时类型。 在 C# 9.0 中引入。</li>
+<li><a href="#%E5%B8%B8%E9%87%8F%E6%A8%A1%E5%BC%8F">常量模式</a>：用于测试表达式结果是否等于指定常量。 在 C# 7.0 中引入。</li>
+<li><a href="#%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%BC%8F">关系模式</a>：用于将表达式结果与指定常量进行比较。 在 C# 9.0 中引入。</li>
+<li><a href="#%E9%80%BB%E8%BE%91%E6%A8%A1%E5%BC%8F">逻辑模式</a>：用于测试表达式是否与模式的逻辑组合匹配。 在 C# 9.0 中引入。</li>
+<li><a href="#%E5%B1%9E%E6%80%A7%E6%A8%A1%E5%BC%8F">属性模式</a>：用于测试表达式的属性或字段是否与嵌套模式匹配。 在 C# 8.0 中引入。</li>
+<li><a href="#%E4%BD%8D%E7%BD%AE%E6%A8%A1%E5%BC%8F">位置模式</a>：用于解构表达式结果并测试结果值是否与嵌套模式匹配。 在 C# 8.0 中引入。</li>
+<li><a href="#var%E6%A8%A1%E5%BC%8F">var 模式</a>：用于匹配任何表达式并将其结果分配给声明的变量。 在 C# 7.0 中引入。</li>
+<li><a href="#%E5%BC%83%E5%85%83%E6%A8%A1%E5%BC%8F">弃元模式</a>：用于匹配任何表达式。 在 C# 8.0 中引入。</li>
+</ul>
+<p><em>逻辑、属性和位置模式都是递归模式。 也就是说，它们可包含嵌套模式。</em></p>
+<p>有关如何使用这些模式来生成数据驱动算法的示例，请参阅教程：使用模式匹配来生成类型驱动的算法和数据驱动的算法。</p>
+<h2 id="声明和类型模式"><a href="#声明和类型模式" class="headerlink" title="声明和类型模式"></a>声明和类型模式</h2><ol>
+<li>IS</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span>? xNullable = <span class="number">7</span>;</span><br><span class="line"><span class="built_in">int</span> y = <span class="number">23</span>;</span><br><span class="line"><span class="built_in">object</span> yBoxed = y;</span><br><span class="line"><span class="keyword">if</span> (xNullable <span class="keyword">is</span> <span class="built_in">int</span> a &amp;&amp; yBoxed <span class="keyword">is</span> <span class="built_in">int</span> b)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(a + b);  <span class="comment">// output: 30</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>SWITCH</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">decimal</span> <span class="title">CalculateToll</span>(<span class="params"><span class="keyword">this</span> Vehicle vehicle</span>)</span> =&gt; vehicle <span class="keyword">switch</span></span><br><span class="line">&#123;</span><br><span class="line">    Car =&gt; <span class="number">2.00</span>m,</span><br><span class="line">    Truck =&gt; <span class="number">7.50</span>m,</span><br><span class="line">    <span class="literal">null</span> =&gt; <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="keyword">nameof</span>(vehicle)),</span><br><span class="line">    _ =&gt; <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentException(<span class="string">&quot;Unknown type of a vehicle&quot;</span>, <span class="keyword">nameof</span>(vehicle)),</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="常量模式"><a href="#常量模式" class="headerlink" title="常量模式"></a>常量模式</h2><p>在常量模式中，可使用任何常量表达式，例如：</p>
+<ul>
+<li>integer 或 floating-point 数值文本</li>
+<li>char 或 string 文本</li>
+<li>布尔值 true 或 false</li>
+<li>enum 值</li>
+<li>声明常量字段或本地的名称</li>
+<li>null</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">decimal</span> <span class="title">GetGroupTicketPrice</span>(<span class="params"><span class="built_in">int</span> visitorCount</span>)</span> =&gt; visitorCount <span class="keyword">switch</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="number">1</span> =&gt; <span class="number">12.0</span>m,</span><br><span class="line">    <span class="number">2</span> =&gt; <span class="number">20.0</span>m,</span><br><span class="line">    <span class="number">3</span> =&gt; <span class="number">27.0</span>m,</span><br><span class="line">    <span class="number">4</span> =&gt; <span class="number">32.0</span>m,</span><br><span class="line">    <span class="number">0</span> =&gt; <span class="number">0.0</span>m,</span><br><span class="line">    _ =&gt; <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentException(<span class="string">$&quot;Not supported number of visitors: <span class="subst">&#123;visitorCount&#125;</span>&quot;</span>, <span class="keyword">nameof</span>(visitorCount)),</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">input <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="关系模式"><a href="#关系模式" class="headerlink" title="关系模式"></a>关系模式</h2><p>在关系模式中，可使用关系运算符 &lt;、&gt;、&lt;= 或 &gt;= 中的任何一个。 关系模式的右侧部分必须是常数表达式。 常数表达式可以是 integer、floating-point、char 或 enum 类型。</p>
+<p>要检查表达式结果是否在某个范围内，请将其与合取 and 模式匹配，</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Console.WriteLine(GetCalendarSeason(<span class="keyword">new</span> DateTime(<span class="number">2021</span>, <span class="number">3</span>, <span class="number">14</span>)));  <span class="comment">// output: spring</span></span><br><span class="line">Console.WriteLine(GetCalendarSeason(<span class="keyword">new</span> DateTime(<span class="number">2021</span>, <span class="number">7</span>, <span class="number">19</span>)));  <span class="comment">// output: summer</span></span><br><span class="line">Console.WriteLine(GetCalendarSeason(<span class="keyword">new</span> DateTime(<span class="number">2021</span>, <span class="number">2</span>, <span class="number">17</span>)));  <span class="comment">// output: winter</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="built_in">string</span> <span class="title">GetCalendarSeason</span>(<span class="params">DateTime date</span>)</span> =&gt; date.Month <span class="keyword">switch</span></span><br><span class="line">&#123;</span><br><span class="line">    &gt;= <span class="number">3</span> <span class="keyword">and</span> &lt; <span class="number">6</span> =&gt; <span class="string">&quot;spring&quot;</span>,</span><br><span class="line">    &gt;= <span class="number">6</span> <span class="keyword">and</span> &lt; <span class="number">9</span> =&gt; <span class="string">&quot;summer&quot;</span>,</span><br><span class="line">    &gt;= <span class="number">9</span> <span class="keyword">and</span> &lt; <span class="number">12</span> =&gt; <span class="string">&quot;autumn&quot;</span>,</span><br><span class="line">    <span class="number">12</span> <span class="keyword">or</span> (&gt;= <span class="number">1</span> <span class="keyword">and</span> &lt; <span class="number">3</span>) =&gt; <span class="string">&quot;winter&quot;</span>,</span><br><span class="line">    _ =&gt; <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentOutOfRangeException(<span class="keyword">nameof</span>(date), <span class="string">$&quot;Date with unexpected month: <span class="subst">&#123;date.Month&#125;</span>.&quot;</span>),</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="逻辑模式"><a href="#逻辑模式" class="headerlink" title="逻辑模式"></a>逻辑模式</h2><p>从 C# 9.0 开始，可使用 <code>not</code>、<code>and</code> 和 <code>or</code> 模式连结符来创建以下逻辑模式：</p>
+<p>and 模式连结符的优先级高于 or。 要显式指定优先级，请使用括号，如以下示例所示：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="built_in">bool</span> <span class="title">IsLetter</span>(<span class="params"><span class="built_in">char</span> c</span>)</span> =&gt; <span class="function">c <span class="title">is</span> (<span class="params">&gt;= <span class="string">&#x27;a&#x27;</span> <span class="keyword">and</span> &lt;= <span class="string">&#x27;z&#x27;</span></span>) <span class="title">or</span> (<span class="params">&gt;= <span class="string">&#x27;A&#x27;</span> <span class="keyword">and</span> &lt;= <span class="string">&#x27;Z&#x27;</span></span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="属性模式"><a href="#属性模式" class="headerlink" title="属性模式"></a>属性模式</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="built_in">bool</span> <span class="title">IsConferenceDay</span>(<span class="params">DateTime date</span>)</span> =&gt; date <span class="keyword">is</span> &#123; Year: <span class="number">2020</span>, Month: <span class="number">5</span>, Day: <span class="number">19</span> <span class="keyword">or</span> <span class="number">20</span> <span class="keyword">or</span> <span class="number">21</span> &#125;;</span><br><span class="line"></span><br><span class="line">Console.WriteLine(TakeFive(<span class="string">&quot;Hello, world!&quot;</span>));  <span class="comment">// output: Hello</span></span><br><span class="line">Console.WriteLine(TakeFive(<span class="string">&quot;Hi!&quot;</span>));  <span class="comment">// output: Hi!</span></span><br><span class="line">Console.WriteLine(TakeFive(<span class="keyword">new</span>[] &#123; <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;7&#x27;</span> &#125;));  <span class="comment">// output: 12345</span></span><br><span class="line">Console.WriteLine(TakeFive(<span class="keyword">new</span>[] &#123; <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span> &#125;));  <span class="comment">// output: abc</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="built_in">string</span> <span class="title">TakeFive</span>(<span class="params"><span class="built_in">object</span> input</span>)</span> =&gt; input <span class="keyword">switch</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">string</span> &#123; Length: &gt;= <span class="number">5</span> &#125; s =&gt; s.Substring(<span class="number">0</span>, <span class="number">5</span>),</span><br><span class="line">    <span class="built_in">string</span> s =&gt; s,</span><br><span class="line"></span><br><span class="line">    ICollection&lt;<span class="built_in">char</span>&gt; &#123; Count: &gt;= <span class="number">5</span> &#125; symbols =&gt; <span class="keyword">new</span> <span class="built_in">string</span>(symbols.Take(<span class="number">5</span>).ToArray()),</span><br><span class="line">    ICollection&lt;<span class="built_in">char</span>&gt; symbols =&gt; <span class="keyword">new</span> <span class="built_in">string</span>(symbols.ToArray()),</span><br><span class="line"></span><br><span class="line">    <span class="literal">null</span> =&gt; <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="keyword">nameof</span>(input)),</span><br><span class="line">    _ =&gt; <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentException(<span class="string">&quot;Not supported input type.&quot;</span>),</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>属性模式是一种递归模式。 也就是说，可以将任何模式用作<code>嵌套</code>模式。 使用属性模式将部分数据与嵌套模式进行匹配，如以下示例所示：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">record</span> <span class="title">Point</span>(<span class="params"><span class="built_in">int</span> X, <span class="built_in">int</span> Y</span>)</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">record</span> <span class="title">Segment</span>(<span class="params">Point Start, Point End</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="built_in">bool</span> <span class="title">IsAnyEndAtOrigin</span>(<span class="params">Segment segment</span>)</span> =&gt;</span><br><span class="line">    segment <span class="keyword">is</span> &#123; Start: &#123; X: <span class="number">0</span>, Y: <span class="number">0</span> &#125; &#125; <span class="keyword">or</span> &#123; End: &#123; X: <span class="number">0</span>, Y: <span class="number">0</span> &#125; &#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="位置模式"><a href="#位置模式" class="headerlink" title="位置模式"></a>位置模式</h2><p>位置模式来解构表达式结果并将结果值与相应的嵌套模式匹配</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> numbers = <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt; &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br><span class="line"><span class="keyword">if</span> (SumAndCount(numbers) <span class="keyword">is</span> (Sum: <span class="keyword">var</span> sum, Count: &gt; <span class="number">0</span>))</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;Sum of [<span class="subst">&#123;<span class="built_in">string</span>.Join(<span class="string">&quot; &quot;</span>, numbers)&#125;</span>] is <span class="subst">&#123;sum&#125;</span>&quot;</span>);  <span class="comment">// output: Sum of [1 2 3] is 6</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> (<span class="built_in">double</span> Sum, <span class="built_in">int</span> Count) SumAndCount(IEnumerable&lt;<span class="built_in">int</span>&gt; numbers)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="built_in">int</span> number <span class="keyword">in</span> numbers)</span><br><span class="line">    &#123;</span><br><span class="line">        sum += number;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (sum, count);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="var-模式"><a href="#var-模式" class="headerlink" title="var 模式"></a>var 模式</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="built_in">bool</span> <span class="title">IsAcceptable</span>(<span class="params"><span class="built_in">int</span> id, <span class="built_in">int</span> absLimit</span>)</span> =&gt;</span><br><span class="line">    SimulateDataFetch(id) <span class="keyword">is</span> <span class="keyword">var</span> results</span><br><span class="line">    &amp;&amp; results.Min() &gt;= -absLimit</span><br><span class="line">    &amp;&amp; results.Max() &lt;= absLimit;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="built_in">int</span>[] <span class="title">SimulateDataFetch</span>(<span class="params"><span class="built_in">int</span> id</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> rand = <span class="keyword">new</span> Random();</span><br><span class="line">    <span class="keyword">return</span> Enumerable</span><br><span class="line">               .Range(start: <span class="number">0</span>, count: <span class="number">5</span>)</span><br><span class="line">               .Select(s =&gt; rand.Next(minValue: <span class="number">-10</span>, maxValue: <span class="number">11</span>))</span><br><span class="line">               .ToArray();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="弃元模式"><a href="#弃元模式" class="headerlink" title="弃元模式"></a>弃元模式</h2><p>从 C# 8.0 开始，可使用弃元模式 <code>_</code> 来匹配任何表达式，包括 null，如以下示例所示</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Console.WriteLine(GetDiscountInPercent(DayOfWeek.Friday));  <span class="comment">// output: 5.0</span></span><br><span class="line">Console.WriteLine(GetDiscountInPercent(<span class="literal">null</span>));  <span class="comment">// output: 0.0</span></span><br><span class="line">Console.WriteLine(GetDiscountInPercent((DayOfWeek)<span class="number">10</span>));  <span class="comment">// output: 0.0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="built_in">decimal</span> <span class="title">GetDiscountInPercent</span>(<span class="params">DayOfWeek? dayOfWeek</span>)</span> =&gt; dayOfWeek <span class="keyword">switch</span></span><br><span class="line">&#123;</span><br><span class="line">    DayOfWeek.Monday =&gt; <span class="number">0.5</span>m,</span><br><span class="line">    DayOfWeek.Tuesday =&gt; <span class="number">12.5</span>m,</span><br><span class="line">    DayOfWeek.Wednesday =&gt; <span class="number">7.5</span>m,</span><br><span class="line">    DayOfWeek.Thursday =&gt; <span class="number">12.5</span>m,</span><br><span class="line">    DayOfWeek.Friday =&gt; <span class="number">5.0</span>m,</span><br><span class="line">    DayOfWeek.Saturday =&gt; <span class="number">2.5</span>m,</span><br><span class="line">    DayOfWeek.Sunday =&gt; <span class="number">2.0</span>m,</span><br><span class="line">    _ =&gt; <span class="number">0.0</span>m,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="带括号模式"><a href="#带括号模式" class="headerlink" title="带括号模式"></a>带括号模式</h2><p>从 C# 9.0 开始，可在任何模式两边加上括号。 通常，这样做是为了强调或更改逻辑模式中的优先级，如以下示例所示：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="function">input <span class="keyword">is</span> <span class="title">not</span> (<span class="params"><span class="built_in">float</span> <span class="keyword">or</span> <span class="built_in">double</span></span>))</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="../../categories/C/">C#</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="../../tags/C/">C#</a>, <a href="../../tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">模式匹配</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="as_sitesearch" value="livebug.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="../../../categories/C/">C#</a><small>1</small></li>
+  
+    <li><a href="../../../categories/Java/">Java</a><small>2</small></li>
+  
+    <li><a href="../../../categories/JavaScript/">JavaScript</a><small>2</small></li>
+  
+    <li><a href="../../../categories/OTHER/">OTHER</a><small>4</small></li>
+  
+    <li><a href="../../../categories/Rust/">Rust</a><small>1</small></li>
+  
+    <li><a href="../../../categories/Scala/">Scala</a><small>3</small></li>
+  
+    <li><a href="../../../categories/hexo/">hexo</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="../../../tags/Antlr4/">Antlr4</a><small>1</small></li>
+  
+    <li><a href="../../../tags/C/">C#</a><small>1</small></li>
+  
+    <li><a href="../../../tags/Java/">Java</a><small>3</small></li>
+  
+    <li><a href="../../../tags/JavaScript/">JavaScript</a><small>2</small></li>
+  
+    <li><a href="../../../tags/Maven/">Maven</a><small>1</small></li>
+  
+    <li><a href="../../../tags/QR/">QR</a><small>1</small></li>
+  
+    <li><a href="../../../tags/Rust/">Rust</a><small>1</small></li>
+  
+    <li><a href="../../../tags/Scala/">Scala</a><small>3</small></li>
+  
+    <li><a href="../../../tags/Ubuntu/">Ubuntu</a><small>4</small></li>
+  
+    <li><a href="../../../tags/ejs/">ejs</a><small>1</small></li>
+  
+    <li><a href="../../../tags/hexo/">hexo</a><small>3</small></li>
+  
+    <li><a href="../../../tags/vscode/">vscode</a><small>1</small></li>
+  
+    <li><a href="../../../tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><small>1</small></li>
+  
+    <li><a href="../../../tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">模式匹配</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 sharif
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="../../js/jquery-3.4.1.min.js"></script>
+
+
+<script src="../../js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="../../js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+
+
+<script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+<script>
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
