@@ -17,10 +17,10 @@
     <meta property="og:image" content=""/>
   
 
-  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="shortcut icon" href="../../favicon.png">
   
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="../../css/style.css">
 
   <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
   
@@ -36,11 +36,11 @@
 <nav id="main-nav" class="alignright">
   <ul>
     
-      <li><a href="/">Home</a></li>
+      <li><a href="../../index.html">Home</a></li>
     
-      <li><a href="/archives">Archives</a></li>
+      <li><a href="../../archives">Archives</a></li>
     
-      <li><a target="_blank" rel="noopener" href="https://github.com/livebug/livebug.github.io/tree/public">Git</a></li>
+      <li><a href="../../https:/github.com/livebug/livebug.github.io/tree/public">Git</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -49,81 +49,64 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-  <article id="post-rust-基础" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <article id="post-Scala3-入门/3" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2021-04-15T15:24:08.000Z"><a href="/2021/04/15/rust-%E5%9F%BA%E7%A1%80/">2021-04-15</a></time>
+        <time class="dt-published" datetime="2021-06-25T16:00:00.000Z"><a href="../../Scala3-%E5%85%A5%E9%97%A8/3/">2021-06-26</a></time>
       
       
   
-    <h1 class="title"><a href="/2021/04/15/rust-%E5%9F%BA%E7%A1%80/">Rust 基础</a></h1>
+    <h1 class="title"><a href="../../Scala3-%E5%85%A5%E9%97%A8/3/"></a></h1>
   
 
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello,World!"></a>Hello,World!</h1><h2 id="main-function"><a href="#main-function" class="headerlink" title="main function"></a>main function</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h1 id="3-Why-Scala-3"><a href="#3-Why-Scala-3" class="headerlink" title="3. Why Scala 3?"></a>3. Why Scala 3?</h1><p><a href="/Scala3-%E5%85%A5%E9%97%A8/2/">[上一篇:   2. Scala 3 Features （Scala3 特性）           ]</a>   <a href="/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a>  <a href="/Scala3-%E5%85%A5%E9%97%A8/4/">[下一篇: 4. A Taste of Scala (牛刀小试)                ]</a></p>
+<p>There are many benefits to using Scala, and Scala 3 in particular. It’s hard to list every benefit of Scala, but a “Top Ten” list might look like this:</p>
 <ul>
-<li><p>a function named <code>main</code> that has no parameters and returns nothing</p>
-</li>
-<li><p>If there were parameters, they would go inside the parentheses</p>
-</li>
-<li><p><code>rustfmt</code> to format your code ; The Rust team has included this tool with the standard Rust distribution</p>
-</li>
-<li><p>Rust style is to indent with <strong>four spaces</strong>, not a tab</p>
-</li>
-<li><p><code>println!</code> calls a Rust macro</p>
-</li>
-</ul>
-<p>For now, you just need to know that using a <code>!</code> means that you’re calling a <code>macro</code> instead of a normal <code>function</code>.</p>
-<h2 id="Compiling-and-Running-Are-Separate-Steps"><a href="#Compiling-and-Running-Are-Separate-Steps" class="headerlink" title="Compiling and Running Are Separate Steps"></a>Compiling and Running Are Separate Steps</h2><ol>
-<li><p>compile</p>
-<p> rustc main.rs</p>
-<blockquote>
-<p>similar to gcc or clang<br>After compiling successfully, Rust outputs a binary executable</p>
+<li>函数式编程和面向对象编程兼备<blockquote>
+<p>Scala embraces a fusion of functional programming (FP) and object-oriented programming (OOP) </p>
 </blockquote>
 </li>
-<li><p>run</p>
-<p> ./main  # linux</p>
+<li>虽然是静态类型但是看起来像动态类型语言<blockquote>
+<p>Scala is statically typed, but often feels like a dynamically typed language </p>
+</blockquote>
 </li>
-</ol>
-<h2 id="Rust-language"><a href="#Rust-language" class="headerlink" title="Rust language"></a>Rust language</h2><p>Rust is an <em>ahead-of-time</em> compiled language,<br>meaning you can compile a program and give the executable to someone else, and they can <em>run it even without having Rust installed</em></p>
-<h2 id="Hello-Cargo"><a href="#Hello-Cargo" class="headerlink" title="Hello,Cargo!"></a>Hello,Cargo!</h2><p>Cargo is Rust’s build system and package manager.</p>
-<pre><code>cargo --version
-</code></pre>
-<h2 id="Creating-a-Project-with-Cargo"><a href="#Creating-a-Project-with-Cargo" class="headerlink" title="Creating a Project with Cargo"></a>Creating a Project with Cargo</h2><pre><code>cargo new hello_cargo
-</code></pre>
-<p>It has also initialized a new Git repository along with a <code>.gitignore</code> file.</p>
-<h1 id="Cargo-toml"><a href="#Cargo-toml" class="headerlink" title="Cargo.toml"></a>Cargo.toml</h1><figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[package]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;hello-rust&quot;</span></span><br><span class="line"><span class="attr">version</span> = <span class="string">&quot;0.1.0&quot;</span></span><br><span class="line"><span class="attr">authors</span> = [<span class="string">&quot;aeewz&quot;</span>]</span><br><span class="line"><span class="attr">edition</span> = <span class="string">&quot;2018&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html</span></span><br><span class="line"></span><br><span class="line"><span class="section">[dependencies]</span></span><br></pre></td></tr></table></figure>
-
-<!-- 20210414 BEGIN -->
-
-<p><code>[package]</code><br>the following statements are configuring a package</p>
-<p><code>edition = &quot;2018&quot;</code><br>the configuration information Cargo needs to <code>compile</code> your program:</p>
-<ul>
-<li>the edition of Rust to use</li>
+<li>Scala的语法很简洁，但仍然具有可读性;它通常被称为表达<blockquote>
+<p>Scala’s syntax is concise, but still readable; it’s often referred to as expressive  </p>
+</blockquote>
+</li>
+<li><code>Implicits</code> 在Scala2中是隐式转换，但是在Scala3中加强和简化<blockquote>
+<p><code>Implicits</code> in Scala 2 were a defining feature, and they have been improved and simplified in Scala 3<br>发生类型不匹配的函数调用时, scala会尝试进行类型隐式转换;首先优先进行函数参数的类型转换,如果可以转换, 那么就完成函数的执行; 否则尝试去对函数调用对象的类型进行转换; 如果两个尝试都失败了,就会报方法不存在或者类型不匹配的错误;(Scala2)</p>
+  <!-- https://www.cnblogs.com/xia520pi/p/8745923.html --></blockquote>
+</li>
+<li>与Java轻松交互，可以使用数以千计的Java库<blockquote>
+<p>Scala integrates seamlessly with Java, so you can create projects with mixed Scala and Java code, and Scala code easily uses the thousands of existing Java libraries</p>
+</blockquote>
+</li>
+<li>Scala可以用在服务器端或者浏览器<blockquote>
+<p>Scala can be used on the server, and also in the browser with Scala.js</p>
+</blockquote>
+</li>
+<li>Scala标准库有几十个预构建的功能方法可以节省您的时间，大大减少了为循环和算法编写定制的需要<blockquote>
+<p>The Scala standard library has dozens of pre-built, functional methods to save you time, and greatly reduce the need to write custom for loops and algorithms</p>
+</blockquote>
+</li>
+<li>Scala内置了最佳实践，它支持不变性、匿名函数、高阶函数、模式匹配、默认情况下不能扩展的类等等<blockquote>
+<p>“Best practices” are built into Scala, which favors immutability, anonymous functions, higher-order functions, pattern matching, classes that cannot be extended by default, and more</p>
+</blockquote>
+</li>
+<li>Scala生态系统提供了世界上最现代的FP库(函数式编程)<blockquote>
+<p>The Scala ecosystem offers the most modern FP libraries in the world</p>
+</blockquote>
+</li>
+<li>Strong type system</li>
 </ul>
-<p><code>[dependencies]</code><br>list any of your project’s dependencies<br><code>packages</code> of code are referred to as <code>crates</code></p>
-<h2 id="Building-and-Running-a-Cargo-Project"><a href="#Building-and-Running-a-Cargo-Project" class="headerlink" title="Building and Running a Cargo Project"></a>Building and Running a Cargo Project</h2><ul>
-<li>We can build a project using <code>cargo build</code>.</li>
-<li>We can build and run a project in one step using <code>cargo run</code>.</li>
-<li>We can build a project without producing a binary to check for errors using <code>cargo check</code>.</li>
-<li>Instead of saving the result of the build in the same directory as our code, Cargo stores it in the <code>target/debug</code> directory.</li>
-</ul>
-<h2 id="Building-for-Release"><a href="#Building-for-Release" class="headerlink" title="Building for Release"></a>Building for Release</h2><p>When your project is finally ready for release, you can<br>use <code>cargo build --release</code> to compile it with optimizations. </p>
-<p>This command will create an executable in <code>target/release</code> instead of <code>target/debug</code>. </p>
-<h2 id="20210415-SUMMARY"><a href="#20210415-SUMMARY" class="headerlink" title="~ 20210415 SUMMARY"></a>~ 20210415 SUMMARY</h2><p>you’ve learned how to:</p>
-<ul>
-<li>Install the latest stable version of Rust using rustup</li>
-<li>Update to a newer Rust version</li>
-<li>Open locally installed documentation</li>
-<li>Write and run a “Hello, world!” program using rustc directly</li>
-<li>Create and run a new project using the conventions of Cargo</li>
-</ul>
+<p><a href="/Scala3-%E5%85%A5%E9%97%A8/2/">[上一篇:   2. Scala 3 Features （Scala3 特性）           ]</a>   <a href="/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a>  <a href="/Scala3-%E5%85%A5%E9%97%A8/4/">[下一篇: 4. A Taste of Scala (牛刀小试)                ]</a></p>
 
       
     </div>
@@ -144,8 +127,10 @@
 <!-- 分页 -->
 <nav id="pagination">
   
-    <a href="/page/12/" class="alignleft prev">上一页</a>
+    <a href="../12/" class="alignleft prev">上一页</a>
   
+  
+    <a href="../14/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
@@ -163,19 +148,19 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/C/">C#</a><small>1</small></li>
+    <li><a href="../../categories/C/">C#</a><small>1</small></li>
   
-    <li><a href="/categories/Java/">Java</a><small>2</small></li>
+    <li><a href="../../categories/Java/">Java</a><small>2</small></li>
   
-    <li><a href="/categories/JavaScript/">JavaScript</a><small>2</small></li>
+    <li><a href="../../categories/JavaScript/">JavaScript</a><small>2</small></li>
   
-    <li><a href="/categories/OTHER/">OTHER</a><small>4</small></li>
+    <li><a href="../../categories/OTHER/">OTHER</a><small>4</small></li>
   
-    <li><a href="/categories/Rust/">Rust</a><small>1</small></li>
+    <li><a href="../../categories/Rust/">Rust</a><small>1</small></li>
   
-    <li><a href="/categories/Scala/">Scala</a><small>1</small></li>
+    <li><a href="../../categories/Scala/">Scala</a><small>3</small></li>
   
-    <li><a href="/categories/hexo/">hexo</a><small>2</small></li>
+    <li><a href="../../categories/hexo/">hexo</a><small>2</small></li>
   
   </ul>
 </div>
@@ -186,33 +171,33 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Antlr4/">Antlr4</a><small>1</small></li>
+    <li><a href="../../tags/Antlr4/">Antlr4</a><small>1</small></li>
   
-    <li><a href="/tags/C/">C#</a><small>1</small></li>
+    <li><a href="../../tags/C/">C#</a><small>1</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>3</small></li>
+    <li><a href="../../tags/Java/">Java</a><small>3</small></li>
   
-    <li><a href="/tags/JavaScript/">JavaScript</a><small>2</small></li>
+    <li><a href="../../tags/JavaScript/">JavaScript</a><small>2</small></li>
   
-    <li><a href="/tags/Maven/">Maven</a><small>1</small></li>
+    <li><a href="../../tags/Maven/">Maven</a><small>1</small></li>
   
-    <li><a href="/tags/QR/">QR</a><small>1</small></li>
+    <li><a href="../../tags/QR/">QR</a><small>1</small></li>
   
-    <li><a href="/tags/Rust/">Rust</a><small>1</small></li>
+    <li><a href="../../tags/Rust/">Rust</a><small>1</small></li>
   
-    <li><a href="/tags/Scala/">Scala</a><small>1</small></li>
+    <li><a href="../../tags/Scala/">Scala</a><small>3</small></li>
   
-    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>3</small></li>
+    <li><a href="../../tags/Ubuntu/">Ubuntu</a><small>4</small></li>
   
-    <li><a href="/tags/ejs/">ejs</a><small>1</small></li>
+    <li><a href="../../tags/ejs/">ejs</a><small>1</small></li>
   
-    <li><a href="/tags/hexo/">hexo</a><small>3</small></li>
+    <li><a href="../../tags/hexo/">hexo</a><small>3</small></li>
   
-    <li><a href="/tags/vscode/">vscode</a><small>1</small></li>
+    <li><a href="../../tags/vscode/">vscode</a><small>1</small></li>
   
-    <li><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><small>1</small></li>
+    <li><a href="../../tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><small>1</small></li>
   
-    <li><a href="/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">模式匹配</a><small>1</small></li>
+    <li><a href="../../tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">模式匹配</a><small>1</small></li>
   
   </ul>
 </div>
@@ -227,23 +212,23 @@
 </div>
 <div class="clearfix"></div></footer>
   
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
 
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="../../js/jquery.imagesloaded.min.js"></script>
 
 
-<script src="/js/gallery.js"></script>
-
-
-
+<script src="../../js/gallery.js"></script>
 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+
+
+<script src="../../fancybox/jquery.fancybox.pack.js"></script>
 
 <script>
 (function($){

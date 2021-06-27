@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 22 页 | Livebug&#39;s Blog</title>
+  <meta name="author" content="sharif">
+  
+  <meta name="description" content="a blog for myself">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Livebug&#39;s Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link rel="shortcut icon" href="../../favicon.png">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Livebug&#39;s Blog</a></h1>
+  <h2><a href="/">first step in helloworld</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="../../index.html">Home</a></li>
+    
+      <li><a href="../../archives">Archives</a></li>
+    
+      <li><a href="../../https:/github.com/livebug/livebug.github.io/tree/public">Git</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-Ubuntu-安装Scala3" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2021-06-21T10:58:30.000Z"><a href="../../Ubuntu-%E5%AE%89%E8%A3%85Scala3/">2021-06-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="../../Ubuntu-%E5%AE%89%E8%A3%85Scala3/">Ubuntu 安装Scala3</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>下载sbt包，解压，并将bin目录添加到PATH  </p>
+<p>livebug@nuc:~$ sbt -V<br>[info] [launcher] getting Scala 2.12.14 (for sbt)…<br>[info] [launcher] getting org.scala-sbt sbt 1.5.4  (this may take some time)…<br>sbt version in this project: 1.5.4<br>sbt script version: 1.5.4</p>
+<p>livebug@nuc:<del>$ pwd<br>/home/livebug<br>livebug@nuc:</del>$ cd /odsdata/<br>livebug@nuc:/odsdata$<br>livebug@nuc:/odsdata$ l<br>总用量 16<br>drwxr-xr-x 21 root    root    4096 6月  15 23:08 ..<br>drwxrwxr-x  2 livebug livebug 4096 6月  15 23:09 node_modules<br>drwxrwxrwx  4 root    root    4096 6月  16 20:53 .<br>drwxrwxr-x  4 livebug livebug 4096 6月  16 20:53 livebug.github.io<br>livebug@nuc:/odsdata$ sbt<br>[info] Updated file /odsdata/project/build.properties: set sbt.version to 1.5.4<br>[info] welcome to sbt 1.5.4 (Private Build Java 1.8.0_292)<br>[info] loading project definition from /odsdata/project<br>[info] set current project to odsdata (in build file:/odsdata/)<br>[info] sbt server started at local:///home/livebug/.sbt/1.0/server/d9f41e27b95c67781177/sock<br>[info] started sbt server<br>sbt:odsdata&gt; exit<br>[info] shutting down sbt server<br>livebug@nuc:/odsdata$ sbt new scala/scala3.g8<br>[info] welcome to sbt 1.5.4 (Private Build Java 1.8.0_292)<br>[info] set current project to new (in build file:/tmp/sbt_321453/new/)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/scala-sbt/sbt-giter8-resolver/sbt-giter8-resolver_2.12/0.13.1/sbt-giter8-resolver_2.12-0.13.1.jar">https://repo1.maven.org/maven2/org/scala-sbt/sbt-giter8-resolver/sbt-giter8-resolver_2.12/0.13.1/sbt-giter8-resolver_2.12-0.13.1.jar</a> …<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/scala-sbt/template-resolver/0.1/template-resolver-0.1.jar">https://repo1.maven.org/maven2/org/scala-sbt/template-resolver/0.1/template-resolver-0.1.jar</a> …<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-cli-git_2.12/0.13.1/giter8-cli-git_2.12-0.13.1.jar">https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-cli-git_2.12/0.13.1/giter8-cli-git_2.12-0.13.1.jar</a> …<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-launcher_2.12/0.13.1/giter8-launcher_2.12-0.13.1.jar">https://repo1.maven.org/maven2/org/foundweekends/giter8/giter8-launcher_2.12/0.13.1/giter8-launcher_2.12-0.13.1.jar</a> …<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.14/scala-library-2.12.14.jar">https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.14/scala-library-2.12.14.jar</a> …<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/io/get-coursier/coursier_2.12/2.0.0-RC6-20/coursier_2.12-2.0.0-RC6-20.jar">https://repo1.maven.org/maven2/io/get-coursier/coursier_2.12/2.0.0-RC6-20/coursier_2.12-2.0.0-RC6-20.jar</a> …<br>[info]     [SUCCESSFUL ] org.scala-sbt#template-resolver;0.1!template-resolver.jar (850ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/github/scopt/scopt_2.12/3.7.1/scopt_2.12-3.7.1.jar">https://repo1.maven.org/maven2/com/github/scopt/scopt_2.12/3.7.1/scopt_2.12-3.7.1.jar</a> …<br>[info]     [SUCCESSFUL ] org.foundweekends.giter8#giter8-launcher_2.12;0.13.1!giter8-launcher_2.12.jar (1263ms)<br>[info]     [SUCCESSFUL ] org.scala-sbt.sbt-giter8-resolver#sbt-giter8-resolver_2.12;0.13.1!sbt-giter8-resolver_2.12.jar (1267ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.jsch/0.0.9/jsch.agentproxy.jsch-0.0.9.jar">https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.jsch/0.0.9/jsch.agentproxy.jsch-0.0.9.jar</a> …<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.pgm/5.8.0.202006091008-r/org.eclipse.jgit.pgm-5.8.0.202006091008-r.jar">https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.pgm/5.8.0.202006091008-r/org.eclipse.jgit.pgm-5.8.0.202006091008-r.jar</a> …<br>[info]     [SUCCESSFUL ] org.foundweekends.giter8#giter8-cli-git_2.12;0.13.1!giter8-cli-git_2.12.jar (1468ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.sshagent/0.0.9/jsch.agentproxy.sshagent-0.0.9.jar">https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.sshagent/0.0.9/jsch.agentproxy.sshagent-0.0.9.jar</a> …<br>[info]     [SUCCESSFUL ] com.github.scopt#scopt_2.12;3.7.1!scopt_2.12.jar (1024ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.connector-factory/0.0.9/jsch.agentproxy.connector-factory-0.0.9.jar">https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.connector-factory/0.0.9/jsch.agentproxy.connector-factory-0.0.9.jar</a> …<br>[info]     [SUCCESSFUL ] com.jcraft#jsch.agentproxy.jsch;0.0.9!jsch.agentproxy.jsch.jar (818ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.ssh.jsch/5.8.0.202006091008-r/org.eclipse.jgit.ssh.jsch-5.8.0.202006091008-r.jar">https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.ssh.jsch/5.8.0.202006091008-r/org.eclipse.jgit.ssh.jsch-5.8.0.202006091008-r.jar</a> …<br>[info]     [SUCCESSFUL ] com.jcraft#jsch.agentproxy.sshagent;0.0.9!jsch.agentproxy.sshagent.jar(bundle) (818ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.jar">https://repo1.maven.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.jar</a> …<br>[info]     [SUCCESSFUL ] com.jcraft#jsch.agentproxy.connector-factory;0.0.9!jsch.agentproxy.connector-factory.jar(bundle) (818ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/args4j/args4j/2.33/args4j-2.33.jar">https://repo1.maven.org/maven2/args4j/args4j/2.33/args4j-2.33.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jgit#org.eclipse.jgit.ssh.jsch;5.8.0.202006091008-r!org.eclipse.jgit.ssh.jsch.jar (820ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.19/commons-compress-1.19.jar">https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.19/commons-compress-1.19.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jgit#org.eclipse.jgit.pgm;5.8.0.202006091008-r!org.eclipse.jgit.pgm.jar (1641ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.archive/5.8.0.202006091008-r/org.eclipse.jgit.archive-5.8.0.202006091008-r.jar">https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.archive/5.8.0.202006091008-r/org.eclipse.jgit.archive-5.8.0.202006091008-r.jar</a> …<br>[info]     [SUCCESSFUL ] io.get-coursier#coursier_2.12;2.0.0-RC6-20!coursier_2.12.jar (2904ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit/5.8.0.202006091008-r/org.eclipse.jgit-5.8.0.202006091008-r.jar">https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit/5.8.0.202006091008-r/org.eclipse.jgit-5.8.0.202006091008-r.jar</a> …<br>[info]     [SUCCESSFUL ] commons-io#commons-io;2.6!commons-io.jar (1029ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.ui/5.8.0.202006091008-r/org.eclipse.jgit.ui-5.8.0.202006091008-r.jar">https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.ui/5.8.0.202006091008-r/org.eclipse.jgit.ui-5.8.0.202006091008-r.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jgit#org.eclipse.jgit.archive;5.8.0.202006091008-r!org.eclipse.jgit.archive.jar (1022ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.gpg.bc/5.8.0.202006091008-r/org.eclipse.jgit.gpg.bc-5.8.0.202006091008-r.jar">https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.gpg.bc/5.8.0.202006091008-r/org.eclipse.jgit.gpg.bc-5.8.0.202006091008-r.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jgit#org.eclipse.jgit.ui;5.8.0.202006091008-r!org.eclipse.jgit.ui.jar (812ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.http.apache/5.8.0.202006091008-r/org.eclipse.jgit.http.apache-5.8.0.202006091008-r.jar">https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.http.apache/5.8.0.202006091008-r/org.eclipse.jgit.http.apache-5.8.0.202006091008-r.jar</a> …<br>[info]     [SUCCESSFUL ] args4j#args4j;2.33!args4j.jar(bundle) (1435ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.ssh.apache/5.8.0.202006091008-r/org.eclipse.jgit.ssh.apache-5.8.0.202006091008-r.jar">https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.ssh.apache/5.8.0.202006091008-r/org.eclipse.jgit.ssh.apache-5.8.0.202006091008-r.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jgit#org.eclipse.jgit.gpg.bc;5.8.0.202006091008-r!org.eclipse.jgit.gpg.bc.jar (817ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.10/httpclient-4.5.10.jar">https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.10/httpclient-4.5.10.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jgit#org.eclipse.jgit.http.apache;5.8.0.202006091008-r!org.eclipse.jgit.http.apache.jar (818ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar">https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jgit#org.eclipse.jgit.ssh.apache;5.8.0.202006091008-r!org.eclipse.jgit.ssh.apache.jar (1583ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/slf4j/slf4j-log4j12/1.7.2/slf4j-log4j12-1.7.2.jar">https://repo1.maven.org/maven2/org/slf4j/slf4j-log4j12/1.7.2/slf4j-log4j12-1.7.2.jar</a> …<br>[info]     [SUCCESSFUL ] org.slf4j#slf4j-api;1.7.2!slf4j-api.jar (770ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/log4j/log4j/1.2.15/log4j-1.2.15.jar">https://repo1.maven.org/maven2/log4j/log4j/1.2.15/log4j-1.2.15.jar</a> …<br>[info]     [SUCCESSFUL ] org.apache.commons#commons-compress;1.19!commons-compress.jar (2858ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlet/9.4.28.v20200408/jetty-servlet-9.4.28.v20200408.jar">https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlet/9.4.28.v20200408/jetty-servlet-9.4.28.v20200408.jar</a> …<br>[info]     [SUCCESSFUL ] org.apache.httpcomponents#httpclient;4.5.10!httpclient.jar (1397ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.lfs/5.8.0.202006091008-r/org.eclipse.jgit.lfs-5.8.0.202006091008-r.jar">https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.lfs/5.8.0.202006091008-r/org.eclipse.jgit.lfs-5.8.0.202006091008-r.jar</a> …<br>[info]     [SUCCESSFUL ] org.slf4j#slf4j-log4j12;1.7.2!slf4j-log4j12.jar (711ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.lfs.server/5.8.0.202006091008-r/org.eclipse.jgit.lfs.server-5.8.0.202006091008-r.jar">https://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.lfs.server/5.8.0.202006091008-r/org.eclipse.jgit.lfs.server-5.8.0.202006091008-r.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jetty#jetty-servlet;9.4.28.v20200408!jetty-servlet.jar (1067ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar">https://repo1.maven.org/maven2/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jgit#org.eclipse.jgit.lfs;5.8.0.202006091008-r!org.eclipse.jgit.lfs.jar (721ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/googlecode/javaewah/JavaEWAH/1.1.7/JavaEWAH-1.1.7.jar">https://repo1.maven.org/maven2/com/googlecode/javaewah/JavaEWAH/1.1.7/JavaEWAH-1.1.7.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jgit#org.eclipse.jgit.lfs.server;5.8.0.202006091008-r!org.eclipse.jgit.lfs.server.jar (843ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/bouncycastle/bcpg-jdk15on/1.65/bcpg-jdk15on-1.65.jar">https://repo1.maven.org/maven2/org/bouncycastle/bcpg-jdk15on/1.65/bcpg-jdk15on-1.65.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jgit#org.eclipse.jgit;5.8.0.202006091008-r!org.eclipse.jgit.jar (4579ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk15on/1.65.01/bcprov-jdk15on-1.65.01.jar">https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk15on/1.65.01/bcprov-jdk15on-1.65.01.jar</a> …<br>[info]     [SUCCESSFUL ] com.googlecode.javaewah#JavaEWAH;1.1.7!JavaEWAH.jar(bundle) (729ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.65/bcpkix-jdk15on-1.65.jar">https://repo1.maven.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.65/bcpkix-jdk15on-1.65.jar</a> …<br>[info]     [SUCCESSFUL ] log4j#log4j;1.2.15!log4j.jar (2284ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.12/httpcore-4.4.12.jar">https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.12/httpcore-4.4.12.jar</a> …<br>[info]     [SUCCESSFUL ] org.bouncycastle#bcpkix-jdk15on;1.65!bcpkix-jdk15on.jar (911ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.jar">https://repo1.maven.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.jar</a> …<br>[info]     [SUCCESSFUL ] org.osgi#org.osgi.core;4.3.1!org.osgi.core.jar (1703ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.jar">https://repo1.maven.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.jar</a> …<br>[info]     [SUCCESSFUL ] org.bouncycastle#bcpg-jdk15on;1.65!bcpg-jdk15on.jar (1922ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/apache/sshd/sshd-osgi/2.4.0/sshd-osgi-2.4.0.jar">https://repo1.maven.org/maven2/org/apache/sshd/sshd-osgi/2.4.0/sshd-osgi-2.4.0.jar</a> …<br>[info]     [SUCCESSFUL ] commons-logging#commons-logging;1.2!commons-logging.jar (707ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/apache/sshd/sshd-sftp/2.4.0/sshd-sftp-2.4.0.jar">https://repo1.maven.org/maven2/org/apache/sshd/sshd-sftp/2.4.0/sshd-sftp-2.4.0.jar</a> …<br>[info]     [SUCCESSFUL ] org.apache.httpcomponents#httpcore;4.4.12!httpcore.jar (1957ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/net/i2p/crypto/eddsa/0.3.0/eddsa-0.3.0.jar">https://repo1.maven.org/maven2/net/i2p/crypto/eddsa/0.3.0/eddsa-0.3.0.jar</a> …<br>[info]     [SUCCESSFUL ] org.apache.sshd#sshd-sftp;2.4.0!sshd-sftp.jar (899ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/apache/sshd/sshd-core/2.4.0/sshd-core-2.4.0.jar">https://repo1.maven.org/maven2/org/apache/sshd/sshd-core/2.4.0/sshd-core-2.4.0.jar</a> …<br>[info]     [SUCCESSFUL ] commons-codec#commons-codec;1.11!commons-codec.jar (1796ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/apache/sshd/sshd-common/2.4.0/sshd-common-2.4.0.jar">https://repo1.maven.org/maven2/org/apache/sshd/sshd-common/2.4.0/sshd-common-2.4.0.jar</a> …<br>[info]     [SUCCESSFUL ] org.scala-lang#scala-library;2.12.14!scala-library.jar (10924ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/jcraft/jsch/0.1.55/jsch-0.1.55.jar">https://repo1.maven.org/maven2/com/jcraft/jsch/0.1.55/jsch-0.1.55.jar</a> …<br>[info]     [SUCCESSFUL ] net.i2p.crypto#eddsa;0.3.0!eddsa.jar(bundle) (1334ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/jcraft/jzlib/1.1.1/jzlib-1.1.1.jar">https://repo1.maven.org/maven2/com/jcraft/jzlib/1.1.1/jzlib-1.1.1.jar</a> …<br>[info]     [SUCCESSFUL ] com.jcraft#jsch;0.1.55!jsch.jar (1408ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/javax/mail/mail/1.4/mail-1.4.jar">https://repo1.maven.org/maven2/javax/mail/mail/1.4/mail-1.4.jar</a> …<br>[info]     [SUCCESSFUL ] com.jcraft#jzlib;1.1.1!jzlib.jar (1226ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/javax/activation/activation/1.1/activation-1.1.jar">https://repo1.maven.org/maven2/javax/activation/activation/1.1/activation-1.1.jar</a> …<br>[info]     [SUCCESSFUL ] javax.activation#activation;1.1!activation.jar (802ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-security/9.4.28.v20200408/jetty-security-9.4.28.v20200408.jar">https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-security/9.4.28.v20200408/jetty-security-9.4.28.v20200408.jar</a> …<br>[info]     [SUCCESSFUL ] org.apache.sshd#sshd-common;2.4.0!sshd-common.jar (3788ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/9.4.28.v20200408/jetty-server-9.4.28.v20200408.jar">https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/9.4.28.v20200408/jetty-server-9.4.28.v20200408.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jetty#jetty-security;9.4.28.v20200408!jetty-security.jar (892ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar">https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar</a> …<br>[info]     [SUCCESSFUL ] org.apache.sshd#sshd-core;2.4.0!sshd-core.jar (4397ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-http/9.4.28.v20200408/jetty-http-9.4.28.v20200408.jar">https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-http/9.4.28.v20200408/jetty-http-9.4.28.v20200408.jar</a> …<br>[info]     [SUCCESSFUL ] javax.servlet#javax.servlet-api;3.1.0!javax.servlet-api.jar (839ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-io/9.4.28.v20200408/jetty-io-9.4.28.v20200408.jar">https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-io/9.4.28.v20200408/jetty-io-9.4.28.v20200408.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jetty#jetty-http;9.4.28.v20200408!jetty-http.jar (753ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util/9.4.28.v20200408/jetty-util-9.4.28.v20200408.jar">https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util/9.4.28.v20200408/jetty-util-9.4.28.v20200408.jar</a> …<br>[info]     [SUCCESSFUL ] javax.mail#mail;1.4!mail.jar (3099ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar">https://repo1.maven.org/maven2/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar</a> …<br>[info]     [SUCCESSFUL ] org.bouncycastle#bcprov-jdk15on;1.65.01!bcprov-jdk15on.jar (8377ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.core/0.0.9/jsch.agentproxy.core-0.0.9.jar">https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.core/0.0.9/jsch.agentproxy.core-0.0.9.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jetty#jetty-io;9.4.28.v20200408!jetty-io.jar (956ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.usocket-jna/0.0.9/jsch.agentproxy.usocket-jna-0.0.9.jar">https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.usocket-jna/0.0.9/jsch.agentproxy.usocket-jna-0.0.9.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jetty#jetty-util;9.4.28.v20200408!jetty-util.jar (835ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.usocket-nc/0.0.9/jsch.agentproxy.usocket-nc-0.0.9.jar">https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.usocket-nc/0.0.9/jsch.agentproxy.usocket-nc-0.0.9.jar</a> …<br>[info]     [SUCCESSFUL ] com.jcraft#jsch.agentproxy.core;0.0.9!jsch.agentproxy.core.jar(bundle) (671ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.pageant/0.0.9/jsch.agentproxy.pageant-0.0.9.jar">https://repo1.maven.org/maven2/com/jcraft/jsch.agentproxy.pageant/0.0.9/jsch.agentproxy.pageant-0.0.9.jar</a> …<br>[info]     [SUCCESSFUL ] com.jcraft#jsch.agentproxy.usocket-jna;0.0.9!jsch.agentproxy.usocket-jna.jar(bundle) (697ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar">https://repo1.maven.org/maven2/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar</a> …<br>[info]     [SUCCESSFUL ] com.jcraft#jsch.agentproxy.usocket-nc;0.0.9!jsch.agentproxy.usocket-nc.jar(bundle) (703ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0.jar">https://repo1.maven.org/maven2/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0.jar</a> …<br>[info]     [SUCCESSFUL ] org.eclipse.jetty#jetty-server;9.4.28.v20200408!jetty-server.jar (2709ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/io/get-coursier/coursier-core_2.12/2.0.0-RC6-20/coursier-core_2.12-2.0.0-RC6-20.jar">https://repo1.maven.org/maven2/io/get-coursier/coursier-core_2.12/2.0.0-RC6-20/coursier-core_2.12-2.0.0-RC6-20.jar</a> …<br>[info]     [SUCCESSFUL ] org.apache.sshd#sshd-osgi;2.4.0!sshd-osgi.jar (7805ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/io/get-coursier/coursier-cache_2.12/2.0.0-RC6-20/coursier-cache_2.12-2.0.0-RC6-20.jar">https://repo1.maven.org/maven2/io/get-coursier/coursier-cache_2.12/2.0.0-RC6-20/coursier-cache_2.12-2.0.0-RC6-20.jar</a> …<br>[info]     [SUCCESSFUL ] com.jcraft#jsch.agentproxy.pageant;0.0.9!jsch.agentproxy.pageant.jar(bundle) (673ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/github/alexarchambault/argonaut-shapeless_6.2_2.12/1.2.0-M12/argonaut-shapeless_6.2_2.12-1.2.0-M12.jar">https://repo1.maven.org/maven2/com/github/alexarchambault/argonaut-shapeless_6.2_2.12/1.2.0-M12/argonaut-shapeless_6.2_2.12-1.2.0-M12.jar</a> …<br>[info]     [SUCCESSFUL ] com.google.code.gson#gson;2.8.2!gson.jar (1841ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/io/get-coursier/coursier-util_2.12/2.0.0-RC6-20/coursier-util_2.12-2.0.0-RC6-20.jar">https://repo1.maven.org/maven2/io/get-coursier/coursier-util_2.12/2.0.0-RC6-20/coursier-util_2.12-2.0.0-RC6-20.jar</a> …<br>[info]     [SUCCESSFUL ] net.java.dev.jna#jna-platform;4.1.0!jna-platform.jar (1087ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.3.0/scala-xml_2.12-1.3.0.jar">https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.3.0/scala-xml_2.12-1.3.0.jar</a> …<br>[info]     [SUCCESSFUL ] com.github.alexarchambault#argonaut-shapeless_6.2_2.12;1.2.0-M12!argonaut-shapeless_6.2_2.12.jar (813ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/io/github/alexarchambault/windows-ansi/windows-ansi/0.0.3/windows-ansi-0.0.3.jar">https://repo1.maven.org/maven2/io/github/alexarchambault/windows-ansi/windows-ansi/0.0.3/windows-ansi-0.0.3.jar</a> …<br>[info]     [SUCCESSFUL ] io.github.alexarchambault.windows-ansi#windows-ansi;0.0.3!windows-ansi.jar (672ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/fusesource/jansi/jansi/1.18/jansi-1.18.jar">https://repo1.maven.org/maven2/org/fusesource/jansi/jansi/1.18/jansi-1.18.jar</a> …<br>[info]     [SUCCESSFUL ] org.scala-lang.modules#scala-xml_2.12;1.3.0!scala-xml_2.12.jar(bundle) (831ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/io/argonaut/argonaut_2.12/6.2.4/argonaut_2.12-6.2.4.jar">https://repo1.maven.org/maven2/io/argonaut/argonaut_2.12/6.2.4/argonaut_2.12-6.2.4.jar</a> …<br>[info]     [SUCCESSFUL ] net.java.dev.jna#jna;4.1.0!jna.jar (2092ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/chuusai/shapeless_2.12/2.3.3/shapeless_2.12-2.3.3.jar">https://repo1.maven.org/maven2/com/chuusai/shapeless_2.12/2.3.3/shapeless_2.12-2.3.3.jar</a> …<br>[info]     [SUCCESSFUL ] io.get-coursier#coursier-cache_2.12;2.0.0-RC6-20!coursier-cache_2.12.jar (1872ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.14/scala-reflect-2.12.14.jar">https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.14/scala-reflect-2.12.14.jar</a> …<br>[info]     [SUCCESSFUL ] io.argonaut#argonaut_2.12;6.2.4!argonaut_2.12.jar (905ms)<br>[info] downloading <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/typelevel/macro-compat_2.12/1.1.1/macro-compat_2.12-1.1.1.jar">https://repo1.maven.org/maven2/org/typelevel/macro-compat_2.12/1.1.1/macro-compat_2.12-1.1.1.jar</a> …<br>[info]     [SUCCESSFUL ] org.fusesource.jansi#jansi;1.18!jansi.jar (1166ms)<br>[info]     [SUCCESSFUL ] io.get-coursier#coursier-util_2.12;2.0.0-RC6-20!coursier-util_2.12.jar (2648ms)<br>[info]     [SUCCESSFUL ] io.get-coursier#coursier-core_2.12;2.0.0-RC6-20!coursier-core_2.12.jar (3359ms)<br>[info]     [SUCCESSFUL ] org.typelevel#macro-compat_2.12;1.1.1!macro-compat_2.12.jar (701ms)<br>[info]     [SUCCESSFUL ] com.chuusai#shapeless_2.12;2.3.3!shapeless_2.12.jar(bundle) (5299ms)<br>[info]     [SUCCESSFUL ] org.scala-lang#scala-reflect;2.12.14!scala-reflect.jar (8388ms)<br>[info] resolving Giter8 0.13.1…</p>
+<p>A template to demonstrate a minimal Scala 3 application </p>
+<p>name [Scala 3 Project Template]: helloworld</p>
+<p>Template applied in /odsdata/./helloworld</p>
+<h2 id="下载-scala3"><a href="#下载-scala3" class="headerlink" title="下载 scala3"></a>下载 scala3</h2><p><a target="_blank" rel="noopener" href="https://github.com/lampepfl/dotty/releases/tag/3.0.0">https://github.com/lampepfl/dotty/releases/tag/3.0.0</a></p>
+<p>解压，添加到PATH</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+<!-- 分页 -->
+<nav id="pagination">
+  
+    <a href="../21/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="../23/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="as_sitesearch" value="livebug.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="../../categories/C/">C#</a><small>1</small></li>
+  
+    <li><a href="../../categories/Java/">Java</a><small>2</small></li>
+  
+    <li><a href="../../categories/JavaScript/">JavaScript</a><small>2</small></li>
+  
+    <li><a href="../../categories/OTHER/">OTHER</a><small>4</small></li>
+  
+    <li><a href="../../categories/Rust/">Rust</a><small>1</small></li>
+  
+    <li><a href="../../categories/Scala/">Scala</a><small>3</small></li>
+  
+    <li><a href="../../categories/hexo/">hexo</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="../../tags/Antlr4/">Antlr4</a><small>1</small></li>
+  
+    <li><a href="../../tags/C/">C#</a><small>1</small></li>
+  
+    <li><a href="../../tags/Java/">Java</a><small>3</small></li>
+  
+    <li><a href="../../tags/JavaScript/">JavaScript</a><small>2</small></li>
+  
+    <li><a href="../../tags/Maven/">Maven</a><small>1</small></li>
+  
+    <li><a href="../../tags/QR/">QR</a><small>1</small></li>
+  
+    <li><a href="../../tags/Rust/">Rust</a><small>1</small></li>
+  
+    <li><a href="../../tags/Scala/">Scala</a><small>3</small></li>
+  
+    <li><a href="../../tags/Ubuntu/">Ubuntu</a><small>4</small></li>
+  
+    <li><a href="../../tags/ejs/">ejs</a><small>1</small></li>
+  
+    <li><a href="../../tags/hexo/">hexo</a><small>3</small></li>
+  
+    <li><a href="../../tags/vscode/">vscode</a><small>1</small></li>
+  
+    <li><a href="../../tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><small>1</small></li>
+  
+    <li><a href="../../tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">模式匹配</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2021 sharif
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="../../js/jquery-3.4.1.min.js"></script>
+
+
+<script src="../../js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="../../js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+
+
+<script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+<script>
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
