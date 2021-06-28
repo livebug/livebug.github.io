@@ -7,8 +7,8 @@ title: 'Livebug''s Blog'
 subtitle: 'first step in helloworld'
 description: 'a blog for myself'
 # 网站的关键词。支持多个关键词。
-keywords: sharif Livebug          
-author: sharif
+keywords: livebug          
+author: livebug
 language: zh-CN
 timezone: ''
 
@@ -67,7 +67,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 1
+  per_page: 3
   order_by: -date
 
 # Category & Tag
