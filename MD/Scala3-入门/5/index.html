@@ -3,24 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Livebug&#39;s Blog</title>
-  <meta name="author" content="sharif">
+  <title>Scala3-5-继续HelloWorld | Livebug&#39;s Blog</title>
+  <meta name="author" content="livebug">
   
   <meta name="description" content="a blog for myself">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
+  <meta property="og:title" content="Scala3-5-继续HelloWorld"/>
   <meta property="og:site_name" content="Livebug&#39;s Blog"/>
 
   
     <meta property="og:image" content=""/>
   
 
-  <link rel="shortcut icon" href="../../../favicon.png">
+  <link rel="shortcut icon" href="/images/favicon.ico">
   
   
-<link rel="stylesheet" href="../../../css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
   <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
   
@@ -36,11 +37,11 @@
 <nav id="main-nav" class="alignright">
   <ul>
     
-      <li><a href="../../../index.html">Home</a></li>
+      <li><a href="/">Home</a></li>
     
-      <li><a href="../../../archives">Archives</a></li>
+      <li><a href="/archives">Archives</a></li>
     
-      <li><a href="../../../https:/github.com/livebug/livebug.github.io/tree/public">Git</a></li>
+      <li><a target="_blank" rel="noopener" href="https://github.com/livebug/livebug.github.io/tree/public">Git</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -54,17 +55,18 @@
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2021-06-25T16:00:00.000Z"><a href="../../../MD/Scala3-%E5%85%A5%E9%97%A8/5/">2021-06-26</a></time>
+        <time class="dt-published" datetime="2021-06-25T16:00:00.000Z"><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/5/">2021-06-26</a></time>
       
       
   
-    <h1 class="p-name title" itemprop="headline name"></h1>
+    <h1 class="p-name title" itemprop="headline name">Scala3-5-继续HelloWorld</h1>
   
 
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h1 id="5-Hello-World-（Hello-World）"><a href="#5-Hello-World-（Hello-World）" class="headerlink" title="5. Hello, World! （Hello World）"></a>5. Hello, World! （Hello World）</h1><p><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/4/">[上一篇:   4. A Taste of Scala (牛刀小试)                ]</a>   <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a>  <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/6/">[下一篇: 6. A First Look at Types （类型了解）         ]</a></p>
+        <!-- #  5. Hello, World! （Hello World） -->
+<p><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/4/">[上一篇:   4. A Taste of Scala (牛刀小试)                ]</a>   <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a>  <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/6/">[下一篇: 6. A First Look at Types （类型了解）         ]</a></p>
 <p><em>接第四节，本节介绍流程控制</em></p>
 <h2 id="三元运算"><a href="#三元运算" class="headerlink" title="三元运算"></a>三元运算</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> x = <span class="keyword">if</span> a &lt; b then a <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure>
 <h2 id="双重循环"><a href="#双重循环" class="headerlink" title="双重循环"></a>双重循环</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span></span><br><span class="line">  i &lt;- <span class="number">1</span> to <span class="number">3</span></span><br><span class="line">  j &lt;- &#x27;a&#x27; to &#x27;c&#x27;</span><br><span class="line">  <span class="keyword">if</span> i == <span class="number">2</span></span><br><span class="line">  <span class="keyword">if</span> j == &#x27;b&#x27;</span><br><span class="line">  <span class="comment">// if i==2 &amp;&amp; j==&#x27;b&#x27;</span></span><br><span class="line">do</span><br><span class="line">  println(<span class="string">s&quot;i = <span class="subst">$i</span>, j = <span class="subst">$j</span>&quot;</span>)   <span class="comment">// prints: &quot;i = 2, j = b&quot;</span></span><br></pre></td></tr></table></figure>
@@ -84,6 +86,11 @@
       
         
         
+  
+  <div class="tags">
+    <a href="/tags/Scala/">Scala</a>
+  </div>
+
         
   <div class="addthis addthis_toolbox addthis_default_style">
     
@@ -124,58 +131,30 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="../../../categories/C/">C#</a><small>1</small></li>
+    <li><a href="/categories/C/">C#</a><small>1</small></li>
   
-    <li><a href="../../../categories/Java/">Java</a><small>2</small></li>
+    <li><a href="/categories/Java/">Java</a><small>2</small></li>
   
-    <li><a href="../../../categories/JavaScript/">JavaScript</a><small>2</small></li>
+    <li><a href="/categories/JavaScript/">JavaScript</a><small>2</small></li>
   
-    <li><a href="../../../categories/OTHER/">OTHER</a><small>4</small></li>
+    <li><a href="/categories/OTHER/">OTHER</a><small>4</small></li>
   
-    <li><a href="../../../categories/Rust/">Rust</a><small>1</small></li>
+    <li><a href="/categories/Rust/">Rust</a><small>1</small></li>
   
-    <li><a href="../../../categories/Scala/">Scala</a><small>3</small></li>
+    <li><a href="/categories/Scala/">Scala</a><small>3</small></li>
   
-    <li><a href="../../../categories/hexo/">hexo</a><small>2</small></li>
+    <li><a href="/categories/hexo/">hexo</a><small>2</small></li>
   
   </ul>
 </div>
 
 
   
-<div class="widget tag">
-  <h3 class="title">标签</h3>
-  <ul class="entry">
-  
-    <li><a href="../../../tags/Antlr4/">Antlr4</a><small>1</small></li>
-  
-    <li><a href="../../../tags/C/">C#</a><small>1</small></li>
-  
-    <li><a href="../../../tags/Java/">Java</a><small>3</small></li>
-  
-    <li><a href="../../../tags/JavaScript/">JavaScript</a><small>2</small></li>
-  
-    <li><a href="../../../tags/Maven/">Maven</a><small>1</small></li>
-  
-    <li><a href="../../../tags/QR/">QR</a><small>1</small></li>
-  
-    <li><a href="../../../tags/Rust/">Rust</a><small>1</small></li>
-  
-    <li><a href="../../../tags/Scala/">Scala</a><small>3</small></li>
-  
-    <li><a href="../../../tags/Ubuntu/">Ubuntu</a><small>4</small></li>
-  
-    <li><a href="../../../tags/ejs/">ejs</a><small>1</small></li>
-  
-    <li><a href="../../../tags/hexo/">hexo</a><small>3</small></li>
-  
-    <li><a href="../../../tags/vscode/">vscode</a><small>1</small></li>
-  
-    <li><a href="../../../tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><small>1</small></li>
-  
-    <li><a href="../../../tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">模式匹配</a><small>1</small></li>
-  
-  </ul>
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Antlr4/" style="font-size: 10px;">Antlr4</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/QR/" style="font-size: 10px;">QR</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Scala/" style="font-size: 20px;">Scala</a> <a href="/tags/Ubuntu/" style="font-size: 17.5px;">Ubuntu</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">大数据</a> <a href="/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/" style="font-size: 10px;">模式匹配</a>
+  </div>
 </div>
 
 </aside>
@@ -183,28 +162,28 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2021 sharif
+  &copy; 2021 livebug
   
 </div>
 <div class="clearfix"></div></footer>
   
-<script src="../../../js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
 
 
-<script src="../../../js/jquery.imagesloaded.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 
 
-<script src="../../../js/gallery.js"></script>
-
-
-
+<script src="/js/gallery.js"></script>
 
 
 
-<link rel="stylesheet" href="../../../fancybox/jquery.fancybox.css">
 
 
-<script src="../../../fancybox/jquery.fancybox.pack.js"></script>
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 <script>
 (function($){

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   <title>第 7 页 | Livebug&#39;s Blog</title>
-  <meta name="author" content="sharif">
+  <meta name="author" content="livebug">
   
   <meta name="description" content="a blog for myself">
   
@@ -17,10 +17,10 @@
     <meta property="og:image" content=""/>
   
 
-  <link rel="shortcut icon" href="../../favicon.png">
+  <link rel="shortcut icon" href="/images/favicon.ico">
   
   
-<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
   <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
   
@@ -36,11 +36,11 @@
 <nav id="main-nav" class="alignright">
   <ul>
     
-      <li><a href="../../index.html">Home</a></li>
+      <li><a href="/">Home</a></li>
     
-      <li><a href="../../archives">Archives</a></li>
+      <li><a href="/archives">Archives</a></li>
     
-      <li><a href="../../https:/github.com/livebug/livebug.github.io/tree/public">Git</a></li>
+      <li><a target="_blank" rel="noopener" href="https://github.com/livebug/livebug.github.io/tree/public">Git</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -49,24 +49,98 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-  <article id="post-Scala3-入门/15" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <article id="post-Ubuntu-20-04-上安装-Jdk" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2021-06-25T16:00:00.000Z"><a href="../../MD/Scala3-%E5%85%A5%E9%97%A8/15/">2021-06-26</a></time>
+        <time class="dt-published" datetime="2021-06-02T15:41:26.000Z"><a href="/MD/Ubuntu-20-04-%E4%B8%8A%E5%AE%89%E8%A3%85-Jdk/">2021-06-02</a></time>
       
       
   
-    <h1 class="title"><a href="../../MD/Scala3-%E5%85%A5%E9%97%A8/15/"></a></h1>
+    <h1 class="title"><a href="/MD/Ubuntu-20-04-%E4%B8%8A%E5%AE%89%E8%A3%85-Jdk/">Ubuntu 20.04 上安装 Jdk</a></h1>
   
 
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h1 id="15-Concurrency-（并发）"><a href="#15-Concurrency-（并发）" class="headerlink" title="15. Concurrency （并发）"></a>15. Concurrency （并发）</h1><p><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/14/">[上一篇:  14. Contextual Abstractions （抽象上下文）     ]</a>   <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a>  <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/16/">[下一篇:16. Scala Tools （Scala 工具库）               ]</a></p>
-<p><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/14/">[上一篇:  14. Contextual Abstractions （抽象上下文）     ]</a>   <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a>  <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/16/">[下一篇:16. Scala Tools （Scala 工具库）               ]</a></p>
+        <h1 id="install-java-jdk"><a href="#install-java-jdk" class="headerlink" title="install java jdk"></a>install java jdk</h1><ol>
+<li><p>download jdk8 from <a target="_blank" rel="noopener" href="https://www.jdkdownload.com/">https://www.jdkdownload.com/</a></p>
+</li>
+<li><p>unzip and move to <code>/usr/java</code></p>
+<p> sudo mkdir /usr/java/<br> sudo tar -zxvf jdk-8u171-linux-x64.tar.gz -C /usr/java/</p>
+</li>
+<li><p>Configure jdk environment variables</p>
+<ul>
+<li>backup    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/profile /etc/profile.bak</span><br></pre></td></tr></table></figure></li>
+<li>edit <code>/etc/profile</code>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_181</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br></pre></td></tr></table></figure></li>
+<li><code>/etc/profile</code> takes effect  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></li>
+<li>Q: <code>source /etc/profile</code> failed<br>  edit <code>/etc/bash.bashrc</code> ,add JAVA_HOME etc.<br>  Or  edit <code>/etc/bash.bashrc</code>, add <code>source /etc/profile</code><br>  Or  edit <code> ~/.bashrc</code>, add <code>source /etc/profile</code> </li>
+</ul>
+</li>
+<li><p>test java env </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br><span class="line">outpuy: </span><br><span class="line">java version &quot;1.8.0_181&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_181-b13)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-Antlr4-基础" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2021-06-02T15:35:24.000Z"><a href="/MD/Antlr4-%E5%9F%BA%E7%A1%80/">2021-06-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/MD/Antlr4-%E5%9F%BA%E7%A1%80/">Antlr4 基础</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <h2 id="Install-ANTLR-v4-on-unix"><a href="#Install-ANTLR-v4-on-unix" class="headerlink" title="Install  ANTLR v4 on unix"></a>Install  ANTLR v4 on unix</h2><ul>
+<li><p>Install Java (version 1.7 or higher)<br>Download<br>  $ cd /usr/local/lib<br>  $ curl -O <a target="_blank" rel="noopener" href="https://www.antlr.org/download/antlr-4.9-complete.jar">https://www.antlr.org/download/antlr-4.9-complete.jar</a><br>Or just download in browser from website: <a target="_blank" rel="noopener" href="https://www.antlr.org/download.html">https://www.antlr.org/download.html</a> and put it somewhere rational like /usr/local/lib.</p>
+</li>
+<li><p>Add antlr-4.9-complete.jar to your CLASSPATH:<br>  $ export CLASSPATH=”.:/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH”<br>It’s also a good idea to put this in your .bash_profile or whatever your startup script is.</p>
+</li>
+<li><p>Create aliases for the ANTLR Tool, and TestRig.<br>  $ alias antlr4=’java -Xmx500M -cp “/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH” org.antlr.v4.Tool’<br>  $ alias grun=’java -Xmx500M -cp “/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH” org.antlr.v4.gui.TestRig’</p>
+</li>
+</ul>
+<h2 id="Book-source-code"><a href="#Book-source-code" class="headerlink" title="Book source code"></a>Book source code</h2><p>The book has lots and lots of examples that should be useful too. You can download them here for free:</p>
+<p><a target="_blank" rel="noopener" href="http://pragprog.com/titles/tpantlr2/source_code">http://pragprog.com/titles/tpantlr2/source_code</a></p>
+<p>Also, there is a large collection of grammars for v4 at github:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/antlr/grammars-v4/">https://github.com/antlr/grammars-v4/</a></p>
+<h1 id="百科"><a href="#百科" class="headerlink" title="百科"></a>百科</h1><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/antlr/9368750">https://baike.baidu.com/item/antlr/9368750</a></p>
+<p>antlr是指可以根据输入自动生成语法树并可视化的显示出来的开源语法分析器。</p>
+<p>提供了一个通过语法描述来自动构造自定义语言的识别器（recognizer），编译器（parser）和解释器（translator）的框架</p>
+<p>词法分析器又称为Scanner，Lexical analyser和Tokenizer。程序设计语言通常由关键字和严格定义的语法结构组成。编译的最终目的是将程序设计语言的高层指令翻译成物理机器或虚拟机可以执行的指令。词法分析器的工作是分析量化那些本来毫无意义的字符流，将他们翻译成离散的字符组（也就是一个一个的Token），包括关键字，标识符，符号（symbols）和操作符供语法分析器使用。</p>
+<p>编译器又称为Syntactical analyser。在分析字符流的时候，Lexer不关心所生成的单个Token的语法意义及其与上下文之间的关系，而这就是Parser的工作。语法分析器将收到的Tokens组织起来，并转换成为目标语言语法定义所允许的序列。<br>无论是Lexer还是Parser都是一种识别器，Lexer是字符序列识别器而Parser是Token序列识别器。他们在本质上是类似的东西，而只是在分工上有所不同而已。如图1所示：</p>
+<p><img src="/MD/Antlr4-%E5%9F%BA%E7%A1%80/1.png" alt="1"><br>图1 字符输入流、tokens和AST之间的关系</p>
+<p>树分析器可以用于对语法分析生成的抽象语法树进行遍历，并能执行一些相关的操作。</p>
+<p>ANTLR将上述结合起来，它允许我们定义识别字符流的词法规则和用于解释Token流的语法分析规则。然后，ANTLR将根据用户提供的语法文件自动生成相应的词法/语法分析器。用户可以利用他们将输入的文本进行编译，并转换成其他形式（如AST—Abstract Syntax Tree，抽象的语法树）。</p>
+<h1 id="ANTRL-语法"><a href="#ANTRL-语法" class="headerlink" title="ANTRL 语法"></a>ANTRL 语法</h1><h2 id="grammar"><a href="#grammar" class="headerlink" title="grammar"></a><code>grammar</code></h2><p>声明语法头，类似于java类的定义</p>
+<pre><code>grammar  SPL;
+</code></pre>
+<h2 id="options"><a href="#options" class="headerlink" title="options"></a><code>options</code></h2><p>选项，如语言选项，输出选项，回溯选项，记忆选项等等</p>
+<pre><code>options &#123; output=AST;  language=Java; &#125;
+options &#123; tokenVocab=MySqlLexer; &#125;
+</code></pre>
 
       
     </div>
@@ -87,10 +161,10 @@
 <!-- 分页 -->
 <nav id="pagination">
   
-    <a href="../6/" class="alignleft prev">上一页</a>
+    <a href="/page/6/" class="alignleft prev">上一页</a>
   
   
-    <a href="../8/" class="alignright next">下一页</a>
+    <a href="/page/8/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
@@ -108,58 +182,30 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="../../../categories/C/">C#</a><small>1</small></li>
+    <li><a href="/categories/C/">C#</a><small>1</small></li>
   
-    <li><a href="../../../categories/Java/">Java</a><small>2</small></li>
+    <li><a href="/categories/Java/">Java</a><small>2</small></li>
   
-    <li><a href="../../../categories/JavaScript/">JavaScript</a><small>2</small></li>
+    <li><a href="/categories/JavaScript/">JavaScript</a><small>2</small></li>
   
-    <li><a href="../../../categories/OTHER/">OTHER</a><small>4</small></li>
+    <li><a href="/categories/OTHER/">OTHER</a><small>4</small></li>
   
-    <li><a href="../../../categories/Rust/">Rust</a><small>1</small></li>
+    <li><a href="/categories/Rust/">Rust</a><small>1</small></li>
   
-    <li><a href="../../../categories/Scala/">Scala</a><small>3</small></li>
+    <li><a href="/categories/Scala/">Scala</a><small>3</small></li>
   
-    <li><a href="../../../categories/hexo/">hexo</a><small>2</small></li>
+    <li><a href="/categories/hexo/">hexo</a><small>2</small></li>
   
   </ul>
 </div>
 
 
   
-<div class="widget tag">
-  <h3 class="title">标签</h3>
-  <ul class="entry">
-  
-    <li><a href="../../../tags/Antlr4/">Antlr4</a><small>1</small></li>
-  
-    <li><a href="../../../tags/C/">C#</a><small>1</small></li>
-  
-    <li><a href="../../../tags/Java/">Java</a><small>3</small></li>
-  
-    <li><a href="../../../tags/JavaScript/">JavaScript</a><small>2</small></li>
-  
-    <li><a href="../../../tags/Maven/">Maven</a><small>1</small></li>
-  
-    <li><a href="../../../tags/QR/">QR</a><small>1</small></li>
-  
-    <li><a href="../../../tags/Rust/">Rust</a><small>1</small></li>
-  
-    <li><a href="../../../tags/Scala/">Scala</a><small>3</small></li>
-  
-    <li><a href="../../../tags/Ubuntu/">Ubuntu</a><small>4</small></li>
-  
-    <li><a href="../../../tags/ejs/">ejs</a><small>1</small></li>
-  
-    <li><a href="../../../tags/hexo/">hexo</a><small>3</small></li>
-  
-    <li><a href="../../../tags/vscode/">vscode</a><small>1</small></li>
-  
-    <li><a href="../../../tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><small>1</small></li>
-  
-    <li><a href="../../../tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">模式匹配</a><small>1</small></li>
-  
-  </ul>
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Antlr4/" style="font-size: 10px;">Antlr4</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/QR/" style="font-size: 10px;">QR</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Scala/" style="font-size: 20px;">Scala</a> <a href="/tags/Ubuntu/" style="font-size: 17.5px;">Ubuntu</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">大数据</a> <a href="/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/" style="font-size: 10px;">模式匹配</a>
+  </div>
 </div>
 
 </aside>
@@ -167,28 +213,28 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2021 sharif
+  &copy; 2021 livebug
   
 </div>
 <div class="clearfix"></div></footer>
   
-<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
 
 
-<script src="../../js/jquery.imagesloaded.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 
 
-<script src="../../js/gallery.js"></script>
-
-
-
+<script src="/js/gallery.js"></script>
 
 
 
-<link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
 
 
-<script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 <script>
 (function($){

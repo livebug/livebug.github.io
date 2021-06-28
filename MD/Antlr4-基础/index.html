@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   <title>Antlr4 基础 | Livebug&#39;s Blog</title>
-  <meta name="author" content="sharif">
+  <meta name="author" content="livebug">
   
   <meta name="description" content="a blog for myself">
   
@@ -18,10 +18,10 @@
     <meta property="og:image" content=""/>
   
 
-  <link rel="shortcut icon" href="../../favicon.png">
+  <link rel="shortcut icon" href="/images/favicon.ico">
   
   
-<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
   <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
   
@@ -37,11 +37,11 @@
 <nav id="main-nav" class="alignright">
   <ul>
     
-      <li><a href="../../index.html">Home</a></li>
+      <li><a href="/">Home</a></li>
     
-      <li><a href="../../archives">Archives</a></li>
+      <li><a href="/archives">Archives</a></li>
     
-      <li><a href="../../https:/github.com/livebug/livebug.github.io/tree/public">Git</a></li>
+      <li><a target="_blank" rel="noopener" href="https://github.com/livebug/livebug.github.io/tree/public">Git</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -55,7 +55,7 @@
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2021-06-02T15:35:24.000Z"><a href="../../MD/Antlr4-%E5%9F%BA%E7%A1%80/">2021-06-02</a></time>
+        <time class="dt-published" datetime="2021-06-02T15:35:24.000Z"><a href="/MD/Antlr4-%E5%9F%BA%E7%A1%80/">2021-06-02</a></time>
       
       
   
@@ -82,7 +82,7 @@
 <p>提供了一个通过语法描述来自动构造自定义语言的识别器（recognizer），编译器（parser）和解释器（translator）的框架</p>
 <p>词法分析器又称为Scanner，Lexical analyser和Tokenizer。程序设计语言通常由关键字和严格定义的语法结构组成。编译的最终目的是将程序设计语言的高层指令翻译成物理机器或虚拟机可以执行的指令。词法分析器的工作是分析量化那些本来毫无意义的字符流，将他们翻译成离散的字符组（也就是一个一个的Token），包括关键字，标识符，符号（symbols）和操作符供语法分析器使用。</p>
 <p>编译器又称为Syntactical analyser。在分析字符流的时候，Lexer不关心所生成的单个Token的语法意义及其与上下文之间的关系，而这就是Parser的工作。语法分析器将收到的Tokens组织起来，并转换成为目标语言语法定义所允许的序列。<br>无论是Lexer还是Parser都是一种识别器，Lexer是字符序列识别器而Parser是Token序列识别器。他们在本质上是类似的东西，而只是在分工上有所不同而已。如图1所示：</p>
-<p><img src="1.png" alt="1"><br>图1 字符输入流、tokens和AST之间的关系</p>
+<p><img src="/MD/Antlr4-%E5%9F%BA%E7%A1%80/1.png" alt="1"><br>图1 字符输入流、tokens和AST之间的关系</p>
 <p>树分析器可以用于对语法分析生成的抽象语法树进行遍历，并能执行一些相关的操作。</p>
 <p>ANTLR将上述结合起来，它允许我们定义识别字符流的词法规则和用于解释Token流的语法分析规则。然后，ANTLR将根据用户提供的语法文件自动生成相应的词法/语法分析器。用户可以利用他们将输入的文本进行编译，并转换成其他形式（如AST—Abstract Syntax Tree，抽象的语法树）。</p>
 <h1 id="ANTRL-语法"><a href="#ANTRL-语法" class="headerlink" title="ANTRL 语法"></a>ANTRL 语法</h1><h2 id="grammar"><a href="#grammar" class="headerlink" title="grammar"></a><code>grammar</code></h2><p>声明语法头，类似于java类的定义</p>
@@ -100,13 +100,13 @@ options &#123; tokenVocab=MySqlLexer; &#125;
         
   
   <div class="categories">
-    <a href="../../categories/OTHER/">OTHER</a>
+    <a href="/categories/OTHER/">OTHER</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="../../tags/Antlr4/">Antlr4</a>, <a href="../../tags/Java/">Java</a>
+    <a href="/tags/Antlr4/">Antlr4</a>, <a href="/tags/Java/">Java</a>
   </div>
 
         
@@ -149,58 +149,30 @@ options &#123; tokenVocab=MySqlLexer; &#125;
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="../../../categories/C/">C#</a><small>1</small></li>
+    <li><a href="/categories/C/">C#</a><small>1</small></li>
   
-    <li><a href="../../../categories/Java/">Java</a><small>2</small></li>
+    <li><a href="/categories/Java/">Java</a><small>2</small></li>
   
-    <li><a href="../../../categories/JavaScript/">JavaScript</a><small>2</small></li>
+    <li><a href="/categories/JavaScript/">JavaScript</a><small>2</small></li>
   
-    <li><a href="../../../categories/OTHER/">OTHER</a><small>4</small></li>
+    <li><a href="/categories/OTHER/">OTHER</a><small>4</small></li>
   
-    <li><a href="../../../categories/Rust/">Rust</a><small>1</small></li>
+    <li><a href="/categories/Rust/">Rust</a><small>1</small></li>
   
-    <li><a href="../../../categories/Scala/">Scala</a><small>3</small></li>
+    <li><a href="/categories/Scala/">Scala</a><small>3</small></li>
   
-    <li><a href="../../../categories/hexo/">hexo</a><small>2</small></li>
+    <li><a href="/categories/hexo/">hexo</a><small>2</small></li>
   
   </ul>
 </div>
 
 
   
-<div class="widget tag">
-  <h3 class="title">标签</h3>
-  <ul class="entry">
-  
-    <li><a href="../../../tags/Antlr4/">Antlr4</a><small>1</small></li>
-  
-    <li><a href="../../../tags/C/">C#</a><small>1</small></li>
-  
-    <li><a href="../../../tags/Java/">Java</a><small>3</small></li>
-  
-    <li><a href="../../../tags/JavaScript/">JavaScript</a><small>2</small></li>
-  
-    <li><a href="../../../tags/Maven/">Maven</a><small>1</small></li>
-  
-    <li><a href="../../../tags/QR/">QR</a><small>1</small></li>
-  
-    <li><a href="../../../tags/Rust/">Rust</a><small>1</small></li>
-  
-    <li><a href="../../../tags/Scala/">Scala</a><small>3</small></li>
-  
-    <li><a href="../../../tags/Ubuntu/">Ubuntu</a><small>4</small></li>
-  
-    <li><a href="../../../tags/ejs/">ejs</a><small>1</small></li>
-  
-    <li><a href="../../../tags/hexo/">hexo</a><small>3</small></li>
-  
-    <li><a href="../../../tags/vscode/">vscode</a><small>1</small></li>
-  
-    <li><a href="../../../tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><small>1</small></li>
-  
-    <li><a href="../../../tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">模式匹配</a><small>1</small></li>
-  
-  </ul>
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Antlr4/" style="font-size: 10px;">Antlr4</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/QR/" style="font-size: 10px;">QR</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Scala/" style="font-size: 20px;">Scala</a> <a href="/tags/Ubuntu/" style="font-size: 17.5px;">Ubuntu</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">大数据</a> <a href="/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/" style="font-size: 10px;">模式匹配</a>
+  </div>
 </div>
 
 </aside>
@@ -208,28 +180,28 @@ options &#123; tokenVocab=MySqlLexer; &#125;
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2021 sharif
+  &copy; 2021 livebug
   
 </div>
 <div class="clearfix"></div></footer>
   
-<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
 
 
-<script src="../../js/jquery.imagesloaded.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 
 
-<script src="../../js/gallery.js"></script>
-
-
-
+<script src="/js/gallery.js"></script>
 
 
 
-<link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
 
 
-<script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 <script>
 (function($){

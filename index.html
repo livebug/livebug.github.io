@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   <title>Livebug&#39;s Blog</title>
-  <meta name="author" content="sharif">
+  <meta name="author" content="livebug">
   
   <meta name="description" content="a blog for myself">
   
@@ -17,10 +17,10 @@
     <meta property="og:image" content=""/>
   
 
-  <link rel="shortcut icon" href="favicon.png">
+  <link rel="shortcut icon" href="/images/favicon.ico">
   
   
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
   <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
   
@@ -36,9 +36,9 @@
 <nav id="main-nav" class="alignright">
   <ul>
     
-      <li><a href="index.html">Home</a></li>
+      <li><a href="/">Home</a></li>
     
-      <li><a href="archives">Archives</a></li>
+      <li><a href="/archives">Archives</a></li>
     
       <li><a target="_blank" rel="noopener" href="https://github.com/livebug/livebug.github.io/tree/public">Git</a></li>
     
@@ -49,34 +49,97 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-  <article id="post-Scala3-入门/1" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <article id="post-Scala3-入门/5" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2021-06-25T16:00:00.000Z"><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/1/">2021-06-26</a></time>
+        <time class="dt-published" datetime="2021-06-25T16:00:00.000Z"><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/5/">2021-06-26</a></time>
       
       
   
-    <h1 class="title"><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/1/"></a></h1>
+    <h1 class="title"><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/5/">Scala3-5-继续HelloWorld</a></h1>
   
 
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h1 id="Introduction-（Scala3-Book-简介）"><a href="#Introduction-（Scala3-Book-简介）" class="headerlink" title="Introduction （Scala3 Book 简介）"></a>Introduction （Scala3 Book 简介）</h1><p><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a> <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/2/">[下一篇:   2. Scala 3 Features （Scala3 特性） ]</a> </p>
-<p>欢迎阅读 Scala 3 手册。本书的目标是提供对 Scala 语言的非正式介绍。它以相对轻松的方式涉及所有 Scala 主题。如果您在阅读本书的任何时候想了解有关特定功能的更多信息，都可以找到我们的参考文档的链接 <a target="_blank" rel="noopener" href="https://dotty.epfl.ch/docs/index.html">https://dotty.epfl.ch/docs/index.html</a> ，其中更详细地介绍了 Scala 语言的许多新功能。</p>
-<!-- Welcome to the Scala 3 Book. The goal of this book is to provide an informal introduction to the Scala language. It touches on all Scala topics, in a relatively light manner. If at any time while you’re reading this book and want more information on a specific feature, you’ll find links to our Reference documentation, which covers many new features of the Scala language in more detail. -->
+        <!-- #  5. Hello, World! （Hello World） -->
+<p><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/4/">[上一篇:   4. A Taste of Scala (牛刀小试)                ]</a>   <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a>  <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/6/">[下一篇: 6. A First Look at Types （类型了解）         ]</a></p>
+<p><em>接第四节，本节介绍流程控制</em></p>
+<h2 id="三元运算"><a href="#三元运算" class="headerlink" title="三元运算"></a>三元运算</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> x = <span class="keyword">if</span> a &lt; b then a <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure>
+<h2 id="双重循环"><a href="#双重循环" class="headerlink" title="双重循环"></a>双重循环</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span></span><br><span class="line">  i &lt;- <span class="number">1</span> to <span class="number">3</span></span><br><span class="line">  j &lt;- &#x27;a&#x27; to &#x27;c&#x27;</span><br><span class="line">  <span class="keyword">if</span> i == <span class="number">2</span></span><br><span class="line">  <span class="keyword">if</span> j == &#x27;b&#x27;</span><br><span class="line">  <span class="comment">// if i==2 &amp;&amp; j==&#x27;b&#x27;</span></span><br><span class="line">do</span><br><span class="line">  println(<span class="string">s&quot;i = <span class="subst">$i</span>, j = <span class="subst">$j</span>&quot;</span>)   <span class="comment">// prints: &quot;i = 2, j = b&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>在本书的过程中，我们希望证明 Scala 是一种漂亮的、富有表现力的编程语言，具有干净、现代的语法，支持函数式编程 (FP) 和面向对象编程 (OOP)，并提供安全的静态类型系统。 Scala 的语法、语法和特性经过重新思考，在一个开放的过程中进行辩论，并在 2020 年更新，比以往任何时候都更清晰、更容易理解。</p>
-<!-- Over the course of this book, we hope to demonstrate that Scala is a beautiful, expressive programming language, with a clean, modern syntax, which supports functional programming (FP) and object-oriented programming (OOP), and that provides a safe static type system. Scala’s syntax, grammar, and features have been re-thought, debated in an open process, and updated in 2020 to be clearer and easier to understand than ever before. -->
+<h2 id="match-模式匹配"><a href="#match-模式匹配" class="headerlink" title="match 模式匹配"></a>match 模式匹配</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类型匹配</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getClassAsString</span></span>(x: <span class="type">Matchable</span>): <span class="type">String</span> = x <span class="keyword">match</span></span><br><span class="line">  <span class="keyword">case</span> s: <span class="type">String</span> =&gt; <span class="string">s&quot;&#x27;<span class="subst">$s</span>&#x27; is a String&quot;</span></span><br><span class="line">  <span class="keyword">case</span> i: <span class="type">Int</span> =&gt; <span class="string">&quot;Int&quot;</span></span><br><span class="line">  <span class="keyword">case</span> d: <span class="type">Double</span> =&gt; <span class="string">&quot;Double&quot;</span></span><br><span class="line">  <span class="keyword">case</span> l: <span class="type">List</span>[_] =&gt; <span class="string">&quot;List&quot;</span></span><br><span class="line">  <span class="keyword">case</span> _ =&gt; <span class="string">&quot;Unknown&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>本书首先在“A Taste of Scala (初试 Scala) ”部分对Scala的许多特性进行了牛刀小试。导览结束后，接下来的部分将提供有关这些语言功能的更多详细信息</p>
-<!-- 
-The book begins with a whirlwind tour of many of Scala’s features in the “A Taste of Scala” section. After that tour, the sections that follow it provide more details on those language features. -->
+<p>Matchable，可以是任何支持模式匹配的类型(有些类型不支持模式匹配，因为这会破坏封装)。</p>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span></span><br><span class="line">  writeTextToFile(text)</span><br><span class="line"><span class="keyword">catch</span></span><br><span class="line">  <span class="keyword">case</span> ioe: <span class="type">IOException</span> =&gt; println(<span class="string">&quot;Got an IOException.&quot;</span>)</span><br><span class="line">  <span class="keyword">case</span> nfe: <span class="type">NumberFormatException</span> =&gt; println(<span class="string">&quot;Got a NumberFormatException.&quot;</span>)</span><br><span class="line"><span class="keyword">finally</span></span><br><span class="line">  println(<span class="string">&quot;Clean up your resources here.&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<p><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a> <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/2/">[下一篇:   2. Scala 3 Features （Scala3 特性） ]</a> </p>
+<h2 id="while"><a href="#while" class="headerlink" title="while"></a>while</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> x &gt;= <span class="number">0</span> do x = f(x)</span><br></pre></td></tr></table></figure>
+
+<p><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/4/">[上一篇:   4. A Taste of Scala (牛刀小试)                ]</a>   <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a>  <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/6/">[下一篇: 6. A First Look at Types （类型了解）         ]</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-Scala3-入门/4" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2021-06-24T16:00:00.000Z"><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/4/">2021-06-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/4/">Scala3-4-A Taste of Scala (牛刀小试)</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <!-- #  4. A Taste of Scala (牛刀小试) -->
+<p><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/3/">[上一篇:   3. Why Scala 3?                               ]</a>   <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a>  <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/5/">[下一篇: 5. Hello, World! （Hello World）              ]</a></p>
+<h2 id="第一行-Hello，World"><a href="#第一行-Hello，World" class="headerlink" title="第一行 Hello，World"></a>第一行 Hello，World</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@main</span> <span class="function"><span class="keyword">def</span> <span class="title">hello</span> </span>= println(<span class="string">&quot;Hello, world!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>@main</code> 声明 main 函数</p>
+<h2 id="变量类型-val-和-var"><a href="#变量类型-val-和-var" class="headerlink" title="变量类型 val 和 var"></a>变量类型 val 和 var</h2><table>
+<thead>
+<tr>
+<th>Variable Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>val</td>
+<td>Creates an immutable variable—like final in Java. 首选这个变量，除非你的变量有变动的需求</td>
+</tr>
+<tr>
+<td>var</td>
+<td>创建可变变量，仅当变量的内容随时间变化时使用。</td>
+</tr>
+</tbody></table>
+<h2 id="其他内置类型"><a href="#其他内置类型" class="headerlink" title="其他内置类型"></a>其他内置类型</h2><p>数字类型和字符串，这里不多说了，很基础，说两个字符串特别的地方：</p>
+<ol>
+<li><p>字符串内插</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">println(<span class="string">s&quot;2 + 2 = <span class="subst">$&#123;2 + 2&#125;</span>&quot;</span>)   <span class="comment">// prints &quot;2 + 2 = 4&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> x = <span class="number">-1</span></span><br><span class="line">println(<span class="string">s&quot;x.abs = <span class="subst">$&#123;x.abs&#125;</span>&quot;</span>)   <span class="comment">// prints &quot;x.abs = 1&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>多行字符串（与python类似）</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> quote = <span class="string">&quot;&quot;&quot;The essence of Scala:</span></span><br><span class="line"><span class="string">               Fusion of functional and object-oriented</span></span><br><span class="line"><span class="string">               programming in a typed setting.&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><a href="/MD/Scala3-%E5%85%A5%E9%97%A8/3/">[上一篇:   3. Why Scala 3?                               ]</a>   <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/Scala3-%E5%85%A5%E9%97%A8">[目录]</a>  <a href="/MD/Scala3-%E5%85%A5%E9%97%A8/5/">[下一篇: 5. Hello, World! （Hello World）              ]</a></p>
 
       
     </div>
@@ -98,7 +161,7 @@ The book begins with a whirlwind tour of many of Scala’s features in the “A 
 <nav id="pagination">
   
   
-    <a href="page/2/" class="alignright next">下一页</a>
+    <a href="/page/2/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
@@ -116,58 +179,30 @@ The book begins with a whirlwind tour of many of Scala’s features in the “A 
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="../../../categories/C/">C#</a><small>1</small></li>
+    <li><a href="/categories/C/">C#</a><small>1</small></li>
   
-    <li><a href="../../../categories/Java/">Java</a><small>2</small></li>
+    <li><a href="/categories/Java/">Java</a><small>2</small></li>
   
-    <li><a href="../../../categories/JavaScript/">JavaScript</a><small>2</small></li>
+    <li><a href="/categories/JavaScript/">JavaScript</a><small>2</small></li>
   
-    <li><a href="../../../categories/OTHER/">OTHER</a><small>4</small></li>
+    <li><a href="/categories/OTHER/">OTHER</a><small>4</small></li>
   
-    <li><a href="../../../categories/Rust/">Rust</a><small>1</small></li>
+    <li><a href="/categories/Rust/">Rust</a><small>1</small></li>
   
-    <li><a href="../../../categories/Scala/">Scala</a><small>3</small></li>
+    <li><a href="/categories/Scala/">Scala</a><small>3</small></li>
   
-    <li><a href="../../../categories/hexo/">hexo</a><small>2</small></li>
+    <li><a href="/categories/hexo/">hexo</a><small>2</small></li>
   
   </ul>
 </div>
 
 
   
-<div class="widget tag">
-  <h3 class="title">标签</h3>
-  <ul class="entry">
-  
-    <li><a href="../../../tags/Antlr4/">Antlr4</a><small>1</small></li>
-  
-    <li><a href="../../../tags/C/">C#</a><small>1</small></li>
-  
-    <li><a href="../../../tags/Java/">Java</a><small>3</small></li>
-  
-    <li><a href="../../../tags/JavaScript/">JavaScript</a><small>2</small></li>
-  
-    <li><a href="../../../tags/Maven/">Maven</a><small>1</small></li>
-  
-    <li><a href="../../../tags/QR/">QR</a><small>1</small></li>
-  
-    <li><a href="../../../tags/Rust/">Rust</a><small>1</small></li>
-  
-    <li><a href="../../../tags/Scala/">Scala</a><small>3</small></li>
-  
-    <li><a href="../../../tags/Ubuntu/">Ubuntu</a><small>4</small></li>
-  
-    <li><a href="../../../tags/ejs/">ejs</a><small>1</small></li>
-  
-    <li><a href="../../../tags/hexo/">hexo</a><small>3</small></li>
-  
-    <li><a href="../../../tags/vscode/">vscode</a><small>1</small></li>
-  
-    <li><a href="../../../tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><small>1</small></li>
-  
-    <li><a href="../../../tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">模式匹配</a><small>1</small></li>
-  
-  </ul>
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Antlr4/" style="font-size: 10px;">Antlr4</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/QR/" style="font-size: 10px;">QR</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Scala/" style="font-size: 20px;">Scala</a> <a href="/tags/Ubuntu/" style="font-size: 17.5px;">Ubuntu</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">大数据</a> <a href="/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/" style="font-size: 10px;">模式匹配</a>
+  </div>
 </div>
 
 </aside>
@@ -175,28 +210,28 @@ The book begins with a whirlwind tour of many of Scala’s features in the “A 
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2021 sharif
+  &copy; 2021 livebug
   
 </div>
 <div class="clearfix"></div></footer>
   
-<script src="js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
 
 
-<script src="js/jquery.imagesloaded.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 
 
-<script src="js/gallery.js"></script>
-
-
-
+<script src="/js/gallery.js"></script>
 
 
 
-<link rel="stylesheet" href="fancybox/jquery.fancybox.css">
 
 
-<script src="fancybox/jquery.fancybox.pack.js"></script>
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 <script>
 (function($){
