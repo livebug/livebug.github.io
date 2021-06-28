@@ -1,6 +1,6 @@
 menu:
   Home: /
-  Archives: archives
+  Archives: /archives
   Git: https://github.com/livebug/livebug.github.io/tree/public
 
 widgets:
