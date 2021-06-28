@@ -1,6 +1,6 @@
 ---
 title: Scala3 入门
-date: 2021-06-26 00:00:00
+date: 2021-06-22 00:00:00
 tags: Scala
 categories: Scala
 ---
