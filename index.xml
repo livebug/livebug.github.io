@@ -8,6 +8,29 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 25 Aug 2022 21:30:04 +0800</lastBuildDate><atom:link href="https://livebug.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>About</title>
+      <link>https://livebug.github.io/blogs/about/</link>
+      <pubDate>Tue, 26 Sep 2023 00:15:06 +0800</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/about/</guid>
+      <description>一个 .neter 小白，各种浅尝辄止，一瓶子不满，半瓶子咣当，学了就忘，不整理真是不沉底
+计算机科学与技术专业毕业，搬砖几年，在计算机的海洋里还没淹死，乱七八糟的各种涉猎，在此记录
+德云社多年线上粉丝，惭愧，收集快乐经典场分享，也供自己来回享受
+目前只是开源了自己当初的大学时期的计算科学和GPU通用计算的
+希望可以通过自己学到的东西，可以改变一些东西，解放人力，解放思想
+邮箱： datamover@126.com livebug@163.com github page: https://livebug.github.io/
+崇尚某些事情，并不是拿来与他人比较，然后凸显自己的独特性，去真正的思考和学习，终归要沉下心来去吸收
+实事求是，基于调查研究，最终目的还是要解决问题的
+无论是推诿或者逃避，面临的问题还是在哪的，还是需要处理的
+毛泽东思想确实是可以解决实际问题的，确实值得学习的
+对于哲学，共产党，经济方面上，三位老师 王德峰、艾跃进、温铁军 三位老师的思想和思考以及观点对我的影响，可以说醍醐灌顶，也可以说是解惑之感，恍然大悟
+而且很后悔，没有早些接触，真正的思想不会落伍，无论是儒释道还是近代的伟人的思想，并不会因时间而失去意义
+思想的发展也在迭代，但是身为一个普通人，仅仅是学习就能受益匪浅，而且中国几千年的历史，远比github的源码是多得多
+而且有的时候发现，自己成长过程中受到的教育，形成的思想，养成的习惯；很大部分脱离了实际，甚至根本碰不到实际，在解决实际问题的时候是那么的乏力
+我们正处在新时代，</description>
+    </item>
+    
+    <item>
       <title>gitee 增加 ssh key 实现免密访问</title>
       <link>https://livebug.github.io/blogs/20230922-gitee-add-sshkey/</link>
       <pubDate>Fri, 22 Sep 2023 23:48:19 +0000</pubDate>
@@ -40,7 +63,8 @@ SSH 原理 什么是SSH SSH 叫安全外壳协议（Secure Shell），是一种�
       
       <guid>https://livebug.github.io/blogs/20230909-vscode-sqllang/</guid>
       <description>语法突出显示指南：VS Code 使用文本伴侣(TextMate)语法进行语法突出显示。本指南将引导您编写简单的 TextMate 语法并将其转换为 VS Code 扩展。
-TextMate 语法 1 { scopeName = &amp;#39;source.untitled&amp;#39;; 2 fileTypes = ( ); 3 foldingStartMarker = &amp;#39;\{\s*$&amp;#39;; 4 foldingStopMarker = &amp;#39;^\s*\}&amp;#39;; 5 patterns = ( 6 { name = &amp;#39;keyword.control.untitled&amp;#39;; 7 match = &amp;#39;\b(if|while|for|return)\b&amp;#39;; 8 }, 9 { name = &amp;#39;string.quoted.double.untitled&amp;#39;; 10 begin = &amp;#39;&amp;#34;&amp;#39;; 11 end = &amp;#39;&amp;#34;&amp;#39;; 12 patterns = ( 13 { name = &amp;#39;constant.character.escape.untitled&amp;#39;; 14 match = &amp;#39;\\.&amp;#39;; 15 } 16 ); 17 }, 18 ); 19 } 语言语法用于为文档元素（如关键字、注释、字符串或类似元素）分配名称。这样做的目的是允许样式（语法突出显示），并使文本编辑器“智能”了解插入符号所在的上下文。例如，您可能希望击键或制表符触发器根据上下文采取不同的操作，或者您可能希望在键入文本文档中非散文的部分（例如.</description>
+TextMate 语法 { scopeName = &amp;#39;source.untitled&amp;#39;; fileTypes = ( ); foldingStartMarker = &amp;#39;\{\s*$&amp;#39;; foldingStopMarker = &amp;#39;^\s*\}&amp;#39;; patterns = ( { name = &amp;#39;keyword.control.untitled&amp;#39;; match = &amp;#39;\b(if|while|for|return)\b&amp;#39;; }, { name = &amp;#39;string.quoted.double.untitled&amp;#39;; begin = &amp;#39;&amp;#34;&amp;#39;; end = &amp;#39;&amp;#34;&amp;#39;; patterns = ( { name = &amp;#39;constant.character.escape.untitled&amp;#39;; match = &amp;#39;\\.&amp;#39;; } ); }, ); } 语言语法用于为文档元素（如关键字、注释、字符串或类似元素）分配名称。这样做的目的是允许样式（语法突出显示），并使文本编辑器“智能”了解插入符号所在的上下文。例如，您可能希望击键或制表符触发器根据上下文采取不同的操作，或者您可能希望在键入文本文档中非散文的部分（例如.HTML标签）时禁用拼写检查。
+scopeName （第 1 行）— 这应该是语法的唯一名称，遵循点分隔名称的约定，其中每个新（最左侧）部分专门化名称。通常，它将是一个由两部分组成的名称，其中第一部分是 text OR source 部分，第二部分是语言或文档类型的名称。但是，如果要专用于现有类型，则可能希望从要专用的类型派生名称。例如 Markdown 是 和 Ruby on Rails （ rhtml 文件） 是 text.</description>
     </item>
     
     <item>
