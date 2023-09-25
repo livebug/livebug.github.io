@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="其实这个很简单，根据提供的提示文档按部就班增加就行
+https://help.gitee.com/base/account/SSH%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE#:~:text=%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE-,SSH%20%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE,-Gitee%20%E6%8F%90%E4%BE%9B%E4%BA%86
+本文主要是想说明 ssh的原理以及应用
+SSH 原理 什么是SSH SSH 叫安全外壳协议（Secure Shell），是一种加密的网络传输协议，可在不安全的网络中网络服务提供安全的传输环境。它通过在网络中创建安全隧道来实现 SSH 客户端和服务器之间的连接。
+对称加密 对方同自己用于同样的密钥，加解密时用一样的
+非对称加密 非对称加密需要一对秘钥来进行加密和解密，公开的秘钥叫公钥，私有的秘钥叫私钥。注意公钥加密的信息只有私钥才能解开（加密过程），私钥加密的信息只有公钥才能解开（验签过程）。比较常用的非对称加密算法有 RSA。
+图解， Server A 免登录到 Server B :
+在A上生成公钥、私钥 将公钥拷贝给 Server B ，将公钥拷贝到 Server A 向 Server B 发送一个连接请求。 Server B 得到 Server A 的信息后，在authorized_key中查找，如果有相应的用户名和IP，则随机生成一个字符串，并用 Server A 的公钥加密，发送给 Server A 。 Server A 得到 Server B 发来的消息后，使用私钥进行解密，然后将解密后的字符串发送给 Server B 。 Server B 进行和生成的对比，如果一致，则允许免登录。 总之 ：A要免密码登录到B，B首先要拥有A的公钥，然后B要做一次加密验证。对于非对称加密，公钥加密的密文不能公钥解开，只能私钥解开。">  
+
+  <title>
+    
+      gitee 增加 ssh key 实现免密访问
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.8ed43b228d1b1f29aa52b8a418dab3ffde2a3b3d0449b21789586ed8333bc7c25ee5f11d3a12a4c3f1b22c8d45eb23206696f922ad677eec686e40061778e361.css" integrity="sha512-jtQ7Io0bHymqUrikGNqz/94qOz0ESbIXiVhu2DM7x8Je5fEdOhKkw/GyLI1F6yMgZpb5Iq1nfuxobkAGF3jjYQ==" />
+  
+</head>
+<body a="light">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-09-22 23:48:19 &#43;0000 UTC">
+            2023-09-22
+        </time>
+    </p>
+
+    <h1>gitee 增加 ssh key 实现免密访问</h1>
+
+    
+
+    <p>其实这个很简单，根据提供的提示文档按部就班增加就行</p>
+<p><a href="https://help.gitee.com/base/account/SSH%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE#:~:text=%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE-,SSH%20%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE,-Gitee%20%E6%8F%90%E4%BE%9B%E4%BA%86">https://help.gitee.com/base/account/SSH%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE#:~:text=%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE-,SSH%20%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE,-Gitee%20%E6%8F%90%E4%BE%9B%E4%BA%86</a></p>
+<p>本文主要是想说明 ssh的原理以及应用</p>
+<h3 id="ssh-原理">SSH 原理</h3>
+<h4 id="什么是ssh">什么是SSH</h4>
+<p>SSH 叫安全外壳协议（Secure Shell），是一种加密的网络传输协议，可在不安全的网络中网络服务提供安全的传输环境。它通过在网络中创建安全隧道来实现 SSH 客户端和服务器之间的连接。</p>
+<h4 id="对称加密">对称加密</h4>
+<p>对方同自己用于同样的密钥，加解密时用一样的</p>
+<h4 id="非对称加密">非对称加密</h4>
+<p>非对称加密需要一对秘钥来进行加密和解密，公开的秘钥叫公钥，私有的秘钥叫私钥。注意公钥加密的信息只有私钥才能解开（加密过程），私钥加密的信息只有公钥才能解开（验签过程）。比较常用的非对称加密算法有 RSA。</p>
+<!-- raw HTML omitted -->
+<p>图解， <code>Server A</code> 免登录到 <code>Server B</code> :</p>
+<ol>
+<li>在A上生成公钥、私钥</li>
+<li>将公钥拷贝给 <code>Server B</code> ，将公钥拷贝到</li>
+<li><code>Server A</code> 向 <code>Server B</code> 发送一个连接请求。</li>
+<li><code>Server B</code> 得到 <code>Server A</code> 的信息后，在authorized_key中查找，如果有相应的用户名和IP，则随机生成一个字符串，并用 <code>Server A</code> 的公钥加密，发送给 <code>Server A</code> 。</li>
+<li><code>Server A</code> 得到 <code>Server B</code> 发来的消息后，使用私钥进行解密，然后将解密后的字符串发送给 <code>Server B</code> 。 <code>Server B</code> 进行和生成的对比，如果一致，则允许免登录。</li>
+</ol>
+<p>总之 ：A要免密码登录到B，B首先要拥有A的公钥，然后B要做一次加密验证。对于非对称加密，公钥加密的密文不能公钥解开，只能私钥解开。</p>
+
+</article>
+
+            </div>
+        </main>
+    </body>
+</html>

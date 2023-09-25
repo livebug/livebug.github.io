@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nvm on livebug&#39;s blog space</title>
+    <link>https://livebug.github.io/tags/nvm/</link>
+    <description>Recent content in nvm on livebug&#39;s blog space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Aug 2023 23:48:19 +0000</lastBuildDate><atom:link href="https://livebug.github.io/tags/nvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wsl 开放环境初始化</title>
+      <link>https://livebug.github.io/blogs/20230909-wsl-init-devenv/</link>
+      <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230909-wsl-init-devenv/</guid>
+      <description>安装 nodejs 环境 vscode版本：
+版本: 1.82.0 (user setup) 提交: 8b617bd08fd9e3fc94d14adb8d358b56e3f72314 日期: 2023-09-06T22:07:07.438Z Electron: 25.8.0 ElectronBuildId: 23503258 Chromium: 114.0.5735.289 Node.js: 18.15.0 V8: 11.4.183.29-electron.0 OS: Windows_NT x64 10.0.25941 修改host
+nslookup 查看 github 的网站，修改 hosts nslookup http://github.global.ssl.fastly.net nslookup http://github.com nslookup http://raw.githubusercontent.com # hosts 199.16.158.9 http://github.global.ssl.fastly.net 199.16.158.9 https://github.global.ssl.fastly.net 20.205.243.166 http://github.com 20.205.243.166 https://github.com 185.199.111.133 http://raw.githubusercontent.com 185.199.111.133 https://raw.githubusercontent.com 185.199.110.133 http://raw.githubusercontent.com 185.199.110.133 https://raw.githubusercontent.com 185.199.108.133 http://raw.githubusercontent.com 185.199.108.133 https://raw.githubusercontent.com wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以 安装 nvm</description>
+    </item>
+    
+  </channel>
+</rss>

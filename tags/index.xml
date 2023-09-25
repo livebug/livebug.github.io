@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on livebug&#39;s blog space</title>
+    <link>https://livebug.github.io/tags/</link>
+    <description>Recent content in Tags on livebug&#39;s blog space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Sep 2023 23:48:19 +0000</lastBuildDate><atom:link href="https://livebug.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gitee</title>
+      <link>https://livebug.github.io/tags/gitee/</link>
+      <pubDate>Fri, 22 Sep 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/tags/gitee/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>https://livebug.github.io/tags/ssh/</link>
+      <pubDate>Fri, 22 Sep 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regex</title>
+      <link>https://livebug.github.io/tags/regex/</link>
+      <pubDate>Sun, 17 Sep 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/tags/regex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nginx</title>
+      <link>https://livebug.github.io/tags/nginx/</link>
+      <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nvm</title>
+      <link>https://livebug.github.io/tags/nvm/</link>
+      <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/tags/nvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sql</title>
+      <link>https://livebug.github.io/tags/sql/</link>
+      <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/tags/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vscode-extension</title>
+      <link>https://livebug.github.io/tags/vscode-extension/</link>
+      <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/tags/vscode-extension/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wsl</title>
+      <link>https://livebug.github.io/tags/wsl/</link>
+      <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/tags/wsl/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

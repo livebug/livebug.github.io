@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on livebug&#39;s blog space</title>
+    <link>https://livebug.github.io/blogs/</link>
+    <description>Recent content in Blogs on livebug&#39;s blog space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Sep 2023 23:48:19 +0000</lastBuildDate><atom:link href="https://livebug.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gitee 增加 ssh key 实现免密访问</title>
+      <link>https://livebug.github.io/blogs/20230922-gitee-add-sshkey/</link>
+      <pubDate>Fri, 22 Sep 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230922-gitee-add-sshkey/</guid>
+      <description>其实这个很简单，根据提供的提示文档按部就班增加就行
+https://help.gitee.com/base/account/SSH%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE#:~:text=%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE-,SSH%20%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE,-Gitee%20%E6%8F%90%E4%BE%9B%E4%BA%86
+本文主要是想说明 ssh的原理以及应用
+SSH 原理 什么是SSH SSH 叫安全外壳协议（Secure Shell），是一种加密的网络传输协议，可在不安全的网络中网络服务提供安全的传输环境。它通过在网络中创建安全隧道来实现 SSH 客户端和服务器之间的连接。
+对称加密 对方同自己用于同样的密钥，加解密时用一样的
+非对称加密 非对称加密需要一对秘钥来进行加密和解密，公开的秘钥叫公钥，私有的秘钥叫私钥。注意公钥加密的信息只有私钥才能解开（加密过程），私钥加密的信息只有公钥才能解开（验签过程）。比较常用的非对称加密算法有 RSA。
+图解， Server A 免登录到 Server B :
+在A上生成公钥、私钥 将公钥拷贝给 Server B ，将公钥拷贝到 Server A 向 Server B 发送一个连接请求。 Server B 得到 Server A 的信息后，在authorized_key中查找，如果有相应的用户名和IP，则随机生成一个字符串，并用 Server A 的公钥加密，发送给 Server A 。 Server A 得到 Server B 发来的消息后，使用私钥进行解密，然后将解密后的字符串发送给 Server B 。 Server B 进行和生成的对比，如果一致，则允许免登录。 总之 ：A要免密码登录到B，B首先要拥有A的公钥，然后B要做一次加密验证。对于非对称加密，公钥加密的密文不能公钥解开，只能私钥解开。</description>
+    </item>
+    
+    <item>
+      <title>正则表达式的先行断言(lookahead)和后行断言(lookbehind)</title>
+      <link>https://livebug.github.io/blogs/20230917-regexp-lookahead/</link>
+      <pubDate>Sun, 17 Sep 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230917-regexp-lookahead/</guid>
+      <description>正则表达式的先行断言和后行断言一共有 4 种形式：
+(?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion) (?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion) (?&amp;lt;=pattern) 零宽正向后行断言(zero-width positive lookbehind assertion) (?&amp;lt;!pattern) 零宽负向后行断言(zero-width negative lookbehind assertion) </description>
+    </item>
+    
+    <item>
+      <title>sql 语言脚本</title>
+      <link>https://livebug.github.io/blogs/20230909-vscode-sqllang/</link>
+      <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230909-vscode-sqllang/</guid>
+      <description>语法突出显示指南：VS Code 使用文本伴侣(TextMate)语法进行语法突出显示。本指南将引导您编写简单的 TextMate 语法并将其转换为 VS Code 扩展。
+TextMate 语法 1 { scopeName = &amp;#39;source.untitled&amp;#39;; 2 fileTypes = ( ); 3 foldingStartMarker = &amp;#39;\{\s*$&amp;#39;; 4 foldingStopMarker = &amp;#39;^\s*\}&amp;#39;; 5 patterns = ( 6 { name = &amp;#39;keyword.control.untitled&amp;#39;; 7 match = &amp;#39;\b(if|while|for|return)\b&amp;#39;; 8 }, 9 { name = &amp;#39;string.quoted.double.untitled&amp;#39;; 10 begin = &amp;#39;&amp;#34;&amp;#39;; 11 end = &amp;#39;&amp;#34;&amp;#39;; 12 patterns = ( 13 { name = &amp;#39;constant.character.escape.untitled&amp;#39;; 14 match = &amp;#39;\\.&amp;#39;; 15 } 16 ); 17 }, 18 ); 19 } 语言语法用于为文档元素（如关键字、注释、字符串或类似元素）分配名称。这样做的目的是允许样式（语法突出显示），并使文本编辑器“智能”了解插入符号所在的上下文。例如，您可能希望击键或制表符触发器根据上下文采取不同的操作，或者您可能希望在键入文本文档中非散文的部分（例如.</description>
+    </item>
+    
+    <item>
+      <title>wsl 开放环境初始化</title>
+      <link>https://livebug.github.io/blogs/20230909-wsl-init-devenv/</link>
+      <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230909-wsl-init-devenv/</guid>
+      <description>安装 nodejs 环境 vscode版本：
+版本: 1.82.0 (user setup) 提交: 8b617bd08fd9e3fc94d14adb8d358b56e3f72314 日期: 2023-09-06T22:07:07.438Z Electron: 25.8.0 ElectronBuildId: 23503258 Chromium: 114.0.5735.289 Node.js: 18.15.0 V8: 11.4.183.29-electron.0 OS: Windows_NT x64 10.0.25941 修改host
+nslookup 查看 github 的网站，修改 hosts nslookup http://github.global.ssl.fastly.net nslookup http://github.com nslookup http://raw.githubusercontent.com # hosts 199.16.158.9 http://github.global.ssl.fastly.net 199.16.158.9 https://github.global.ssl.fastly.net 20.205.243.166 http://github.com 20.205.243.166 https://github.com 185.199.111.133 http://raw.githubusercontent.com 185.199.111.133 https://raw.githubusercontent.com 185.199.110.133 http://raw.githubusercontent.com 185.199.110.133 https://raw.githubusercontent.com 185.199.108.133 http://raw.githubusercontent.com 185.199.108.133 https://raw.githubusercontent.com wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以 安装 nvm</description>
+    </item>
+    
+  </channel>
+</rss>
