@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="介绍背景：
+博客网站myblog仓库底下有两个子库，一个子库是用来存储markdown文章的blogs仓库，一个是用来存储public内容的github pages库 livebug.github.io仓库
+当博客网站样式更新提交，或者文章提交，触发myblog仓库的 actions ，执行完之后发布到pages仓库
+开发myblog仓库的提交 actions jobs: # Build job public: runs-on: ubuntu-latest env: HUGO_VERSION: 0.114.0 steps: - name: Setup Hugo # 初始化 护工环境 uses: peaceiris/actions-hugo@v2 with: hugo-version: &#34;latest&#34; - name: Checkout # 检出资源 uses: actions/checkout@v3 with: submodules: recursive # 子模块，当前是 blogs 仓库 - name: Build with Hugo # 编译生成 env: # For maximum backward compatibility with Hugo modules HUGO_ENVIRONMENT: production HUGO_ENV: production run: | hugo - name: Deploy # 发布 uses: peaceiris/actions-gh-pages@v3 with: personal_token: ${{ secrets.">  
+
+  <title>
+    
+      Github Actions 使用 自动化发布博客
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.eddc66ed1ee467a9dc13d43edf10c0c3f3bb39ce689f3769cfa0793b8b3cf09f23b924c436111146c0658f9d9d67794c162839aa4e612bad2e93aa7e53e5fb00.css" integrity="sha512-7dxm7R7kZ6ncE9Q&#43;3xDAw/O7Oc5onzdpz6B5O4s88J8juSTENhERRsBlj52dZ3lMFig5qk5hK60uk6p&#43;U&#43;X7AA==" />
+  
+</head>
+<body a="light">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-09-30 13:58:58 &#43;0800 &#43;0800">
+            2023-09-30
+        </time>
+    </p>
+
+    <h1>Github Actions 使用 自动化发布博客</h1>
+
+    
+        <aside >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#开发myblog仓库的提交-actions">开发<code>myblog</code>仓库的提交 actions</a></li>
+  </ul>
+</nav>
+        </aside>
+    
+
+    <p>介绍背景：</p>
+<p>博客网站<code>myblog</code>仓库底下有两个子库，一个子库是用来存储<code>markdown</code>文章的<code>blogs</code>仓库，一个是用来存储<code>public</code>内容的<code>github pages</code>库 <code>livebug.github.io</code>仓库</p>
+<p>当博客网站样式更新提交，或者文章提交，触发<code>myblog</code>仓库的 actions ，执行完之后发布到pages仓库</p>
+<h2 id="开发myblog仓库的提交-actions">开发<code>myblog</code>仓库的提交 actions</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Build job</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">public</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">HUGO_VERSION</span>: <span style="color:#ae81ff">0.114.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup Hugo</span> <span style="color:#75715e"># 初始化 护工环境</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-hugo@v2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">hugo-version</span>: <span style="color:#e6db74">&#34;latest&#34;</span> 
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Checkout</span> <span style="color:#75715e"># 检出资源</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v3</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">submodules</span>: <span style="color:#ae81ff">recursive</span> <span style="color:#75715e"># 子模块，当前是 blogs 仓库</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build with Hugo  </span> <span style="color:#75715e"># 编译生成</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># For maximum backward compatibility with Hugo modules</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">HUGO_ENVIRONMENT</span>: <span style="color:#ae81ff">production</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">HUGO_ENV</span>: <span style="color:#ae81ff">production</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          hugo  </span>          
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy </span> <span style="color:#75715e"># 发布</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-gh-pages@v3</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">personal_token</span>: <span style="color:#ae81ff">${{ secrets.PERSONAL_TOKEN }}</span> <span style="color:#75715e"># 另外还支持 deploy_token 和 github_token</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">external_repository</span>: <span style="color:#ae81ff">livebug/livebug.github.io</span> <span style="color:#75715e"># 修改为你的 GitHub Pages 仓库</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">publish_dir</span>: <span style="color:#ae81ff">./public</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">publish_branch</span>: <span style="color:#ae81ff">master</span>
+</span></span></code></pre></div> 
+</article> 
+
+            </div>
+        </main>
+    </body></html>

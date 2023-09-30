@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://livebug.github.io/blogs/about/</loc>
-    <lastmod>2023-09-26T00:15:06+08:00</lastmod>
-  </url><url>
     <loc>https://livebug.github.io/blogs/</loc>
+    <lastmod>2023-09-30T13:58:58+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/blogs/20230930-github-actions/</loc>
+    <lastmod>2023-09-30T13:58:58+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/blogs/about/</loc>
     <lastmod>2023-09-26T00:15:06+08:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/tags/gitee/</loc>

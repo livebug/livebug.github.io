@@ -8,6 +8,18 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 25 Aug 2022 21:30:04 +0800</lastBuildDate><atom:link href="https://livebug.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Github Actions 使用 自动化发布博客</title>
+      <link>https://livebug.github.io/blogs/20230930-github-actions/</link>
+      <pubDate>Sat, 30 Sep 2023 13:58:58 +0800</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230930-github-actions/</guid>
+      <description>介绍背景：
+博客网站myblog仓库底下有两个子库，一个子库是用来存储markdown文章的blogs仓库，一个是用来存储public内容的github pages库 livebug.github.io仓库
+当博客网站样式更新提交，或者文章提交，触发myblog仓库的 actions ，执行完之后发布到pages仓库
+开发myblog仓库的提交 actions jobs: # Build job public: runs-on: ubuntu-latest env: HUGO_VERSION: 0.114.0 steps: - name: Setup Hugo # 初始化 护工环境 uses: peaceiris/actions-hugo@v2 with: hugo-version: &amp;#34;latest&amp;#34; - name: Checkout # 检出资源 uses: actions/checkout@v3 with: submodules: recursive # 子模块，当前是 blogs 仓库 - name: Build with Hugo # 编译生成 env: # For maximum backward compatibility with Hugo modules HUGO_ENVIRONMENT: production HUGO_ENV: production run: | hugo - name: Deploy # 发布 uses: peaceiris/actions-gh-pages@v3 with: personal_token: ${{ secrets.</description>
+    </item>
+    
+    <item>
       <title>About</title>
       <link>https://livebug.github.io/blogs/about/</link>
       <pubDate>Tue, 26 Sep 2023 00:15:06 +0800</pubDate>
