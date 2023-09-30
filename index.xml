@@ -16,7 +16,7 @@
       <description>介绍背景：
 博客网站myblog仓库底下有两个子库，一个子库是用来存储markdown文章的blogs仓库，一个是用来存储public内容的github pages库 livebug.github.io仓库
 当博客网站样式更新提交，或者文章提交，触发myblog仓库的 actions ，执行完之后发布到pages仓库
-开发myblog仓库的提交 actions # Sample workflow for building and deploying a Hugo site to GitHub Pages name: Deploy Hugo site to Pages on: # Runs on pushes targeting the default branch push: branches: [&amp;#34;master&amp;#34;] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages permissions: contents: read pages: write id-token: write # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.</description>
+开发myblog仓库的提交 actions 1# Sample workflow for building and deploying a Hugo site to GitHub Pages 2name: Deploy Hugo site to Pages 3 4on: 5 # Runs on pushes targeting the default branch 6 push: 7 branches: [&amp;#34;master&amp;#34;] 8 9 # Allows you to run this workflow manually from the Actions tab 10 workflow_dispatch: 11 12# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages 13permissions: 14 contents: read 15 pages: write 16 id-token: write 17 18# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.</description>
     </item>
     
     <item>
@@ -86,8 +86,7 @@ SSH 原理 什么是SSH SSH 叫安全外壳协议（Secure Shell），是一种�
       
       <guid>https://livebug.github.io/blogs/20230909-vscode-sqllang/</guid>
       <description>语法突出显示指南：VS Code 使用文本伴侣(TextMate)语法进行语法突出显示。本指南将引导您编写简单的 TextMate 语法并将其转换为 VS Code 扩展。
-TextMate 语法 { scopeName = &amp;#39;source.untitled&amp;#39;; fileTypes = ( ); foldingStartMarker = &amp;#39;\{\s*$&amp;#39;; foldingStopMarker = &amp;#39;^\s*\}&amp;#39;; patterns = ( { name = &amp;#39;keyword.control.untitled&amp;#39;; match = &amp;#39;\b(if|while|for|return)\b&amp;#39;; }, { name = &amp;#39;string.quoted.double.untitled&amp;#39;; begin = &amp;#39;&amp;#34;&amp;#39;; end = &amp;#39;&amp;#34;&amp;#39;; patterns = ( { name = &amp;#39;constant.character.escape.untitled&amp;#39;; match = &amp;#39;\\.&amp;#39;; } ); }, ); } 语言语法用于为文档元素（如关键字、注释、字符串或类似元素）分配名称。这样做的目的是允许样式（语法突出显示），并使文本编辑器“智能”了解插入符号所在的上下文。例如，您可能希望击键或制表符触发器根据上下文采取不同的操作，或者您可能希望在键入文本文档中非散文的部分（例如.HTML标签）时禁用拼写检查。
-scopeName （第 1 行）— 这应该是语法的唯一名称，遵循点分隔名称的约定，其中每个新（最左侧）部分专门化名称。通常，它将是一个由两部分组成的名称，其中第一部分是 text OR source 部分，第二部分是语言或文档类型的名称。但是，如果要专用于现有类型，则可能希望从要专用的类型派生名称。例如 Markdown 是 和 Ruby on Rails （ rhtml 文件） 是 text.</description>
+TextMate 语法 1{ 2 scopeName = &amp;#39;source.untitled&amp;#39;; 3 fileTypes = ( ); 4 foldingStartMarker = &amp;#39;\{\s*$&amp;#39;; 5 foldingStopMarker = &amp;#39;^\s*\}&amp;#39;; 6 patterns = ( 7 { name = &amp;#39;keyword.control.untitled&amp;#39;; 8 match = &amp;#39;\b(if|while|for|return)\b&amp;#39;; 9 }, 10 { name = &amp;#39;string.quoted.double.untitled&amp;#39;; 11 begin = &amp;#39;&amp;#34;&amp;#39;; 12 end = &amp;#39;&amp;#34;&amp;#39;; 13 patterns = ( 14 { name = &amp;#39;constant.character.escape.untitled&amp;#39;; 15 match = &amp;#39;\\.&amp;#39;; 16 } 17 ); 18 }, 19 ); 20} 语言语法用于为文档元素（如关键字、注释、字符串或类似元素）分配名称。这样做的目的是允许样式（语法突出显示），并使文本编辑器“智能”了解插入符号所在的上下文。例如，您可能希望击键或制表符触发器根据上下文采取不同的操作，或者您可能希望在键入文本文档中非散文的部分（例如.</description>
     </item>
     
     <item>
@@ -98,7 +97,7 @@ scopeName （第 1 行）— 这应该是语法的唯一名称，遵循点分隔
       <guid>https://livebug.github.io/blogs/20230909-wsl-init-devenv/</guid>
       <description>安装 nodejs 环境 vscode版本：
 版本: 1.82.0 (user setup) 提交: 8b617bd08fd9e3fc94d14adb8d358b56e3f72314 日期: 2023-09-06T22:07:07.438Z Electron: 25.8.0 ElectronBuildId: 23503258 Chromium: 114.0.5735.289 Node.js: 18.15.0 V8: 11.4.183.29-electron.0 OS: Windows_NT x64 10.0.25941 修改host
-nslookup 查看 github 的网站，修改 hosts nslookup http://github.global.ssl.fastly.net nslookup http://github.com nslookup http://raw.githubusercontent.com # hosts 199.16.158.9 http://github.global.ssl.fastly.net 199.16.158.9 https://github.global.ssl.fastly.net 20.205.243.166 http://github.com 20.205.243.166 https://github.com 185.199.111.133 http://raw.githubusercontent.com 185.199.111.133 https://raw.githubusercontent.com 185.199.110.133 http://raw.githubusercontent.com 185.199.110.133 https://raw.githubusercontent.com 185.199.108.133 http://raw.githubusercontent.com 185.199.108.133 https://raw.githubusercontent.com wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以 安装 nvm</description>
+nslookup 查看 github 的网站，修改 hosts 1nslookup http://github.global.ssl.fastly.net 2nslookup http://github.com 3nslookup http://raw.githubusercontent.com 4 5# hosts 6199.16.158.9 http://github.global.ssl.fastly.net 7199.16.158.9 https://github.global.ssl.fastly.net 820.205.243.166 http://github.com 920.205.243.166 https://github.com 10185.199.111.133 http://raw.githubusercontent.com 11185.199.111.133 https://raw.githubusercontent.com 12185.199.110.133 http://raw.githubusercontent.com 13185.199.110.133 https://raw.githubusercontent.com 14185.199.108.133 http://raw.githubusercontent.com 15185.199.108.133 https://raw.githubusercontent.com wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以 安装 nvm</description>
     </item>
     
     <item>
@@ -125,8 +124,8 @@ ssh-keygen -t rsa 查看本机的ssh密钥公钥
       
       <guid>https://livebug.github.io/blogs/20230426-fedora-install-docker/</guid>
       <description>安装参考教程连接 https://help.aliyun.com/document_detail/264695.html?spm=5176.21213303.J_6028563670.38.3acf3eda1H4cBI&amp;amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40264695.S_hot.ID_264695-RL_docker%E5%AE%89%E8%A3%85-OR_s%2Bhelpmain-V_1-P0_7
-简单记录 安装dnf源中默认的Docker（podman-docker） # 运行以下命令，安装podman-docker。 dnf -y install docker # 运行以下命令，查看Docker是否安装成功。 docker images 权限问题 sudo gpasswd -a $USER docekr newgrp docker docker ps -a 安装gaussdb docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ enmotech/opengauss:latest 默认用户 gaussdb
-gauss 使用 drop table sdopdb.bqqyxx; create table sdopdb.bqqyxx ( p_year varchar(4) not null, p_type varchar(40) NOT NULL, p_rank varchar(4) NOT NULL, p_busi_nm varchar(100) NOT NULL, p_income DECIMAL(20,6) NOT NULL ); COMMENT ON TABLE sdopdb.</description>
+简单记录 安装dnf源中默认的Docker（podman-docker） 1# 运行以下命令，安装podman-docker。 2 dnf -y install docker 3# 运行以下命令，查看Docker是否安装成功。 4 docker images 权限问题 1sudo gpasswd -a $USER docekr 2newgrp docker 3docker ps -a 安装gaussdb 1docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ 2 -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ 3 enmotech/opengauss:latest 默认用户 gaussdb
+gauss 使用 1drop table sdopdb.bqqyxx; 2create table sdopdb.bqqyxx 3( 4	p_year varchar(4) not null, 5	p_type varchar(40) NOT NULL, 6	p_rank varchar(4) NOT NULL, 7	p_busi_nm varchar(100) NOT NULL, 8	p_income DECIMAL(20,6) NOT NULL 9); 10COMMENT ON TABLE sdopdb.</description>
     </item>
     
     <item>
@@ -149,16 +148,14 @@ firewall-cmd --permanent --zone=public --add-service=samba firewall-cmd --reload
       <pubDate>Sat, 22 Apr 2023 16:39:49 +0000</pubDate>
       
       <guid>https://livebug.github.io/blogs/20230422-fedorainstall/</guid>
-      <description>fedora 安装之后的操作 换国内软件源 sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ -i.bak \ /etc/yum.repos.d/fedora.repo \ /etc/yum.repos.d/fedora-modular.repo \ /etc/yum.repos.d/fedora-updates.repo \ /etc/yum.repos.d/fedora-updates-modular.repo sudo dnf makecache sudo dnf autoremove sudo dnf remove --oldinstallonly 设置 gnome-terminal 快捷键 ctrl+alt+t 安装基本软件 2.1 edge 浏览器
+      <description>fedora 安装之后的操作 换国内软件源 1 sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ 2 -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ 3 -i.bak \ 4 /etc/yum.repos.d/fedora.repo \ 5 /etc/yum.repos.d/fedora-modular.repo \ 6 /etc/yum.repos.d/fedora-updates.repo \ 7 /etc/yum.repos.d/fedora-updates-modular.repo 8 9 sudo dnf makecache 10 sudo dnf autoremove 11 sudo dnf remove --oldinstallonly 设置 gnome-terminal 快捷键 ctrl+alt+t 安装基本软件 2.1 edge 浏览器
 2.2 vscode
 https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-1.77.3-1681292829.el7.x86_64.rpm
 2.3 dotnet6
 2.4 nvm
 2.5 安装 GNOME 优化和扩展应用程序
-sudo dnf install gnome-tweaks gnome-extensions-app https://extensions.gnome.org/
-安装 dash to dock 插件，可以让dock在桌面悬浮
-如何给Linux安装新的字体
-下载字体后放到下面目录即可: /usr/share/fonts $l 总计 0 drwxr-xr-x. 1 root root 246 4月14日 05:44 liberation-mono .</description>
+1sudo dnf install gnome-tweaks gnome-extensions-app https://extensions.gnome.org/
+安装 dash to dock 插件，可以让dock在桌面悬浮</description>
     </item>
     
   </channel>

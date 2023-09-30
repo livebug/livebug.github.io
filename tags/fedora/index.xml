@@ -27,16 +27,14 @@ firewall-cmd --permanent --zone=public --add-service=samba firewall-cmd --reload
       <pubDate>Sat, 22 Apr 2023 16:39:49 +0000</pubDate>
       
       <guid>https://livebug.github.io/blogs/20230422-fedorainstall/</guid>
-      <description>fedora 安装之后的操作 换国内软件源 sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ -i.bak \ /etc/yum.repos.d/fedora.repo \ /etc/yum.repos.d/fedora-modular.repo \ /etc/yum.repos.d/fedora-updates.repo \ /etc/yum.repos.d/fedora-updates-modular.repo sudo dnf makecache sudo dnf autoremove sudo dnf remove --oldinstallonly 设置 gnome-terminal 快捷键 ctrl+alt+t 安装基本软件 2.1 edge 浏览器
+      <description>fedora 安装之后的操作 换国内软件源 1 sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ 2 -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ 3 -i.bak \ 4 /etc/yum.repos.d/fedora.repo \ 5 /etc/yum.repos.d/fedora-modular.repo \ 6 /etc/yum.repos.d/fedora-updates.repo \ 7 /etc/yum.repos.d/fedora-updates-modular.repo 8 9 sudo dnf makecache 10 sudo dnf autoremove 11 sudo dnf remove --oldinstallonly 设置 gnome-terminal 快捷键 ctrl+alt+t 安装基本软件 2.1 edge 浏览器
 2.2 vscode
 https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-1.77.3-1681292829.el7.x86_64.rpm
 2.3 dotnet6
 2.4 nvm
 2.5 安装 GNOME 优化和扩展应用程序
-sudo dnf install gnome-tweaks gnome-extensions-app https://extensions.gnome.org/
-安装 dash to dock 插件，可以让dock在桌面悬浮
-如何给Linux安装新的字体
-下载字体后放到下面目录即可: /usr/share/fonts $l 总计 0 drwxr-xr-x. 1 root root 246 4月14日 05:44 liberation-mono .</description>
+1sudo dnf install gnome-tweaks gnome-extensions-app https://extensions.gnome.org/
+安装 dash to dock 插件，可以让dock在桌面悬浮</description>
     </item>
     
   </channel>
