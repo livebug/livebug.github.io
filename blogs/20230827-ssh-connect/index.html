@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：
+ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。
+查看有没有ssh server
+/etc/init.d/ssh status 怎么生成密钥
+ssh-keygen -t rsa 查看本机的ssh密钥公钥
+-- windows 目录/c/Users/xxxx/.ssh 怎么添加其他机器的公钥
+密钥怎么使用
+# 密钥发送ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 防火墙开启ssh
+41 /usr/sbin/ufw47 /usr/sbin/ufw allow ssh60 /usr/sbin/ufw status70 /etc/init.d/ufw restart60 /usr/sbin/ufw status60 /usr/sbin/ufw enable # 开机自启 ssh 开机自启">  
+
+  <title>
+    
+      不同主机间的ssh链接互通
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.eddc66ed1ee467a9dc13d43edf10c0c3f3bb39ce689f3769cfa0793b8b3cf09f23b924c436111146c0658f9d9d67794c162839aa4e612bad2e93aa7e53e5fb00.css" integrity="sha512-7dxm7R7kZ6ncE9Q&#43;3xDAw/O7Oc5onzdpz6B5O4s88J8juSTENhERRsBlj52dZ3lMFig5qk5hK60uk6p&#43;U&#43;X7AA==" />
+  
+</head>
+<body a="light">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-06-27 23:48:19 &#43;0000 UTC">
+            2023-06-27
+        </time>
+    </p>
+
+    <h1>不同主机间的ssh链接互通</h1>
+
+    
+
+    <p>在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：</p>
+<pre tabindex="0"><code>ssh user@remote -p port
+</code></pre><ul>
+<li>user 是你在远程机器上的用户名，如果不指定的话默认为当前用户</li>
+<li>remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名</li>
+<li>port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22</li>
+</ul>
+<h3 id="免密码登入">免密码登入</h3>
+<p>每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。</p>
+<p>查看有没有ssh server</p>
+<pre tabindex="0"><code>/etc/init.d/ssh status
+</code></pre><p>怎么生成密钥</p>
+<pre tabindex="0"><code>ssh-keygen -t rsa 
+</code></pre><p>查看本机的ssh密钥公钥</p>
+<pre tabindex="0"><code>-- windows 目录
+/c/Users/xxxx/.ssh
+</code></pre><p>怎么添加其他机器的公钥</p>
+<p>密钥怎么使用</p>
+<pre tabindex="0"><code># 密钥发送
+ ssh-copy-id -i id_rsa.pub xxx@192.168.0.103
+</code></pre><p>防火墙开启ssh</p>
+<pre tabindex="0"><code>   41  /usr/sbin/ufw
+   47  /usr/sbin/ufw allow ssh
+   60  /usr/sbin/ufw status
+   70  /etc/init.d/ufw restart
+   60  /usr/sbin/ufw status
+   60  /usr/sbin/ufw enable # 开机自启
+</code></pre><p>ssh 开机自启</p>
+<pre tabindex="0"><code>   87  systemctl enable ssh
+</code></pre><p>重启后 ufw状态变为inactive问题</p>
+<pre tabindex="0"><code>在设置开机自启后还有问题那大概率可能为启动顺序问题，修改/lib/systemd/system/ufw.service文件，在[Unit]中加入After=netfilter-persistent.service即可。
+
+After=netfilter-persistent.service
+</code></pre><p>root安装的docker，普通用户无法使用</p>
+<pre tabindex="0"><code>permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &#34;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json&#34;: dial unix /var/run/docker.sock: connect: permission denied
+</code></pre> 
+</article> 
+
+            </div>
+        </main>
+    </body></html>

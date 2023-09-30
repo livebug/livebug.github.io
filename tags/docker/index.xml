@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on livebug&#39;s blog space</title>
+    <link>https://livebug.github.io/tags/docker/</link>
+    <description>Recent content in docker on livebug&#39;s blog space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 26 Apr 2023 23:38:56 +0000</lastBuildDate><atom:link href="https://livebug.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fedora 安装 docker</title>
+      <link>https://livebug.github.io/blogs/20230426-fedora-install-docker/</link>
+      <pubDate>Wed, 26 Apr 2023 23:38:56 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230426-fedora-install-docker/</guid>
+      <description>安装参考教程连接 https://help.aliyun.com/document_detail/264695.html?spm=5176.21213303.J_6028563670.38.3acf3eda1H4cBI&amp;amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40264695.S_hot.ID_264695-RL_docker%E5%AE%89%E8%A3%85-OR_s%2Bhelpmain-V_1-P0_7
+简单记录 安装dnf源中默认的Docker（podman-docker） # 运行以下命令，安装podman-docker。 dnf -y install docker # 运行以下命令，查看Docker是否安装成功。 docker images 权限问题 sudo gpasswd -a $USER docekr newgrp docker docker ps -a 安装gaussdb docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ enmotech/opengauss:latest 默认用户 gaussdb
+gauss 使用 drop table sdopdb.bqqyxx; create table sdopdb.bqqyxx ( p_year varchar(4) not null, p_type varchar(40) NOT NULL, p_rank varchar(4) NOT NULL, p_busi_nm varchar(100) NOT NULL, p_income DECIMAL(20,6) NOT NULL ); COMMENT ON TABLE sdopdb.</description>
+    </item>
+    
+  </channel>
+</rss>

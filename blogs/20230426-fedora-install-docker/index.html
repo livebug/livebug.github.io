@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="安装参考教程连接 https://help.aliyun.com/document_detail/264695.html?spm=5176.21213303.J_6028563670.38.3acf3eda1H4cBI&amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40264695.S_hot.ID_264695-RL_docker%E5%AE%89%E8%A3%85-OR_s%2Bhelpmain-V_1-P0_7
+简单记录 安装dnf源中默认的Docker（podman-docker） # 运行以下命令，安装podman-docker。 dnf -y install docker # 运行以下命令，查看Docker是否安装成功。 docker images 权限问题 sudo gpasswd -a $USER docekr newgrp docker docker ps -a 安装gaussdb docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ enmotech/opengauss:latest 默认用户 gaussdb
+gauss 使用 drop table sdopdb.bqqyxx; create table sdopdb.bqqyxx ( p_year varchar(4) not null, p_type varchar(40) NOT NULL, p_rank varchar(4) NOT NULL, p_busi_nm varchar(100) NOT NULL, p_income DECIMAL(20,6) NOT NULL ); COMMENT ON TABLE sdopdb.">  
+
+  <title>
+    
+      fedora 安装 docker
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.eddc66ed1ee467a9dc13d43edf10c0c3f3bb39ce689f3769cfa0793b8b3cf09f23b924c436111146c0658f9d9d67794c162839aa4e612bad2e93aa7e53e5fb00.css" integrity="sha512-7dxm7R7kZ6ncE9Q&#43;3xDAw/O7Oc5onzdpz6B5O4s88J8juSTENhERRsBlj52dZ3lMFig5qk5hK60uk6p&#43;U&#43;X7AA==" />
+  
+</head>
+<body a="light">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-04-26 23:38:56 &#43;0000 UTC">
+            2023-04-26
+        </time>
+    </p>
+
+    <h1>fedora 安装 docker</h1>
+
+    
+
+    <h3 id="安装参考教程连接">安装参考教程连接</h3>
+<p><a href="https://help.aliyun.com/document_detail/264695.html?spm=5176.21213303.J_6028563670.38.3acf3eda1H4cBI&amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40264695.S_hot.ID_264695-RL_docker%E5%AE%89%E8%A3%85-OR_s%2Bhelpmain-V_1-P0_7">https://help.aliyun.com/document_detail/264695.html?spm=5176.21213303.J_6028563670.38.3acf3eda1H4cBI&amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40264695.S_hot.ID_264695-RL_docker%E5%AE%89%E8%A3%85-OR_s%2Bhelpmain-V_1-P0_7</a></p>
+<h4 id="简单记录">简单记录</h4>
+<ol>
+<li>安装dnf源中默认的Docker（podman-docker）</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 运行以下命令，安装podman-docker。</span>
+</span></span><span style="display:flex;"><span>    dnf -y install docker
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 运行以下命令，查看Docker是否安装成功。</span>
+</span></span><span style="display:flex;"><span>    docker images
+</span></span></code></pre></div><h3 id="权限问题">权限问题</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo gpasswd -a $USER docekr 
+</span></span><span style="display:flex;"><span>newgrp docker 
+</span></span><span style="display:flex;"><span>docker ps -a
+</span></span></code></pre></div><h3 id="安装gaussdb">安装gaussdb</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run --name opengauss --privileged<span style="color:#f92672">=</span>true -d -e GS_PASSWORD<span style="color:#f92672">=</span>Enmo@123 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -v /data/opengauss:/var/lib/opengauss  -u root -p 15432:5432 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    enmotech/opengauss:latest
+</span></span></code></pre></div><p>默认用户 gaussdb</p>
+<h4 id="gauss-使用">gauss 使用</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">drop</span> <span style="color:#66d9ef">table</span> sdopdb.bqqyxx;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> sdopdb.bqqyxx 
+</span></span><span style="display:flex;"><span>(
+</span></span><span style="display:flex;"><span>	p_year varchar(<span style="color:#ae81ff">4</span>) <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>	p_type varchar(<span style="color:#ae81ff">40</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>	p_rank varchar(<span style="color:#ae81ff">4</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>	p_busi_nm varchar(<span style="color:#ae81ff">100</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>	p_income DECIMAL(<span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">6</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> 
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">COMMENT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">TABLE</span> sdopdb.bqqyxx <span style="color:#66d9ef">IS</span> <span style="color:#e6db74">&#39;百强企业信息&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span>  <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> sdopdb.bqqyxx b ;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> pg_catalog.pg_collation ;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span>  pg_get_tabledef(<span style="color:#e6db74">&#39;sdopdb.bqqyxx&#39;</span>) ;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 查询sql运行 只能查看上层sql执行情况 其实是连接状态的统计
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- 详细的运行计划，还得看 explain 的结果分析
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> pg_stat_activity ;
+</span></span></code></pre></div><h2 id="opengauss-配置-odbc">opengauss 配置 odbc</h2>
+<p>fedora 直接安装</p>
+<pre tabindex="0"><code>sudo dnf install unixODBC
+</code></pre><p><a href="https://docs.opengauss.org/zh/docs/5.0.0/docs/DeveloperGuide/Linux%E4%B8%8B%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90.html">https://docs.opengauss.org/zh/docs/5.0.0/docs/DeveloperGuide/Linux%E4%B8%8B%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90.html</a></p>
+<ul>
+<li>
+<p>注意点：</p>
+<p>将openGauss-x.x.x-ODBC.tar.gz解压后lib目录中的库拷贝到“/usr/local/lib”目录下。</p>
+<p><code>/usr/local/etc/odbcinst.ini</code> 和 <code>/usr/local/etc/odbc.ini</code> 需要自己建立</p>
+<p>环境变量配好</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export LD_LIBRARY_PATH<span style="color:#f92672">=</span>/usr/local/lib/:$LD_LIBRARY_PATH
+</span></span><span style="display:flex;"><span>export ODBCSYSINI<span style="color:#f92672">=</span>/usr/local/etc
+</span></span><span style="display:flex;"><span>export ODBCINI<span style="color:#f92672">=</span>/usr/local/etc/odbc.ini
+</span></span></code></pre></div><p><code>isql -v MPPODBC</code>  测试连接</p>
+</li>
+</ul>
+ 
+</article> 
+
+            </div>
+        </main>
+    </body></html>

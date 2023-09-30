@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on livebug&#39;s blog space</title>
+    <link>https://livebug.github.io/tags/linux/</link>
+    <description>Recent content in linux on livebug&#39;s blog space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 Jun 2023 23:48:19 +0000</lastBuildDate><atom:link href="https://livebug.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>不同主机间的ssh链接互通</title>
+      <link>https://livebug.github.io/blogs/20230827-ssh-connect/</link>
+      <pubDate>Tue, 27 Jun 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230827-ssh-connect/</guid>
+      <description>在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：
+ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。
+查看有没有ssh server
+/etc/init.d/ssh status 怎么生成密钥
+ssh-keygen -t rsa 查看本机的ssh密钥公钥
+-- windows 目录/c/Users/xxxx/.ssh 怎么添加其他机器的公钥
+密钥怎么使用
+# 密钥发送ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 防火墙开启ssh
+41 /usr/sbin/ufw47 /usr/sbin/ufw allow ssh60 /usr/sbin/ufw status70 /etc/init.d/ufw restart60 /usr/sbin/ufw status60 /usr/sbin/ufw enable # 开机自启 ssh 开机自启</description>
+    </item>
+    
+    <item>
+      <title>fedora 系统安装使用</title>
+      <link>https://livebug.github.io/blogs/20230422-fedorainstall/</link>
+      <pubDate>Sat, 22 Apr 2023 16:39:49 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230422-fedorainstall/</guid>
+      <description>fedora 安装之后的操作 换国内软件源 sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ -i.bak \ /etc/yum.repos.d/fedora.repo \ /etc/yum.repos.d/fedora-modular.repo \ /etc/yum.repos.d/fedora-updates.repo \ /etc/yum.repos.d/fedora-updates-modular.repo sudo dnf makecache sudo dnf autoremove sudo dnf remove --oldinstallonly 设置 gnome-terminal 快捷键 ctrl+alt+t 安装基本软件 2.1 edge 浏览器
+2.2 vscode
+https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-1.77.3-1681292829.el7.x86_64.rpm
+2.3 dotnet6
+2.4 nvm
+2.5 安装 GNOME 优化和扩展应用程序
+sudo dnf install gnome-tweaks gnome-extensions-app https://extensions.gnome.org/
+安装 dash to dock 插件，可以让dock在桌面悬浮
+如何给Linux安装新的字体
+下载字体后放到下面目录即可: /usr/share/fonts $l 总计 0 drwxr-xr-x. 1 root root 246 4月14日 05:44 liberation-mono .</description>
+    </item>
+    
+  </channel>
+</rss>

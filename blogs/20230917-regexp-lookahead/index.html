@@ -4,7 +4,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="正则表达式的先行断言和后行断言一共有 4 种形式：
-(?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion) (?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion) (?&lt;=pattern) 零宽正向后行断言(zero-width positive lookbehind assertion) (?&lt;!pattern) 零宽负向后行断言(zero-width negative lookbehind assertion) ">  
+(?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion)
+正向先行断言 代表字符串中的一个位置，紧接该位置之后的字符序列能够匹配 pattern。
+(?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion)
+负向先行断言 代表字符串中的一个位置，紧接该位置之后的字符序列不能匹配 pattern。
+(?&lt;=pattern) 零宽正向后行断言(zero-width positive lookbehind assertion)
+正向后行断言 代表字符串中的一个位置，紧接该位置之前的字符序列能够匹配 pattern。
+(?&lt;!pattern) 零宽负向后行断言(zero-width negative lookbehind assertion)
+负向后行断言 代表字符串中的一个位置，紧接该位置之前的字符序列不能匹配 pattern。">  
 
   <title>
     
@@ -39,10 +46,22 @@
 
     <p>正则表达式的先行断言和后行断言一共有 4 种形式：</p>
 <ul>
-<li><code>(?=pattern)</code>  零宽正向先行断言<code>(zero-width positive lookahead assertion)</code></li>
-<li><code>(?!pattern)</code>  零宽负向先行断言<code>(zero-width negative lookahead assertion)</code></li>
-<li><code>(?&lt;=pattern)</code> 零宽正向后行断言<code>(zero-width positive lookbehind assertion)</code></li>
-<li><code>(?&lt;!pattern)</code> 零宽负向后行断言<code>(zero-width negative lookbehind assertion)</code></li>
+<li>
+<p><code>(?=pattern)</code>  零宽正向先行断言<code>(zero-width positive lookahead assertion)</code></p>
+<p>正向先行断言 代表字符串中的一个位置，紧接该位置之后的字符序列能够匹配 pattern。</p>
+</li>
+<li>
+<p><code>(?!pattern)</code>  零宽负向先行断言<code>(zero-width negative lookahead assertion)</code></p>
+<p>负向先行断言 代表字符串中的一个位置，紧接该位置之后的字符序列不能匹配 pattern。</p>
+</li>
+<li>
+<p><code>(?&lt;=pattern)</code> 零宽正向后行断言<code>(zero-width positive lookbehind assertion)</code></p>
+<p>正向后行断言 代表字符串中的一个位置，紧接该位置之前的字符序列能够匹配 pattern。</p>
+</li>
+<li>
+<p><code>(?&lt;!pattern)</code> 零宽负向后行断言<code>(zero-width negative lookbehind assertion)</code></p>
+<p>负向后行断言 代表字符串中的一个位置，紧接该位置之前的字符序列不能匹配 pattern。</p>
+</li>
 </ul>
  
 </article> 

@@ -69,7 +69,14 @@ SSH 原理 什么是SSH SSH 叫安全外壳协议（Secure Shell），是一种�
       
       <guid>https://livebug.github.io/blogs/20230917-regexp-lookahead/</guid>
       <description>正则表达式的先行断言和后行断言一共有 4 种形式：
-(?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion) (?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion) (?&amp;lt;=pattern) 零宽正向后行断言(zero-width positive lookbehind assertion) (?&amp;lt;!pattern) 零宽负向后行断言(zero-width negative lookbehind assertion) </description>
+(?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion)
+正向先行断言 代表字符串中的一个位置，紧接该位置之后的字符序列能够匹配 pattern。
+(?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion)
+负向先行断言 代表字符串中的一个位置，紧接该位置之后的字符序列不能匹配 pattern。
+(?&amp;lt;=pattern) 零宽正向后行断言(zero-width positive lookbehind assertion)
+正向后行断言 代表字符串中的一个位置，紧接该位置之前的字符序列能够匹配 pattern。
+(?&amp;lt;!pattern) 零宽负向后行断言(zero-width negative lookbehind assertion)
+负向后行断言 代表字符串中的一个位置，紧接该位置之前的字符序列不能匹配 pattern。</description>
     </item>
     
     <item>
@@ -92,6 +99,66 @@ scopeName （第 1 行）— 这应该是语法的唯一名称，遵循点分隔
       <description>安装 nodejs 环境 vscode版本：
 版本: 1.82.0 (user setup) 提交: 8b617bd08fd9e3fc94d14adb8d358b56e3f72314 日期: 2023-09-06T22:07:07.438Z Electron: 25.8.0 ElectronBuildId: 23503258 Chromium: 114.0.5735.289 Node.js: 18.15.0 V8: 11.4.183.29-electron.0 OS: Windows_NT x64 10.0.25941 修改host
 nslookup 查看 github 的网站，修改 hosts nslookup http://github.global.ssl.fastly.net nslookup http://github.com nslookup http://raw.githubusercontent.com # hosts 199.16.158.9 http://github.global.ssl.fastly.net 199.16.158.9 https://github.global.ssl.fastly.net 20.205.243.166 http://github.com 20.205.243.166 https://github.com 185.199.111.133 http://raw.githubusercontent.com 185.199.111.133 https://raw.githubusercontent.com 185.199.110.133 http://raw.githubusercontent.com 185.199.110.133 https://raw.githubusercontent.com 185.199.108.133 http://raw.githubusercontent.com 185.199.108.133 https://raw.githubusercontent.com wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以 安装 nvm</description>
+    </item>
+    
+    <item>
+      <title>不同主机间的ssh链接互通</title>
+      <link>https://livebug.github.io/blogs/20230827-ssh-connect/</link>
+      <pubDate>Tue, 27 Jun 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230827-ssh-connect/</guid>
+      <description>在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：
+ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。
+查看有没有ssh server
+/etc/init.d/ssh status 怎么生成密钥
+ssh-keygen -t rsa 查看本机的ssh密钥公钥
+-- windows 目录/c/Users/xxxx/.ssh 怎么添加其他机器的公钥
+密钥怎么使用
+# 密钥发送ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 防火墙开启ssh
+41 /usr/sbin/ufw47 /usr/sbin/ufw allow ssh60 /usr/sbin/ufw status70 /etc/init.d/ufw restart60 /usr/sbin/ufw status60 /usr/sbin/ufw enable # 开机自启 ssh 开机自启</description>
+    </item>
+    
+    <item>
+      <title>fedora 安装 docker</title>
+      <link>https://livebug.github.io/blogs/20230426-fedora-install-docker/</link>
+      <pubDate>Wed, 26 Apr 2023 23:38:56 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230426-fedora-install-docker/</guid>
+      <description>安装参考教程连接 https://help.aliyun.com/document_detail/264695.html?spm=5176.21213303.J_6028563670.38.3acf3eda1H4cBI&amp;amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40264695.S_hot.ID_264695-RL_docker%E5%AE%89%E8%A3%85-OR_s%2Bhelpmain-V_1-P0_7
+简单记录 安装dnf源中默认的Docker（podman-docker） # 运行以下命令，安装podman-docker。 dnf -y install docker # 运行以下命令，查看Docker是否安装成功。 docker images 权限问题 sudo gpasswd -a $USER docekr newgrp docker docker ps -a 安装gaussdb docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ enmotech/opengauss:latest 默认用户 gaussdb
+gauss 使用 drop table sdopdb.bqqyxx; create table sdopdb.bqqyxx ( p_year varchar(4) not null, p_type varchar(40) NOT NULL, p_rank varchar(4) NOT NULL, p_busi_nm varchar(100) NOT NULL, p_income DECIMAL(20,6) NOT NULL ); COMMENT ON TABLE sdopdb.</description>
+    </item>
+    
+    <item>
+      <title>在CentOS/RHEL 7中打开Samba端口</title>
+      <link>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</link>
+      <pubDate>Tue, 25 Apr 2023 10:36:21 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</guid>
+      <description>来源：
+https://www.linuxprobe.com/fedora-centos-samba.html
+在CentOS/RHEL 7中打开Samba端口
+使用以下命令：
+firewall-cmd --permanent --zone=public --add-service=samba firewall-cmd --reload 注意事项：
+需要加用户密码时，使用本机已经有的账户，但秘密可以随便设置 </description>
+    </item>
+    
+    <item>
+      <title>fedora 系统安装使用</title>
+      <link>https://livebug.github.io/blogs/20230422-fedorainstall/</link>
+      <pubDate>Sat, 22 Apr 2023 16:39:49 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230422-fedorainstall/</guid>
+      <description>fedora 安装之后的操作 换国内软件源 sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ -i.bak \ /etc/yum.repos.d/fedora.repo \ /etc/yum.repos.d/fedora-modular.repo \ /etc/yum.repos.d/fedora-updates.repo \ /etc/yum.repos.d/fedora-updates-modular.repo sudo dnf makecache sudo dnf autoremove sudo dnf remove --oldinstallonly 设置 gnome-terminal 快捷键 ctrl+alt+t 安装基本软件 2.1 edge 浏览器
+2.2 vscode
+https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-1.77.3-1681292829.el7.x86_64.rpm
+2.3 dotnet6
+2.4 nvm
+2.5 安装 GNOME 优化和扩展应用程序
+sudo dnf install gnome-tweaks gnome-extensions-app https://extensions.gnome.org/
+安装 dash to dock 插件，可以让dock在桌面悬浮
+如何给Linux安装新的字体
+下载字体后放到下面目录即可: /usr/share/fonts $l 总计 0 drwxr-xr-x. 1 root root 246 4月14日 05:44 liberation-mono .</description>
     </item>
     
   </channel>

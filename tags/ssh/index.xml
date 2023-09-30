@@ -23,5 +23,22 @@ SSH 原理 什么是SSH SSH 叫安全外壳协议（Secure Shell），是一种�
 在A上生成公钥、私钥 将公钥拷贝给 Server B ，将公钥拷贝到 Server A 向 Server B 发送一个连接请求。 Server B 得到 Server A 的信息后，在authorized_key中查找，如果有相应的用户名和IP，则随机生成一个字符串，并用 Server A 的公钥加密，发送给 Server A 。 Server A 得到 Server B 发来的消息后，使用私钥进行解密，然后将解密后的字符串发送给 Server B 。 Server B 进行和生成的对比，如果一致，则允许免登录。 总之 ：A要免密码登录到B，B首先要拥有A的公钥，然后B要做一次加密验证。对于非对称加密，公钥加密的密文不能公钥解开，只能私钥解开。</description>
     </item>
     
+    <item>
+      <title>不同主机间的ssh链接互通</title>
+      <link>https://livebug.github.io/blogs/20230827-ssh-connect/</link>
+      <pubDate>Tue, 27 Jun 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230827-ssh-connect/</guid>
+      <description>在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：
+ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。
+查看有没有ssh server
+/etc/init.d/ssh status 怎么生成密钥
+ssh-keygen -t rsa 查看本机的ssh密钥公钥
+-- windows 目录/c/Users/xxxx/.ssh 怎么添加其他机器的公钥
+密钥怎么使用
+# 密钥发送ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 防火墙开启ssh
+41 /usr/sbin/ufw47 /usr/sbin/ufw allow ssh60 /usr/sbin/ufw status70 /etc/init.d/ufw restart60 /usr/sbin/ufw status60 /usr/sbin/ufw enable # 开机自启 ssh 开机自启</description>
+    </item>
+    
   </channel>
 </rss>

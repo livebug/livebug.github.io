@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fedora on livebug&#39;s blog space</title>
+    <link>https://livebug.github.io/tags/fedora/</link>
+    <description>Recent content in fedora on livebug&#39;s blog space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Apr 2023 10:36:21 +0000</lastBuildDate><atom:link href="https://livebug.github.io/tags/fedora/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在CentOS/RHEL 7中打开Samba端口</title>
+      <link>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</link>
+      <pubDate>Tue, 25 Apr 2023 10:36:21 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</guid>
+      <description>来源：
+https://www.linuxprobe.com/fedora-centos-samba.html
+在CentOS/RHEL 7中打开Samba端口
+使用以下命令：
+firewall-cmd --permanent --zone=public --add-service=samba firewall-cmd --reload 注意事项：
+需要加用户密码时，使用本机已经有的账户，但秘密可以随便设置 </description>
+    </item>
+    
+    <item>
+      <title>fedora 系统安装使用</title>
+      <link>https://livebug.github.io/blogs/20230422-fedorainstall/</link>
+      <pubDate>Sat, 22 Apr 2023 16:39:49 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230422-fedorainstall/</guid>
+      <description>fedora 安装之后的操作 换国内软件源 sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ -i.bak \ /etc/yum.repos.d/fedora.repo \ /etc/yum.repos.d/fedora-modular.repo \ /etc/yum.repos.d/fedora-updates.repo \ /etc/yum.repos.d/fedora-updates-modular.repo sudo dnf makecache sudo dnf autoremove sudo dnf remove --oldinstallonly 设置 gnome-terminal 快捷键 ctrl+alt+t 安装基本软件 2.1 edge 浏览器
+2.2 vscode
+https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-1.77.3-1681292829.el7.x86_64.rpm
+2.3 dotnet6
+2.4 nvm
+2.5 安装 GNOME 优化和扩展应用程序
+sudo dnf install gnome-tweaks gnome-extensions-app https://extensions.gnome.org/
+安装 dash to dock 插件，可以让dock在桌面悬浮
+如何给Linux安装新的字体
+下载字体后放到下面目录即可: /usr/share/fonts $l 总计 0 drwxr-xr-x. 1 root root 246 4月14日 05:44 liberation-mono .</description>
+    </item>
+    
+  </channel>
+</rss>
