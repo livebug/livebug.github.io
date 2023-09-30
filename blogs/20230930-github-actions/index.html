@@ -6,7 +6,7 @@
    <meta name="description" content="介绍背景：
 博客网站myblog仓库底下有两个子库，一个子库是用来存储markdown文章的blogs仓库，一个是用来存储public内容的github pages库 livebug.github.io仓库
 当博客网站样式更新提交，或者文章提交，触发myblog仓库的 actions ，执行完之后发布到pages仓库
-开发myblog仓库的提交 actions jobs: # Build job public: runs-on: ubuntu-latest env: HUGO_VERSION: 0.114.0 steps: - name: Setup Hugo # 初始化 护工环境 uses: peaceiris/actions-hugo@v2 with: hugo-version: &#34;latest&#34; - name: Checkout # 检出资源 uses: actions/checkout@v3 with: submodules: recursive # 子模块，当前是 blogs 仓库 - name: Build with Hugo # 编译生成 env: # For maximum backward compatibility with Hugo modules HUGO_ENVIRONMENT: production HUGO_ENV: production run: | hugo - name: Deploy # 发布 uses: peaceiris/actions-gh-pages@v3 with: personal_token: ${{ secrets.">  
+开发myblog仓库的提交 actions # Sample workflow for building and deploying a Hugo site to GitHub Pages name: Deploy Hugo site to Pages on: # Runs on pushes targeting the default branch push: branches: [&#34;master&#34;] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages permissions: contents: read pages: write id-token: write # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.">  
 
   <title>
     
@@ -52,7 +52,35 @@
 <p>博客网站<code>myblog</code>仓库底下有两个子库，一个子库是用来存储<code>markdown</code>文章的<code>blogs</code>仓库，一个是用来存储<code>public</code>内容的<code>github pages</code>库 <code>livebug.github.io</code>仓库</p>
 <p>当博客网站样式更新提交，或者文章提交，触发<code>myblog</code>仓库的 actions ，执行完之后发布到pages仓库</p>
 <h2 id="开发myblog仓库的提交-actions">开发<code>myblog</code>仓库的提交 actions</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#75715e"># Sample workflow for building and deploying a Hugo site to GitHub Pages</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy Hugo site to Pages</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Runs on pushes targeting the default branch</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: [<span style="color:#e6db74">&#34;master&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Allows you to run this workflow manually from the Actions tab</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">workflow_dispatch</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">permissions</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">contents</span>: <span style="color:#ae81ff">read</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pages</span>: <span style="color:#ae81ff">write</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">id-token</span>: <span style="color:#ae81ff">write</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">concurrency</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">group</span>: <span style="color:#e6db74">&#34;pages&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cancel-in-progress</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default to bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">defaults</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">run</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">shell</span>: <span style="color:#ae81ff">bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Build job</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">public</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
@@ -82,7 +110,45 @@
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">publish_dir</span>: <span style="color:#ae81ff">./public</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">publish_branch</span>: <span style="color:#ae81ff">master</span>
 </span></span></code></pre></div><h2 id="子库提交父库刷新触发action并重新部署">子库提交，父库刷新触发action，并重新部署</h2>
- 
+<ol>
+<li>
+<p>基础道理，提交到<code>blogs</code>中，触发仓库中的<code>action</code>，重新提交父库</p>
+</li>
+<li>
+<p>提交父库时，会触发父库的<code>action</code>，自动重新部署</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Send submodule updates to parent repo</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: 
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">master</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">update</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2 </span> <span style="color:#75715e"># 检出父库</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>: 
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">repository</span>: <span style="color:#ae81ff">livebug/myblog</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">token</span>: <span style="color:#ae81ff">${{ secrets.PERSONAL_TOKEN }}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">submodules</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Pull &amp; update submodules recursively</span> <span style="color:#75715e"># 更新子库</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git submodule update --init --recursive
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git submodule update --recursive --remote</span>          
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Commit     </span> <span style="color:#75715e"># 父库提交</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git config user.email &#34;actions@github.com&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git config user.name &#34;GitHub Actions - update submodules&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git add --all
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git commit -m &#34;Update submodules&#34; || echo &#34;No changes to commit&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          git push</span>          
+</span></span></code></pre></div> 
 </article> 
 
             </div>
