@@ -27,7 +27,7 @@
 <body a="light">
         <main class="page-content" aria-label="Content">
             <div class="w">
-<a href="/">..back</a>
+<a href="/">.. back to home</a>
 
 
 <article>
@@ -40,8 +40,11 @@
     <h1>ssh基本介绍和问题解答</h1>
 
     
-        <aside >
-            <nav id="TableOfContents">
+
+    
+    
+    <aside >
+        <nav id="TableOfContents">
   <ul>
     <li><a href="#ssh-简单介绍">SSH 简单介绍</a>
       <ul>
@@ -58,8 +61,10 @@
     </li>
   </ul>
 </nav>
-        </aside>
+    </aside>
     
+    
+    <hr class="hr-common"> 
 
     <h2 id="ssh-简单介绍">SSH 简单介绍</h2>
 <p>在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：</p>
@@ -102,8 +107,17 @@
 </span></span></code></pre></div><h3 id="root安装的docker普通用户无法使用">root安装的docker，普通用户无法使用</h3>
 <p>需要将普通用户增加到docker用户组，见<a href="https://livebug.github.io/blogs/20230426-fedora-install-docker/#权限问题" title="安装 docker - 权限问题">安装 docker - 权限问题</a></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>permission denied <span style="color:#000;font-weight:bold">while</span> trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get <span style="color:#d14">&#34;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json&#34;</span>: dial unix /var/run/docker.sock: connect: permission denied
-</span></span></code></pre></div> 
-</article> 
+</span></span></code></pre></div>
+</article>
+<hr class="hr-common">
+
+<footer class="post-footer">
+    <ul class="post-tags">
+        <li><a href="https://livebug.github.io/tags/ssh/">ssh</a></li>
+        <li><a href="https://livebug.github.io/tags/linux/">linux</a></li>
+    </ul>
+</footer>
+
 
             </div>
         </main>

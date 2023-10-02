@@ -25,7 +25,7 @@
 <body a="light">
         <main class="page-content" aria-label="Content">
             <div class="w">
-<a href="/">..back</a>
+<a href="/">.. back to home</a>
 
 
 <article>
@@ -38,15 +38,20 @@
     <h1>使用 Github Actions 自动化发布博客</h1>
 
     
-        <aside >
-            <nav id="TableOfContents">
+
+    
+    
+    <aside >
+        <nav id="TableOfContents">
   <ul>
     <li><a href="#开发myblog仓库的提交-actions">开发<code>myblog</code>仓库的提交 actions</a></li>
     <li><a href="#子库提交父库刷新触发action并重新部署">子库提交，父库刷新触发action，并重新部署</a></li>
   </ul>
 </nav>
-        </aside>
+    </aside>
     
+    
+    <hr class="hr-common"> 
 
     <p>介绍背景：</p>
 <p>博客网站<code>myblog</code>仓库底下有两个子库，一个子库是用来存储<code>markdown</code>文章的<code>blogs</code>仓库，一个是用来存储<code>public</code>内容的<code>github pages</code>库 <code>livebug.github.io</code>仓库</p>
@@ -148,8 +153,18 @@
 </span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span><span style="color:#d14">          git add --all
 </span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span><span style="color:#d14">          git commit -m &#34;Update submodules&#34; || echo &#34;No changes to commit&#34;
 </span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span><span style="color:#d14">          git push</span><span style="color:#bbb">          
-</span></span></span></code></pre></div> 
-</article> 
+</span></span></span></code></pre></div>
+</article>
+<hr class="hr-common">
+
+<footer class="post-footer">
+    <ul class="post-tags">
+        <li><a href="https://livebug.github.io/tags/github-actions/">github actions</a></li>
+        <li><a href="https://livebug.github.io/tags/hugo/">hugo</a></li>
+        <li><a href="https://livebug.github.io/tags/github/">github</a></li>
+    </ul>
+</footer>
+
 
             </div>
         </main>
