@@ -3,6 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://livebug.github.io/blogs/</loc>
+    <lastmod>2023-10-03T00:36:17+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/tags/css/</loc>
+    <lastmod>2023-10-03T00:36:17+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/blogs/20231003-css-web-browser-style/</loc>
+    <lastmod>2023-10-03T00:36:17+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/tags/</loc>
+    <lastmod>2023-10-03T00:36:17+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/tags/github/</loc>
+    <lastmod>2023-09-30T13:58:58+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/tags/github-actions/</loc>
+    <lastmod>2023-09-30T13:58:58+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/tags/hugo/</loc>
     <lastmod>2023-09-30T13:58:58+08:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/blogs/20230930-github-actions/</loc>
@@ -20,16 +38,16 @@
     <loc>https://livebug.github.io/tags/ssh/</loc>
     <lastmod>2023-09-22T23:48:19+00:00</lastmod>
   </url><url>
-    <loc>https://livebug.github.io/tags/</loc>
-    <lastmod>2023-09-22T23:48:19+00:00</lastmod>
-  </url><url>
     <loc>https://livebug.github.io/tags/regex/</loc>
     <lastmod>2023-09-17T23:48:19+00:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/blogs/20230917-regexp-lookahead/</loc>
     <lastmod>2023-09-17T23:48:19+00:00</lastmod>
   </url><url>
-    <loc>https://livebug.github.io/tags/nginx/</loc>
+    <loc>https://livebug.github.io/tags/linux/</loc>
+    <lastmod>2023-08-27T23:48:19+00:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/tags/nodejs/</loc>
     <lastmod>2023-08-27T23:48:19+00:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/tags/nvm/</loc>
@@ -41,6 +59,9 @@
     <loc>https://livebug.github.io/blogs/20230909-vscode-sqllang/</loc>
     <lastmod>2023-08-27T23:48:19+00:00</lastmod>
   </url><url>
+    <loc>https://livebug.github.io/tags/vscode/</loc>
+    <lastmod>2023-08-27T23:48:19+00:00</lastmod>
+  </url><url>
     <loc>https://livebug.github.io/tags/vscode-extension/</loc>
     <lastmod>2023-08-27T23:48:19+00:00</lastmod>
   </url><url>
@@ -50,25 +71,25 @@
     <loc>https://livebug.github.io/blogs/20230909-wsl-init-devenv/</loc>
     <lastmod>2023-08-27T23:48:19+00:00</lastmod>
   </url><url>
-    <loc>https://livebug.github.io/tags/linux/</loc>
-    <lastmod>2023-06-27T23:48:19+00:00</lastmod>
-  </url><url>
     <loc>https://livebug.github.io/blogs/20230827-ssh-connect/</loc>
     <lastmod>2023-06-27T23:48:19+00:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/tags/docker/</loc>
     <lastmod>2023-04-26T23:38:56+00:00</lastmod>
   </url><url>
+    <loc>https://livebug.github.io/tags/fedora/</loc>
+    <lastmod>2023-04-26T23:38:56+00:00</lastmod>
+  </url><url>
     <loc>https://livebug.github.io/blogs/20230426-fedora-install-docker/</loc>
     <lastmod>2023-04-26T23:38:56+00:00</lastmod>
   </url><url>
-    <loc>https://livebug.github.io/tags/fedora/</loc>
+    <loc>https://livebug.github.io/tags/gauss/</loc>
+    <lastmod>2023-04-26T23:38:56+00:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</loc>
     <lastmod>2023-04-25T10:36:21+00:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/tags/samba/</loc>
-    <lastmod>2023-04-25T10:36:21+00:00</lastmod>
-  </url><url>
-    <loc>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</loc>
     <lastmod>2023-04-25T10:36:21+00:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/blogs/20230422-fedorainstall/</loc>

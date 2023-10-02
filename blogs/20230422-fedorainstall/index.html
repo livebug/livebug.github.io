@@ -3,7 +3,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <meta name="description" content="fedora 安装之后的操作 换国内软件源 1 sudo sed -e &#39;s|^metalink=|#metalink=|g&#39; \ 2 -e &#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&#39; \ 3 -i.bak \ 4 /etc/yum.repos.d/fedora.repo \ 5 /etc/yum.repos.d/fedora-modular.repo \ 6 /etc/yum.repos.d/fedora-updates.repo \ 7 /etc/yum.repos.d/fedora-updates-modular.repo 8 9 sudo dnf makecache 10 sudo dnf autoremove 11 sudo dnf remove --oldinstallonly 设置 gnome-terminal 快捷键 ctrl&#43;alt&#43;t 安装基本软件 2.1 edge 浏览器
+   <meta name="description" content="fedora 安装之后的操作 1. 换国内软件源 1sudo sed -e &#39;s|^metalink=|#metalink=|g&#39; \ 2 -e &#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&#39; \ 3 -i.bak \ 4 /etc/yum.repos.d/fedora.repo \ 5 /etc/yum.repos.d/fedora-modular.repo \ 6 /etc/yum.repos.d/fedora-updates.repo \ 7 /etc/yum.repos.d/fedora-updates-modular.repo 8 9sudo dnf makecache 10sudo dnf autoremove 11sudo dnf remove --oldinstallonly 2. 设置 gnome-terminal 快捷键 ctrl&#43;alt&#43;t 3. 安装基本软件 2.1 edge 浏览器
 2.2 vscode
 https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-1.77.3-1681292829.el7.x86_64.rpm
 2.3 dotnet6
@@ -14,7 +14,7 @@ https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code
 
   <title>
     
-      fedora 系统安装使用
+      fedora系统安装后的基本操作
     
   </title>
 
@@ -39,27 +39,40 @@ https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code
         </time>
     </p>
 
-    <h1>fedora 系统安装使用</h1>
+    <h1>fedora系统安装后的基本操作</h1>
 
     
+        <aside >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#fedora-安装之后的操作">fedora 安装之后的操作</a>
+      <ul>
+        <li><a href="#1-换国内软件源">1. 换国内软件源</a></li>
+        <li><a href="#2-设置-gnome-terminal--快捷键-ctrlaltt">2. 设置 <code>gnome-terminal </code> 快捷键 <code>ctrl+alt+t</code></a></li>
+        <li><a href="#3-安装基本软件">3. 安装基本软件</a></li>
+        <li><a href="#4-如何给linux安装新的字体">4. 如何给Linux安装新的字体</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </aside>
+    
 
-    <h1 id="fedora-安装之后的操作">fedora 安装之后的操作</h1>
-<ol>
-<li>换国内软件源
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>    sudo sed -e <span style="color:#d14">&#39;s|^metalink=|#metalink=|g&#39;</span> <span style="color:#d14">\
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#d14"></span>        -e <span style="color:#d14">&#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&#39;</span> <span style="color:#d14">\
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#d14"></span>        -i.bak <span style="color:#d14">\
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#d14"></span>        /etc/yum.repos.d/fedora.repo <span style="color:#d14">\
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#d14"></span>        /etc/yum.repos.d/fedora-modular.repo <span style="color:#d14">\
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#d14"></span>        /etc/yum.repos.d/fedora-updates.repo <span style="color:#d14">\
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#d14"></span>        /etc/yum.repos.d/fedora-updates-modular.repo
+    <h2 id="fedora-安装之后的操作">fedora 安装之后的操作</h2>
+<h3 id="1-换国内软件源">1. 换国内软件源</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>sudo sed -e <span style="color:#d14">&#39;s|^metalink=|#metalink=|g&#39;</span> <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#d14"></span>    -e <span style="color:#d14">&#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&#39;</span> <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#d14"></span>    -i.bak <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#d14"></span>    /etc/yum.repos.d/fedora.repo <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#d14"></span>    /etc/yum.repos.d/fedora-modular.repo <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#d14"></span>    /etc/yum.repos.d/fedora-updates.repo <span style="color:#d14">\
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#d14"></span>    /etc/yum.repos.d/fedora-updates-modular.repo
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    sudo dnf makecache
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    sudo dnf autoremove
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    sudo dnf remove --oldinstallonly
-</span></span></code></pre></div></li>
-<li>设置 <code>gnome-terminal </code> 快捷键 <code>ctrl+alt+t</code></li>
-<li>安装基本软件
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>sudo dnf makecache
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>sudo dnf autoremove
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>sudo dnf remove --oldinstallonly
+</span></span></code></pre></div><h3 id="2-设置-gnome-terminal--快捷键-ctrlaltt">2. 设置 <code>gnome-terminal </code> 快捷键 <code>ctrl+alt+t</code></h3>
+<h3 id="3-安装基本软件">3. 安装基本软件</h3>
 <ul>
 <li>
 <p>2.1 edge 浏览器</p>
@@ -81,17 +94,14 @@ https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code
 安装 dash to dock 插件，可以让dock在桌面悬浮</p>
 </li>
 </ul>
-</li>
-<li>如何给Linux安装新的字体<br>
-下载字体后放到下面目录即可:
+<h3 id="4-如何给linux安装新的字体">4. 如何给Linux安装新的字体</h3>
+<p>下载字体后放到下面目录即可:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>/usr/share/fonts
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#008080">$l</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>总计 <span style="color:#099">0</span>
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>drwxr-xr-x. <span style="color:#099">1</span> root root  <span style="color:#099">246</span>  4月14日 05:44 liberation-mono
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>...
-</span></span></code></pre></div></li>
-</ol>
- 
+</span></span></code></pre></div> 
 </article> 
 
             </div>

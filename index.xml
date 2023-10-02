@@ -8,7 +8,17 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 25 Aug 2022 21:30:04 +0800</lastBuildDate><atom:link href="https://livebug.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Github Actions 使用 自动化发布博客</title>
+      <title>css—用户代理样式表</title>
+      <link>https://livebug.github.io/blogs/20231003-css-web-browser-style/</link>
+      <pubDate>Tue, 03 Oct 2023 00:36:17 +0800</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20231003-css-web-browser-style/</guid>
+      <description>一般处理方式怎加第一行代码
+1&amp;lt;!DOCTYPE html&amp;gt; 如果不起作用就需要在样式上使用 !important</description>
+    </item>
+    
+    <item>
+      <title>使用 Github Actions 自动化发布博客</title>
       <link>https://livebug.github.io/blogs/20230930-github-actions/</link>
       <pubDate>Sat, 30 Sep 2023 13:58:58 +0800</pubDate>
       
@@ -47,23 +57,25 @@ https://livebug.github.io/ 崇尚某些事情，并不是拿来与他人比较�
     </item>
     
     <item>
-      <title>gitee 增加 ssh key 实现免密访问</title>
+      <title>gitee增加ssh 实现免密访问</title>
       <link>https://livebug.github.io/blogs/20230922-gitee-add-sshkey/</link>
       <pubDate>Fri, 22 Sep 2023 23:48:19 +0000</pubDate>
       
       <guid>https://livebug.github.io/blogs/20230922-gitee-add-sshkey/</guid>
-      <description>其实这个很简单，根据提供的提示文档按部就班增加就行
+      <description>前言 其实实现这个很简单，根据提供的提示文档按部就班增加就行
 https://help.gitee.com/base/account/SSH%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE#:~:text=%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE-,SSH%20%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE,-Gitee%20%E6%8F%90%E4%BE%9B%E4%BA%86
 本文主要是想说明 ssh的原理以及应用
 SSH 原理 什么是SSH SSH 叫安全外壳协议（Secure Shell），是一种加密的网络传输协议，可在不安全的网络中网络服务提供安全的传输环境。它通过在网络中创建安全隧道来实现 SSH 客户端和服务器之间的连接。
 对称加密 对方同自己用于同样的密钥，加解密时用一样的
 非对称加密 非对称加密需要一对秘钥来进行加密和解密，公开的秘钥叫公钥，私有的秘钥叫私钥。注意公钥加密的信息只有私钥才能解开（加密过程），私钥加密的信息只有公钥才能解开（验签过程）。比较常用的非对称加密算法有 RSA。
 图解， Server A 免登录到 Server B :
-在A上生成公钥、私钥 将公钥拷贝给 Server B ，将公钥拷贝到 Server A 向 Server B 发送一个连接请求。 Server B 得到 Server A 的信息后，在authorized_key中查找，如果有相应的用户名和IP，则随机生成一个字符串，并用 Server A 的公钥加密，发送给 Server A 。 Server A 得到 Server B 发来的消息后，使用私钥进行解密，然后将解密后的字符串发送给 Server B 。 Server B 进行和生成的对比，如果一致，则允许免登录。 总之 ：A要免密码登录到B，B首先要拥有A的公钥，然后B要做一次加密验证。对于非对称加密，公钥加密的密文不能公钥解开，只能私钥解开。</description>
+在A上生成公钥、私钥 将公钥拷贝给 Server B ，将公钥拷贝到 Server A 向 Server B 发送一个连接请求。 Server B 得到 Server A 的信息后，在authorized_key中查找，如果有相应的用户名和IP，则随机生成一个字符串，并用 Server A 的公钥加密，发送给 Server A 。 Server A 得到 Server B 发来的消息后，使用私钥进行解密，然后将解密后的字符串发送给 Server B 。 Server B 进行和生成的对比，如果一致，则允许免登录。 总之 ：A要免密码登录到B，B首先要拥有A的公钥，然后B要做一次加密验证。对于非对称加密，公钥加密的密文不能公钥解开，只能私钥解开。
+&amp;mdash; 相关文档 &amp;mdash;
+SSH使用 第一篇 - SSH 使用 第二篇 - gitee SSH免密登录 </description>
     </item>
     
     <item>
-      <title>正则表达式的先行断言(lookahead)和后行断言(lookbehind)</title>
+      <title>正则表达式-先行断言(lookahead)和后行断言(lookbehind)</title>
       <link>https://livebug.github.io/blogs/20230917-regexp-lookahead/</link>
       <pubDate>Sun, 17 Sep 2023 23:48:19 +0000</pubDate>
       
@@ -80,7 +92,7 @@ SSH 原理 什么是SSH SSH 叫安全外壳协议（Secure Shell），是一种�
     </item>
     
     <item>
-      <title>sql 语言脚本</title>
+      <title>sql语言脚本开发-语法突出</title>
       <link>https://livebug.github.io/blogs/20230909-vscode-sqllang/</link>
       <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
       
@@ -90,46 +102,43 @@ TextMate 语法 1{ 2 scopeName = &amp;#39;source.untitled&amp;#39;; 3 fileTypes 
     </item>
     
     <item>
-      <title>wsl 开放环境初始化</title>
+      <title>wsl环境初始化-安装nvm</title>
       <link>https://livebug.github.io/blogs/20230909-wsl-init-devenv/</link>
       <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
       
       <guid>https://livebug.github.io/blogs/20230909-wsl-init-devenv/</guid>
-      <description>安装 nodejs 环境 vscode版本：
-版本: 1.82.0 (user setup) 提交: 8b617bd08fd9e3fc94d14adb8d358b56e3f72314 日期: 2023-09-06T22:07:07.438Z Electron: 25.8.0 ElectronBuildId: 23503258 Chromium: 114.0.5735.289 Node.js: 18.15.0 V8: 11.4.183.29-electron.0 OS: Windows_NT x64 10.0.25941 修改host
-nslookup 查看 github 的网站，修改 hosts 1nslookup http://github.global.ssl.fastly.net 2nslookup http://github.com 3nslookup http://raw.githubusercontent.com 4 5# hosts 6199.16.158.9 http://github.global.ssl.fastly.net 7199.16.158.9 https://github.global.ssl.fastly.net 820.205.243.166 http://github.com 920.205.243.166 https://github.com 10185.199.111.133 http://raw.githubusercontent.com 11185.199.111.133 https://raw.githubusercontent.com 12185.199.110.133 http://raw.githubusercontent.com 13185.199.110.133 https://raw.githubusercontent.com 14185.199.108.133 http://raw.githubusercontent.com 15185.199.108.133 https://raw.githubusercontent.com wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以 安装 nvm</description>
+      <description>安装 nodejs 环境 1.vscode版本： 1版本: 1.82.0 (user setup) 2提交: 8b617bd08fd9e3fc94d14adb8d358b56e3f72314 3日期: 2023-09-06T22:07:07.438Z 4Electron: 25.8.0 5ElectronBuildId: 23503258 6Chromium: 114.0.5735.289 7Node.js: 18.15.0 8V8: 11.4.183.29-electron.0 9OS: Windows_NT x64 10.0.25941 2.修改host 有科学上网条件的就不用了，建议需要的上个机场
+nslookup 查看 github 的网站，修改 hosts
+1nslookup http://github.global.ssl.fastly.net 2nslookup http://github.com 3nslookup http://raw.githubusercontent.com 4 5# hosts 6199.16.158.9 http://github.global.ssl.fastly.net 7199.16.158.9 https://github.global.ssl.fastly.net 820.205.243.166 http://github.com 920.205.243.166 https://github.com 10185.199.111.133 http://raw.githubusercontent.com 11185.199.111.133 https://raw.githubusercontent.com 12185.199.110.133 http://raw.githubusercontent.com 13185.199.110.133 https://raw.githubusercontent.com 14185.199.108.133 http://raw.githubusercontent.com 15185.199.108.133 https://raw.githubusercontent.com wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以</description>
     </item>
     
     <item>
-      <title>不同主机间的ssh链接互通</title>
+      <title>ssh基本介绍和问题解答</title>
       <link>https://livebug.github.io/blogs/20230827-ssh-connect/</link>
       <pubDate>Tue, 27 Jun 2023 23:48:19 +0000</pubDate>
       
       <guid>https://livebug.github.io/blogs/20230827-ssh-connect/</guid>
-      <description>在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：
-ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。
-查看有没有ssh server
-/etc/init.d/ssh status 怎么生成密钥
-ssh-keygen -t rsa 查看本机的ssh密钥公钥
--- windows 目录/c/Users/xxxx/.ssh 怎么添加其他机器的公钥
-密钥怎么使用
-# 密钥发送ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 防火墙开启ssh
-41 /usr/sbin/ufw47 /usr/sbin/ufw allow ssh60 /usr/sbin/ufw status70 /etc/init.d/ufw restart60 /usr/sbin/ufw status60 /usr/sbin/ufw enable # 开机自启 ssh 开机自启</description>
+      <description>SSH 简单介绍 在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：
+1ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。
+其实就是把自己的公钥给服务器，让服务器可以认证你
+查看有没有ssh server ？ 1/etc/init.d/ssh status 怎么生成密钥 ？ 1ssh-keygen -t rsa 查看本机的ssh密钥公钥 ？ 1-- windows 目录 2/c/Users/xxxx/.ssh 3 4cat id_rsa.pub # 这个是用rsa协议来生成的 怎么添加公钥到其他机器的 可以直接用工具传输
+1# 密钥发送 2 ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 也可以直接复制里面的内容，直接复制到服务器ssh目录下的
+防火墙 ufw 开启ssh ？ 1 41 /usr/sbin/ufw 2 47 /usr/sbin/ufw allow ssh 3 60 /usr/sbin/ufw status 4 70 /etc/init.</description>
     </item>
     
     <item>
-      <title>fedora 安装 docker</title>
+      <title>fedora安装docker</title>
       <link>https://livebug.github.io/blogs/20230426-fedora-install-docker/</link>
       <pubDate>Wed, 26 Apr 2023 23:38:56 +0000</pubDate>
       
       <guid>https://livebug.github.io/blogs/20230426-fedora-install-docker/</guid>
-      <description>安装参考教程连接 https://help.aliyun.com/document_detail/264695.html?spm=5176.21213303.J_6028563670.38.3acf3eda1H4cBI&amp;amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40264695.S_hot.ID_264695-RL_docker%E5%AE%89%E8%A3%85-OR_s%2Bhelpmain-V_1-P0_7
-简单记录 安装dnf源中默认的Docker（podman-docker） 1# 运行以下命令，安装podman-docker。 2 dnf -y install docker 3# 运行以下命令，查看Docker是否安装成功。 4 docker images 权限问题 1sudo gpasswd -a $USER docekr 2newgrp docker 3docker ps -a 安装gaussdb 1docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ 2 -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ 3 enmotech/opengauss:latest 默认用户 gaussdb
+      <description>安装参考教程连接
+简单记录 安装dnf源中默认的Docker（podman-docker） 1# 运行以下命令，安装podman-docker。 2dnf -y install docker 3# 运行以下命令，查看Docker是否安装成功。 4docker images 5 权限问题 1sudo gpasswd -a $USER docekr 2newgrp docker 3docker ps -a 安装gaussdb 1docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ 2 -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ 3 enmotech/opengauss:latest 默认用户 gaussdb
 gauss 使用 1drop table sdopdb.bqqyxx; 2create table sdopdb.bqqyxx 3( 4	p_year varchar(4) not null, 5	p_type varchar(40) NOT NULL, 6	p_rank varchar(4) NOT NULL, 7	p_busi_nm varchar(100) NOT NULL, 8	p_income DECIMAL(20,6) NOT NULL 9); 10COMMENT ON TABLE sdopdb.</description>
     </item>
     
     <item>
-      <title>在CentOS/RHEL 7中打开Samba端口</title>
+      <title>fedora打开Samba端口</title>
       <link>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</link>
       <pubDate>Tue, 25 Apr 2023 10:36:21 +0000</pubDate>
       
@@ -143,12 +152,12 @@ firewall-cmd --permanent --zone=public --add-service=samba firewall-cmd --reload
     </item>
     
     <item>
-      <title>fedora 系统安装使用</title>
+      <title>fedora系统安装后的基本操作</title>
       <link>https://livebug.github.io/blogs/20230422-fedorainstall/</link>
       <pubDate>Sat, 22 Apr 2023 16:39:49 +0000</pubDate>
       
       <guid>https://livebug.github.io/blogs/20230422-fedorainstall/</guid>
-      <description>fedora 安装之后的操作 换国内软件源 1 sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ 2 -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ 3 -i.bak \ 4 /etc/yum.repos.d/fedora.repo \ 5 /etc/yum.repos.d/fedora-modular.repo \ 6 /etc/yum.repos.d/fedora-updates.repo \ 7 /etc/yum.repos.d/fedora-updates-modular.repo 8 9 sudo dnf makecache 10 sudo dnf autoremove 11 sudo dnf remove --oldinstallonly 设置 gnome-terminal 快捷键 ctrl+alt+t 安装基本软件 2.1 edge 浏览器
+      <description>fedora 安装之后的操作 1. 换国内软件源 1sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ 2 -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ 3 -i.bak \ 4 /etc/yum.repos.d/fedora.repo \ 5 /etc/yum.repos.d/fedora-modular.repo \ 6 /etc/yum.repos.d/fedora-updates.repo \ 7 /etc/yum.repos.d/fedora-updates-modular.repo 8 9sudo dnf makecache 10sudo dnf autoremove 11sudo dnf remove --oldinstallonly 2. 设置 gnome-terminal 快捷键 ctrl+alt+t 3. 安装基本软件 2.1 edge 浏览器
 2.2 vscode
 https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-1.77.3-1681292829.el7.x86_64.rpm
 2.3 dotnet6

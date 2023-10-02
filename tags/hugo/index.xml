@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on livebug&#39;s blog space</title>
+    <link>https://livebug.github.io/tags/hugo/</link>
+    <description>Recent content in hugo on livebug&#39;s blog space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Sep 2023 13:58:58 +0800</lastBuildDate><atom:link href="https://livebug.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Github Actions 自动化发布博客</title>
+      <link>https://livebug.github.io/blogs/20230930-github-actions/</link>
+      <pubDate>Sat, 30 Sep 2023 13:58:58 +0800</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230930-github-actions/</guid>
+      <description>介绍背景：
+博客网站myblog仓库底下有两个子库，一个子库是用来存储markdown文章的blogs仓库，一个是用来存储public内容的github pages库 livebug.github.io仓库
+当博客网站样式更新提交，或者文章提交，触发myblog仓库的 actions ，执行完之后发布到pages仓库
+开发myblog仓库的提交 actions 1# Sample workflow for building and deploying a Hugo site to GitHub Pages 2name: Deploy Hugo site to Pages 3 4on: 5 # Runs on pushes targeting the default branch 6 push: 7 branches: [&amp;#34;master&amp;#34;] 8 9 # Allows you to run this workflow manually from the Actions tab 10 workflow_dispatch: 11 12# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages 13permissions: 14 contents: read 15 pages: write 16 id-token: write 17 18# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.</description>
+    </item>
+    
+  </channel>
+</rss>

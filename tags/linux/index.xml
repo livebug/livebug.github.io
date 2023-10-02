@@ -6,31 +6,64 @@
     <description>Recent content in linux on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Jun 2023 23:48:19 +0000</lastBuildDate><atom:link href="https://livebug.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Aug 2023 23:48:19 +0000</lastBuildDate><atom:link href="https://livebug.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>不同主机间的ssh链接互通</title>
+      <title>wsl环境初始化-安装nvm</title>
+      <link>https://livebug.github.io/blogs/20230909-wsl-init-devenv/</link>
+      <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230909-wsl-init-devenv/</guid>
+      <description>安装 nodejs 环境 1.vscode版本： 1版本: 1.82.0 (user setup) 2提交: 8b617bd08fd9e3fc94d14adb8d358b56e3f72314 3日期: 2023-09-06T22:07:07.438Z 4Electron: 25.8.0 5ElectronBuildId: 23503258 6Chromium: 114.0.5735.289 7Node.js: 18.15.0 8V8: 11.4.183.29-electron.0 9OS: Windows_NT x64 10.0.25941 2.修改host 有科学上网条件的就不用了，建议需要的上个机场
+nslookup 查看 github 的网站，修改 hosts
+1nslookup http://github.global.ssl.fastly.net 2nslookup http://github.com 3nslookup http://raw.githubusercontent.com 4 5# hosts 6199.16.158.9 http://github.global.ssl.fastly.net 7199.16.158.9 https://github.global.ssl.fastly.net 820.205.243.166 http://github.com 920.205.243.166 https://github.com 10185.199.111.133 http://raw.githubusercontent.com 11185.199.111.133 https://raw.githubusercontent.com 12185.199.110.133 http://raw.githubusercontent.com 13185.199.110.133 https://raw.githubusercontent.com 14185.199.108.133 http://raw.githubusercontent.com 15185.199.108.133 https://raw.githubusercontent.com wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以</description>
+    </item>
+    
+    <item>
+      <title>ssh基本介绍和问题解答</title>
       <link>https://livebug.github.io/blogs/20230827-ssh-connect/</link>
       <pubDate>Tue, 27 Jun 2023 23:48:19 +0000</pubDate>
       
       <guid>https://livebug.github.io/blogs/20230827-ssh-connect/</guid>
-      <description>在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：
-ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。
-查看有没有ssh server
-/etc/init.d/ssh status 怎么生成密钥
-ssh-keygen -t rsa 查看本机的ssh密钥公钥
--- windows 目录/c/Users/xxxx/.ssh 怎么添加其他机器的公钥
-密钥怎么使用
-# 密钥发送ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 防火墙开启ssh
-41 /usr/sbin/ufw47 /usr/sbin/ufw allow ssh60 /usr/sbin/ufw status70 /etc/init.d/ufw restart60 /usr/sbin/ufw status60 /usr/sbin/ufw enable # 开机自启 ssh 开机自启</description>
+      <description>SSH 简单介绍 在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：
+1ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。
+其实就是把自己的公钥给服务器，让服务器可以认证你
+查看有没有ssh server ？ 1/etc/init.d/ssh status 怎么生成密钥 ？ 1ssh-keygen -t rsa 查看本机的ssh密钥公钥 ？ 1-- windows 目录 2/c/Users/xxxx/.ssh 3 4cat id_rsa.pub # 这个是用rsa协议来生成的 怎么添加公钥到其他机器的 可以直接用工具传输
+1# 密钥发送 2 ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 也可以直接复制里面的内容，直接复制到服务器ssh目录下的
+防火墙 ufw 开启ssh ？ 1 41 /usr/sbin/ufw 2 47 /usr/sbin/ufw allow ssh 3 60 /usr/sbin/ufw status 4 70 /etc/init.</description>
     </item>
     
     <item>
-      <title>fedora 系统安装使用</title>
+      <title>fedora安装docker</title>
+      <link>https://livebug.github.io/blogs/20230426-fedora-install-docker/</link>
+      <pubDate>Wed, 26 Apr 2023 23:38:56 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230426-fedora-install-docker/</guid>
+      <description>安装参考教程连接
+简单记录 安装dnf源中默认的Docker（podman-docker） 1# 运行以下命令，安装podman-docker。 2dnf -y install docker 3# 运行以下命令，查看Docker是否安装成功。 4docker images 5 权限问题 1sudo gpasswd -a $USER docekr 2newgrp docker 3docker ps -a 安装gaussdb 1docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ 2 -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ 3 enmotech/opengauss:latest 默认用户 gaussdb
+gauss 使用 1drop table sdopdb.bqqyxx; 2create table sdopdb.bqqyxx 3( 4	p_year varchar(4) not null, 5	p_type varchar(40) NOT NULL, 6	p_rank varchar(4) NOT NULL, 7	p_busi_nm varchar(100) NOT NULL, 8	p_income DECIMAL(20,6) NOT NULL 9); 10COMMENT ON TABLE sdopdb.</description>
+    </item>
+    
+    <item>
+      <title>fedora打开Samba端口</title>
+      <link>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</link>
+      <pubDate>Tue, 25 Apr 2023 10:36:21 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</guid>
+      <description>来源：
+https://www.linuxprobe.com/fedora-centos-samba.html
+在CentOS/RHEL 7中打开Samba端口
+使用以下命令：
+firewall-cmd --permanent --zone=public --add-service=samba firewall-cmd --reload 注意事项：
+需要加用户密码时，使用本机已经有的账户，但秘密可以随便设置 </description>
+    </item>
+    
+    <item>
+      <title>fedora系统安装后的基本操作</title>
       <link>https://livebug.github.io/blogs/20230422-fedorainstall/</link>
       <pubDate>Sat, 22 Apr 2023 16:39:49 +0000</pubDate>
       
       <guid>https://livebug.github.io/blogs/20230422-fedorainstall/</guid>
-      <description>fedora 安装之后的操作 换国内软件源 1 sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ 2 -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ 3 -i.bak \ 4 /etc/yum.repos.d/fedora.repo \ 5 /etc/yum.repos.d/fedora-modular.repo \ 6 /etc/yum.repos.d/fedora-updates.repo \ 7 /etc/yum.repos.d/fedora-updates-modular.repo 8 9 sudo dnf makecache 10 sudo dnf autoremove 11 sudo dnf remove --oldinstallonly 设置 gnome-terminal 快捷键 ctrl+alt+t 安装基本软件 2.1 edge 浏览器
+      <description>fedora 安装之后的操作 1. 换国内软件源 1sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ 2 -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ 3 -i.bak \ 4 /etc/yum.repos.d/fedora.repo \ 5 /etc/yum.repos.d/fedora-modular.repo \ 6 /etc/yum.repos.d/fedora-updates.repo \ 7 /etc/yum.repos.d/fedora-updates-modular.repo 8 9sudo dnf makecache 10sudo dnf autoremove 11sudo dnf remove --oldinstallonly 2. 设置 gnome-terminal 快捷键 ctrl+alt+t 3. 安装基本软件 2.1 edge 浏览器
 2.2 vscode
 https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-1.77.3-1681292829.el7.x86_64.rpm
 2.3 dotnet6

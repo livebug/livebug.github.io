@@ -6,9 +6,20 @@
     <description>Recent content in fedora on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Apr 2023 10:36:21 +0000</lastBuildDate><atom:link href="https://livebug.github.io/tags/fedora/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Apr 2023 23:38:56 +0000</lastBuildDate><atom:link href="https://livebug.github.io/tags/fedora/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>在CentOS/RHEL 7中打开Samba端口</title>
+      <title>fedora安装docker</title>
+      <link>https://livebug.github.io/blogs/20230426-fedora-install-docker/</link>
+      <pubDate>Wed, 26 Apr 2023 23:38:56 +0000</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20230426-fedora-install-docker/</guid>
+      <description>安装参考教程连接
+简单记录 安装dnf源中默认的Docker（podman-docker） 1# 运行以下命令，安装podman-docker。 2dnf -y install docker 3# 运行以下命令，查看Docker是否安装成功。 4docker images 5 权限问题 1sudo gpasswd -a $USER docekr 2newgrp docker 3docker ps -a 安装gaussdb 1docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ 2 -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ 3 enmotech/opengauss:latest 默认用户 gaussdb
+gauss 使用 1drop table sdopdb.bqqyxx; 2create table sdopdb.bqqyxx 3( 4	p_year varchar(4) not null, 5	p_type varchar(40) NOT NULL, 6	p_rank varchar(4) NOT NULL, 7	p_busi_nm varchar(100) NOT NULL, 8	p_income DECIMAL(20,6) NOT NULL 9); 10COMMENT ON TABLE sdopdb.</description>
+    </item>
+    
+    <item>
+      <title>fedora打开Samba端口</title>
       <link>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</link>
       <pubDate>Tue, 25 Apr 2023 10:36:21 +0000</pubDate>
       
@@ -22,12 +33,12 @@ firewall-cmd --permanent --zone=public --add-service=samba firewall-cmd --reload
     </item>
     
     <item>
-      <title>fedora 系统安装使用</title>
+      <title>fedora系统安装后的基本操作</title>
       <link>https://livebug.github.io/blogs/20230422-fedorainstall/</link>
       <pubDate>Sat, 22 Apr 2023 16:39:49 +0000</pubDate>
       
       <guid>https://livebug.github.io/blogs/20230422-fedorainstall/</guid>
-      <description>fedora 安装之后的操作 换国内软件源 1 sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ 2 -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ 3 -i.bak \ 4 /etc/yum.repos.d/fedora.repo \ 5 /etc/yum.repos.d/fedora-modular.repo \ 6 /etc/yum.repos.d/fedora-updates.repo \ 7 /etc/yum.repos.d/fedora-updates-modular.repo 8 9 sudo dnf makecache 10 sudo dnf autoremove 11 sudo dnf remove --oldinstallonly 设置 gnome-terminal 快捷键 ctrl+alt+t 安装基本软件 2.1 edge 浏览器
+      <description>fedora 安装之后的操作 1. 换国内软件源 1sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ 2 -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ 3 -i.bak \ 4 /etc/yum.repos.d/fedora.repo \ 5 /etc/yum.repos.d/fedora-modular.repo \ 6 /etc/yum.repos.d/fedora-updates.repo \ 7 /etc/yum.repos.d/fedora-updates-modular.repo 8 9sudo dnf makecache 10sudo dnf autoremove 11sudo dnf remove --oldinstallonly 2. 设置 gnome-terminal 快捷键 ctrl+alt+t 3. 安装基本软件 2.1 edge 浏览器
 2.2 vscode
 https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-1.77.3-1681292829.el7.x86_64.rpm
 2.3 dotnet6

@@ -3,13 +3,13 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <meta name="description" content="安装参考教程连接 https://help.aliyun.com/document_detail/264695.html?spm=5176.21213303.J_6028563670.38.3acf3eda1H4cBI&amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40264695.S_hot.ID_264695-RL_docker%E5%AE%89%E8%A3%85-OR_s%2Bhelpmain-V_1-P0_7
-简单记录 安装dnf源中默认的Docker（podman-docker） 1# 运行以下命令，安装podman-docker。 2 dnf -y install docker 3# 运行以下命令，查看Docker是否安装成功。 4 docker images 权限问题 1sudo gpasswd -a $USER docekr 2newgrp docker 3docker ps -a 安装gaussdb 1docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ 2 -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ 3 enmotech/opengauss:latest 默认用户 gaussdb
+   <meta name="description" content="安装参考教程连接
+简单记录 安装dnf源中默认的Docker（podman-docker） 1# 运行以下命令，安装podman-docker。 2dnf -y install docker 3# 运行以下命令，查看Docker是否安装成功。 4docker images 5 权限问题 1sudo gpasswd -a $USER docekr 2newgrp docker 3docker ps -a 安装gaussdb 1docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ 2 -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ 3 enmotech/opengauss:latest 默认用户 gaussdb
 gauss 使用 1drop table sdopdb.bqqyxx; 2create table sdopdb.bqqyxx 3( 4	p_year varchar(4) not null, 5	p_type varchar(40) NOT NULL, 6	p_rank varchar(4) NOT NULL, 7	p_busi_nm varchar(100) NOT NULL, 8	p_income DECIMAL(20,6) NOT NULL 9); 10COMMENT ON TABLE sdopdb.">  
 
   <title>
     
-      fedora 安装 docker
+      fedora安装docker
     
   </title>
 
@@ -34,20 +34,35 @@ gauss 使用 1drop table sdopdb.bqqyxx; 2create table sdopdb.bqqyxx 3( 4	p_year 
         </time>
     </p>
 
-    <h1>fedora 安装 docker</h1>
+    <h1>fedora安装docker</h1>
 
     
+        <aside >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#简单记录">简单记录</a></li>
+        <li><a href="#权限问题">权限问题</a></li>
+        <li><a href="#安装gaussdb">安装gaussdb</a></li>
+        <li><a href="#opengauss-配置-odbc">opengauss 配置 odbc</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </aside>
+    
 
-    <h3 id="安装参考教程连接">安装参考教程连接</h3>
-<p><a href="https://help.aliyun.com/document_detail/264695.html?spm=5176.21213303.J_6028563670.38.3acf3eda1H4cBI&amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40264695.S_hot.ID_264695-RL_docker%E5%AE%89%E8%A3%85-OR_s%2Bhelpmain-V_1-P0_7">https://help.aliyun.com/document_detail/264695.html?spm=5176.21213303.J_6028563670.38.3acf3eda1H4cBI&amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40264695.S_hot.ID_264695-RL_docker%E5%AE%89%E8%A3%85-OR_s%2Bhelpmain-V_1-P0_7</a></p>
-<h4 id="简单记录">简单记录</h4>
+    <p><em><a href="https://help.aliyun.com/document_detail/264695.html?spm=5176.21213303.J_6028563670.38.3acf3eda1H4cBI&amp;scm=20140722.S_help%40%40%E6%96%87%E6%A1%A3%40%40264695.S_hot.ID_264695-RL_docker%E5%AE%89%E8%A3%85-OR_s%2Bhelpmain-V_1-P0_7">安装参考教程连接</a></em></p>
+<h3 id="简单记录">简单记录</h3>
 <ol>
 <li>安装dnf源中默认的Docker（podman-docker）</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#998;font-style:italic"># 运行以下命令，安装podman-docker。</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    dnf -y install docker
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>dnf -y install docker
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#998;font-style:italic"># 运行以下命令，查看Docker是否安装成功。</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>    docker images
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>docker images
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span> 
 </span></span></code></pre></div><h3 id="权限问题">权限问题</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>sudo gpasswd -a <span style="color:#008080">$USER</span> docekr 
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>newgrp docker 
@@ -76,10 +91,10 @@ gauss 使用 1drop table sdopdb.bqqyxx; 2create table sdopdb.bqqyxx 3( 4	p_year 
 </span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#bbb"></span><span style="color:#998;font-style:italic">-- 查询sql运行 只能查看上层sql执行情况 其实是连接状态的统计
 </span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#998;font-style:italic">-- 详细的运行计划，还得看 explain 的结果分析
 </span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">*</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">FROM</span><span style="color:#bbb"> </span>pg_stat_activity<span style="color:#bbb"> </span>;<span style="color:#bbb">
-</span></span></span></code></pre></div><h2 id="opengauss-配置-odbc">opengauss 配置 odbc</h2>
+</span></span></span></code></pre></div><h3 id="opengauss-配置-odbc">opengauss 配置 odbc</h3>
 <p>fedora 直接安装</p>
-<pre tabindex="0"><code>sudo dnf install unixODBC
-</code></pre><p><a href="https://docs.opengauss.org/zh/docs/5.0.0/docs/DeveloperGuide/Linux%E4%B8%8B%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90.html">https://docs.opengauss.org/zh/docs/5.0.0/docs/DeveloperGuide/Linux%E4%B8%8B%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90.html</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>sudo dnf install unixODBC
+</span></span></code></pre></div><p><a href="https://docs.opengauss.org/zh/docs/5.0.0/docs/DeveloperGuide/Linux%E4%B8%8B%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90.html">https://docs.opengauss.org/zh/docs/5.0.0/docs/DeveloperGuide/Linux%E4%B8%8B%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90.html</a></p>
 <ul>
 <li>
 <p>注意点：</p>

@@ -8,7 +8,7 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 17 Sep 2023 23:48:19 +0000</lastBuildDate><atom:link href="https://livebug.github.io/tags/regex/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>正则表达式的先行断言(lookahead)和后行断言(lookbehind)</title>
+      <title>正则表达式-先行断言(lookahead)和后行断言(lookbehind)</title>
       <link>https://livebug.github.io/blogs/20230917-regexp-lookahead/</link>
       <pubDate>Sun, 17 Sep 2023 23:48:19 +0000</pubDate>
       

@@ -3,19 +3,16 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <meta name="description" content="在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：
-ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。
-查看有没有ssh server
-/etc/init.d/ssh status 怎么生成密钥
-ssh-keygen -t rsa 查看本机的ssh密钥公钥
--- windows 目录/c/Users/xxxx/.ssh 怎么添加其他机器的公钥
-密钥怎么使用
-# 密钥发送ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 防火墙开启ssh
-41 /usr/sbin/ufw47 /usr/sbin/ufw allow ssh60 /usr/sbin/ufw status70 /etc/init.d/ufw restart60 /usr/sbin/ufw status60 /usr/sbin/ufw enable # 开机自启 ssh 开机自启">  
+   <meta name="description" content="SSH 简单介绍 在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：
+1ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。
+其实就是把自己的公钥给服务器，让服务器可以认证你
+查看有没有ssh server ？ 1/etc/init.d/ssh status 怎么生成密钥 ？ 1ssh-keygen -t rsa 查看本机的ssh密钥公钥 ？ 1-- windows 目录 2/c/Users/xxxx/.ssh 3 4cat id_rsa.pub # 这个是用rsa协议来生成的 怎么添加公钥到其他机器的 可以直接用工具传输
+1# 密钥发送 2 ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 也可以直接复制里面的内容，直接复制到服务器ssh目录下的
+防火墙 ufw 开启ssh ？ 1 41 /usr/sbin/ufw 2 47 /usr/sbin/ufw allow ssh 3 60 /usr/sbin/ufw status 4 70 /etc/init.">  
 
   <title>
     
-      不同主机间的ssh链接互通
+      ssh基本介绍和问题解答
     
   </title>
 
@@ -40,46 +37,72 @@ ssh-keygen -t rsa 查看本机的ssh密钥公钥
         </time>
     </p>
 
-    <h1>不同主机间的ssh链接互通</h1>
+    <h1>ssh基本介绍和问题解答</h1>
 
     
+        <aside >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ssh-简单介绍">SSH 简单介绍</a>
+      <ul>
+        <li><a href="#免密码登入">免密码登入</a></li>
+        <li><a href="#查看有没有ssh-server-">查看有没有ssh server ？</a></li>
+        <li><a href="#怎么生成密钥-">怎么生成密钥 ？</a></li>
+        <li><a href="#查看本机的ssh密钥公钥-">查看本机的ssh密钥公钥 ？</a></li>
+        <li><a href="#怎么添加公钥到其他机器的">怎么添加公钥到其他机器的</a></li>
+        <li><a href="#防火墙-ufw-开启ssh-">防火墙 ufw 开启ssh ？</a></li>
+        <li><a href="#ssh-开机自启-">ssh 开机自启 ?</a></li>
+        <li><a href="#重启后-ufw-状态变为-inactive-的问题">重启后 ufw 状态变为 inactive 的问题。</a></li>
+        <li><a href="#root安装的docker普通用户无法使用">root安装的docker，普通用户无法使用</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </aside>
+    
 
-    <p>在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：</p>
-<pre tabindex="0"><code>ssh user@remote -p port
-</code></pre><ul>
+    <h2 id="ssh-简单介绍">SSH 简单介绍</h2>
+<p>在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>ssh user@remote -p port
+</span></span></code></pre></div><ul>
 <li>user 是你在远程机器上的用户名，如果不指定的话默认为当前用户</li>
 <li>remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名</li>
 <li>port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22</li>
 </ul>
 <h3 id="免密码登入">免密码登入</h3>
 <p>每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。</p>
-<p>查看有没有ssh server</p>
-<pre tabindex="0"><code>/etc/init.d/ssh status
-</code></pre><p>怎么生成密钥</p>
-<pre tabindex="0"><code>ssh-keygen -t rsa 
-</code></pre><p>查看本机的ssh密钥公钥</p>
-<pre tabindex="0"><code>-- windows 目录
-/c/Users/xxxx/.ssh
-</code></pre><p>怎么添加其他机器的公钥</p>
-<p>密钥怎么使用</p>
-<pre tabindex="0"><code># 密钥发送
- ssh-copy-id -i id_rsa.pub xxx@192.168.0.103
-</code></pre><p>防火墙开启ssh</p>
-<pre tabindex="0"><code>   41  /usr/sbin/ufw
-   47  /usr/sbin/ufw allow ssh
-   60  /usr/sbin/ufw status
-   70  /etc/init.d/ufw restart
-   60  /usr/sbin/ufw status
-   60  /usr/sbin/ufw enable # 开机自启
-</code></pre><p>ssh 开机自启</p>
-<pre tabindex="0"><code>   87  systemctl enable ssh
-</code></pre><p>重启后 ufw状态变为inactive问题</p>
-<pre tabindex="0"><code>在设置开机自启后还有问题那大概率可能为启动顺序问题，修改/lib/systemd/system/ufw.service文件，在[Unit]中加入After=netfilter-persistent.service即可。
-
-After=netfilter-persistent.service
-</code></pre><p>root安装的docker，普通用户无法使用</p>
-<pre tabindex="0"><code>permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &#34;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json&#34;: dial unix /var/run/docker.sock: connect: permission denied
-</code></pre> 
+<p>其实就是把自己的公钥给服务器，让服务器可以认证你</p>
+<h3 id="查看有没有ssh-server-">查看有没有ssh server ？</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>/etc/init.d/ssh status
+</span></span></code></pre></div><h3 id="怎么生成密钥-">怎么生成密钥 ？</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>ssh-keygen -t rsa 
+</span></span></code></pre></div><h3 id="查看本机的ssh密钥公钥-">查看本机的ssh密钥公钥 ？</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>-- windows 目录
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>/c/Users/xxxx/.ssh
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>cat id_rsa.pub  <span style="color:#998;font-style:italic"># 这个是用rsa协议来生成的</span>
+</span></span></code></pre></div><h3 id="怎么添加公钥到其他机器的">怎么添加公钥到其他机器的</h3>
+<p>可以直接用工具传输</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#998;font-style:italic"># 密钥发送</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span> ssh-copy-id -i id_rsa.pub xxx@192.168.0.103
+</span></span></code></pre></div><p>也可以直接复制里面的内容，直接复制到服务器ssh目录下的</p>
+<h3 id="防火墙-ufw-开启ssh-">防火墙 ufw 开启ssh ？</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>   <span style="color:#099">41</span>  /usr/sbin/ufw
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>   <span style="color:#099">47</span>  /usr/sbin/ufw allow ssh
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>   <span style="color:#099">60</span>  /usr/sbin/ufw status
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>   <span style="color:#099">70</span>  /etc/init.d/ufw restart
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>   <span style="color:#099">60</span>  /usr/sbin/ufw status
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>   <span style="color:#099">60</span>  /usr/sbin/ufw <span style="color:#0086b3">enable</span> <span style="color:#998;font-style:italic"># 开机自启</span>
+</span></span></code></pre></div><h3 id="ssh-开机自启-">ssh 开机自启 ?</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>   <span style="color:#099">87</span>  systemctl <span style="color:#0086b3">enable</span> ssh
+</span></span></code></pre></div><h3 id="重启后-ufw-状态变为-inactive-的问题">重启后 ufw 状态变为 inactive 的问题。</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>在设置开机自启后还有问题那大概率可能为启动顺序问题，修改/lib/systemd/system/ufw.service文件，在<span style="color:#000;font-weight:bold">[</span>Unit<span style="color:#000;font-weight:bold">]</span><span style="color:#008080">中加入After</span><span style="color:#000;font-weight:bold">=</span>netfilter-persistent.service即可。
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#008080">After</span><span style="color:#000;font-weight:bold">=</span>netfilter-persistent.service
+</span></span></code></pre></div><h3 id="root安装的docker普通用户无法使用">root安装的docker，普通用户无法使用</h3>
+<p>需要将普通用户增加到docker用户组，见<a href="https://livebug.github.io/blogs/20230426-fedora-install-docker/#权限问题" title="安装 docker - 权限问题">安装 docker - 权限问题</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>permission denied <span style="color:#000;font-weight:bold">while</span> trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get <span style="color:#d14">&#34;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json&#34;</span>: dial unix /var/run/docker.sock: connect: permission denied
+</span></span></code></pre></div> 
 </article> 
 
             </div>

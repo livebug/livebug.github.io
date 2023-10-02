@@ -3,13 +3,13 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <meta name="description" content="安装 nodejs 环境 vscode版本：
-版本: 1.82.0 (user setup) 提交: 8b617bd08fd9e3fc94d14adb8d358b56e3f72314 日期: 2023-09-06T22:07:07.438Z Electron: 25.8.0 ElectronBuildId: 23503258 Chromium: 114.0.5735.289 Node.js: 18.15.0 V8: 11.4.183.29-electron.0 OS: Windows_NT x64 10.0.25941 修改host
-nslookup 查看 github 的网站，修改 hosts 1nslookup http://github.global.ssl.fastly.net 2nslookup http://github.com 3nslookup http://raw.githubusercontent.com 4 5# hosts 6199.16.158.9 http://github.global.ssl.fastly.net 7199.16.158.9 https://github.global.ssl.fastly.net 820.205.243.166 http://github.com 920.205.243.166 https://github.com 10185.199.111.133 http://raw.githubusercontent.com 11185.199.111.133 https://raw.githubusercontent.com 12185.199.110.133 http://raw.githubusercontent.com 13185.199.110.133 https://raw.githubusercontent.com 14185.199.108.133 http://raw.githubusercontent.com 15185.199.108.133 https://raw.githubusercontent.com wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以 安装 nvm">  
+   <meta name="description" content="安装 nodejs 环境 1.vscode版本： 1版本: 1.82.0 (user setup) 2提交: 8b617bd08fd9e3fc94d14adb8d358b56e3f72314 3日期: 2023-09-06T22:07:07.438Z 4Electron: 25.8.0 5ElectronBuildId: 23503258 6Chromium: 114.0.5735.289 7Node.js: 18.15.0 8V8: 11.4.183.29-electron.0 9OS: Windows_NT x64 10.0.25941 2.修改host 有科学上网条件的就不用了，建议需要的上个机场
+nslookup 查看 github 的网站，修改 hosts
+1nslookup http://github.global.ssl.fastly.net 2nslookup http://github.com 3nslookup http://raw.githubusercontent.com 4 5# hosts 6199.16.158.9 http://github.global.ssl.fastly.net 7199.16.158.9 https://github.global.ssl.fastly.net 820.205.243.166 http://github.com 920.205.243.166 https://github.com 10185.199.111.133 http://raw.githubusercontent.com 11185.199.111.133 https://raw.githubusercontent.com 12185.199.110.133 http://raw.githubusercontent.com 13185.199.110.133 https://raw.githubusercontent.com 14185.199.108.133 http://raw.githubusercontent.com 15185.199.108.133 https://raw.githubusercontent.com wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以">  
 
   <title>
     
-      wsl 开放环境初始化
+      wsl环境初始化-安装nvm
     
   </title>
 
@@ -34,29 +34,38 @@ nslookup 查看 github 的网站，修改 hosts 1nslookup http://github.global.s
         </time>
     </p>
 
-    <h1>wsl 开放环境初始化</h1>
+    <h1>wsl环境初始化-安装nvm</h1>
 
+    
+        <aside >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装-nodejs-环境">安装 nodejs 环境</a>
+      <ul>
+        <li><a href="#1vscode版本">1.vscode版本：</a></li>
+        <li><a href="#2修改host">2.修改host</a></li>
+        <li><a href="#3安装-nvm">3.安装 nvm</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </aside>
     
 
     <h2 id="安装-nodejs-环境">安装 nodejs 环境</h2>
-<ul>
-<li>
-<p>vscode版本：</p>
-<pre tabindex="0"><code class="language-log" data-lang="log">版本: 1.82.0 (user setup)
-提交: 8b617bd08fd9e3fc94d14adb8d358b56e3f72314
-日期: 2023-09-06T22:07:07.438Z
-Electron: 25.8.0
-ElectronBuildId: 23503258
-Chromium: 114.0.5735.289
-Node.js: 18.15.0
-V8: 11.4.183.29-electron.0
-OS: Windows_NT x64 10.0.25941
-</code></pre></li>
-<li>
-<p>修改host</p>
-<ul>
-<li>nslookup 查看 github 的网站，修改 hosts</li>
-</ul>
+<h3 id="1vscode版本">1.vscode版本：</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#000080">版本</span>:<span style="color:#bbb"> </span><span style="color:#099">1.82.0</span><span style="color:#bbb"> </span>(user setup)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#bbb"></span><span style="color:#000080">提交</span>:<span style="color:#bbb"> </span>8b617bd08fd9e3fc94d14adb8d358b56e3f72314<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#bbb"></span><span style="color:#000080">日期</span>:<span style="color:#bbb"> </span>2023-09-06T22:07:07.438Z<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#bbb"></span><span style="color:#000080">Electron</span>:<span style="color:#bbb"> </span><span style="color:#099">25.8.0</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#bbb"></span><span style="color:#000080">ElectronBuildId</span>:<span style="color:#bbb"> </span><span style="color:#099">23503258</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#bbb"></span><span style="color:#000080">Chromium</span>:<span style="color:#bbb"> </span><span style="color:#099">114.0.5735.289</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="color:#bbb"></span><span style="color:#000080">Node.js</span>:<span style="color:#bbb"> </span><span style="color:#099">18.15.0</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span><span style="color:#bbb"></span><span style="color:#000080">V8</span>:<span style="color:#bbb"> </span><span style="color:#099">11.4.183.29</span>-electron.0<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span><span style="color:#bbb"></span><span style="color:#000080">OS</span>:<span style="color:#bbb"> </span>Windows_NT x64 10.0.25941<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="2修改host">2.修改host</h3>
+<p><strong>有科学上网条件的就不用了，建议需要的上个机场</strong></p>
+<p><code>nslookup</code> 查看 github 的网站，修改 hosts</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>nslookup http://github.global.ssl.fastly.net
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>nslookup http://github.com
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>nslookup http://raw.githubusercontent.com
@@ -72,16 +81,12 @@ OS: Windows_NT x64 10.0.25941
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>185.199.110.133 https://raw.githubusercontent.com
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>185.199.108.133 http://raw.githubusercontent.com
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>185.199.108.133 https://raw.githubusercontent.com
-</span></span></code></pre></div><ul>
-<li><em>wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以</em></li>
-</ul>
-</li>
-<li>
-<p>安装 nvm</p>
+</span></span></code></pre></div><p><em>wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以</em></p>
+<h3 id="3安装-nvm">3.安装 nvm</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-</span></span></code></pre></div></li>
-</ul>
- 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>nvm install node <span style="color:#998;font-style:italic"># 安装最新版</span>
+</span></span></code></pre></div> 
 </article> 
 
             </div>
