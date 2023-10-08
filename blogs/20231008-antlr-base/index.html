@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="antlr 安装 下载 jar 包，因为生成工具是用java写的，要保证安装了java，11版本以适应最新版安装
+有大量 java C# 的案例代码
+github 地址： https://github.com/antlr/antlr4
+基础文档： getting-started-with-antlr-v4
+1$ cd /usr/local/lib 2$ curl -O https://www.antlr.org/download/antlr-4.9-complete.jar 3# 后面的写到 .bashrc 中 4$ export CLASSPATH=&#34;.:/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH&#34; 5$ alias antlr4=&#39;java -Xmx500M -cp &#34;/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH&#34; org.antlr.v4.Tool&#39; 6$ alias grun=&#39;java -Xmx500M -cp &#34;/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH&#34; org.antlr.v4.gui.TestRig&#39; 编译案例 1# 编译 2antlr4 -lib ./ HiveParser.g4 -o csharp -Dlanguage=CSharp -visitor -package Hive.V3 C# 项目中增加 build 工具 添加工具包 1# Antlr4BuildTasks 2&lt;Project Sdk=&#34;Microsoft.NET.Sdk&#34;&gt; 3	&lt;PropertyGroup&gt; 4	&lt;OutputType&gt;Exe&lt;/OutputType&gt; 5	&lt;TargetFramework&gt;net6.0&lt;/TargetFramework&gt; 6	&lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt; 7	&lt;Nullable&gt;enable&lt;/Nullable&gt; 8	&lt;/PropertyGroup&gt; 9	&lt;ItemGroup&gt; 10	&lt;Content Include=&#34;input&#34;&gt; 11	&lt;CopyToOutputDirectory&gt;Always&lt;/CopyToOutputDirectory&gt; 12	&lt;/Content&gt; 13	&lt;/ItemGroup&gt; 14	&lt;ItemGroup&gt; 15	&lt;PackageReference Include=&#34;Antlr4.">  
+
+  <title>
+    
+       Antlr4 基础介绍
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.2c0f55ac659c1211f905ab3c3a8391ddc4c8b35b008247aab1a1642839ae8d68937f7bb12b4848d0e709b7d3114f979ad83d9898fd9a69c57171099d678cddf3.css" integrity="sha512-LA9VrGWcEhH5Bas8OoOR3cTIs1sAgkeqsaFkKDmujWiTf3uxK0hI0OcJt9MRT5ea2D2YmP2aacVxcQmdZ4zd8w==" />
+  
+</head>
+<body a="light">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">.. back to home</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-04 09:13:17 &#43;0800 &#43;0800">
+            2023-10-04
+        </time>
+    </p>
+
+    <h1> Antlr4 基础介绍</h1>
+
+    
+
+    
+    
+    <aside >
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#antlr-安装">antlr 安装</a></li>
+    <li><a href="#编译案例">编译案例</a></li>
+    <li><a href="#c-项目中增加-build-工具">C# 项目中增加 build 工具</a>
+      <ul>
+        <li><a href="#添加工具包">添加工具包</a></li>
+        <li><a href="#方法二-项目文件增加构建规则">方法二： 项目文件增加构建规则</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+    
+    
+    <hr class="hr-common"> 
+
+    <h2 id="antlr-安装">antlr 安装</h2>
+<p>下载 jar 包，因为生成工具是用java写的，要保证安装了java，11版本以适应最新版安装</p>
+<p>有大量 java C# 的案例代码</p>
+<p>github 地址： <a href="https://github.com/antlr/antlr4">https://github.com/antlr/antlr4</a></p>
+<p>基础文档： <a href="https://github.com/antlr/antlr4/blob/master/doc/getting-started.md#getting-started-with-antlr-v4">getting-started-with-antlr-v4</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ <span style="color:#0086b3">cd</span> /usr/local/lib
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>$ curl -O https://www.antlr.org/download/antlr-4.9-complete.jar
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#998;font-style:italic"># 后面的写到 .bashrc 中</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>$ <span style="color:#0086b3">export</span> <span style="color:#008080">CLASSPATH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;.:/usr/local/lib/antlr-4.9-complete.jar:</span><span style="color:#008080">$CLASSPATH</span><span style="color:#d14">&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>$ <span style="color:#0086b3">alias</span> <span style="color:#008080">antlr4</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;java -Xmx500M -cp &#34;/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH&#34; org.antlr.v4.Tool&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>$ <span style="color:#0086b3">alias</span> <span style="color:#008080">grun</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;java -Xmx500M -cp &#34;/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH&#34; org.antlr.v4.gui.TestRig&#39;</span>
+</span></span></code></pre></div><h2 id="编译案例">编译案例</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#998;font-style:italic"># 编译</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>antlr4 -lib ./ HiveParser.g4 -o csharp -Dlanguage<span style="color:#000;font-weight:bold">=</span>CSharp  -visitor -package Hive.V3
+</span></span></code></pre></div><h2 id="c-项目中增加-build-工具">C# 项目中增加 build 工具</h2>
+<h3 id="添加工具包">添加工具包</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#998;font-style:italic"># Antlr4BuildTasks</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>&lt;Project <span style="color:#008080">Sdk</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Microsoft.NET.Sdk&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>	&lt;PropertyGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>		&lt;OutputType&gt;Exe&lt;/OutputType&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>		&lt;TargetFramework&gt;net6.0&lt;/TargetFramework&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>		&lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>		&lt;Nullable&gt;enable&lt;/Nullable&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>	&lt;/PropertyGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>	&lt;ItemGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>		&lt;Content <span style="color:#008080">Include</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;input&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>			&lt;CopyToOutputDirectory&gt;Always&lt;/CopyToOutputDirectory&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>		&lt;/Content&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>	&lt;/ItemGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>	&lt;ItemGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>		&lt;PackageReference <span style="color:#008080">Include</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Antlr4.Runtime.Standard&#34;</span> <span style="color:#008080">Version</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;4.10.1&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>		&lt;PackageReference <span style="color:#008080">Include</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Antlr4BuildTasks&#34;</span> <span style="color:#008080">Version</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;10.7&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>	&lt;/ItemGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>	&lt;ItemGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>		&lt;Antlr4 <span style="color:#008080">Include</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Hello.g4&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>	&lt;/ItemGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>&lt;/Project&gt;
+</span></span></code></pre></div><h3 id="方法二-项目文件增加构建规则">方法二： 项目文件增加构建规则</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>&lt;Project <span style="color:#008080">Sdk</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Microsoft.NET.Sdk&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>	&lt;PropertyGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>		&lt;OutputType&gt;Exe&lt;/OutputType&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>		&lt;TargetFramework&gt;net6.0&lt;/TargetFramework&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>		&lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>		&lt;Nullable&gt;enable&lt;/Nullable&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>	&lt;/PropertyGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>	&lt;ItemGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>		&lt;Content <span style="color:#008080">Include</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;input&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>			&lt;CopyToOutputDirectory&gt;Always&lt;/CopyToOutputDirectory&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>		&lt;/Content&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>	&lt;/ItemGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>	&lt;ItemGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>		&lt;PackageReference <span style="color:#008080">Include</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Antlr4.Runtime.Standard&#34;</span> <span style="color:#008080">Version</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;4.10.1&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>	&lt;/ItemGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>	&lt;Target <span style="color:#008080">Name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;tool&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>		&lt;Exec <span style="color:#008080">Command</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;java -jar ../antlr4-4.10.1-complete.jar -Dlanguage=CSharp *.g4&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>	&lt;/Target&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>	&lt;PropertyGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>		&lt;BuildDependsOn&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>			tool;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>			<span style="color:#000;font-weight:bold">$(</span>BuildDependsOn<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>		&lt;/BuildDependsOn&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>	&lt;/PropertyGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>	&lt;PropertyGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>		&lt;CoreCompileDependsOn&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>			tool;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>			<span style="color:#000;font-weight:bold">$(</span>CoreCompileDependsOn<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>		&lt;/CoreCompileDependsOn&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>	&lt;/PropertyGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>	&lt;ItemGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>		&lt;Compile <span style="color:#008080">Include</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Program.cs;HelloBaseListener.cs;HelloLexer.cs;HelloListener.cs;HelloParser.cs&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>		&lt;CompileDesignTime <span style="color:#008080">Include</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Program.cs;HelloBaseListener.cs;HelloLexer.cs;HelloListener.cs;HelloParser.cs&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>	&lt;/ItemGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>	&lt;PropertyGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>		&lt;EnableDefaultCompileItems&gt;false&lt;/EnableDefaultCompileItems&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>	&lt;/PropertyGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>	&lt;PropertyGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>		&lt;NoWarn&gt;3021;1701;1702&lt;/NoWarn&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>	&lt;/PropertyGroup&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>&lt;/Project&gt;
+</span></span></code></pre></div>
+</article>
+<hr class="hr-common">
+
+<footer class="post-footer">
+    <ul class="post-tags">
+        <li><a href="https://livebug.github.io/tags/antlr4/">antlr4</a></li>
+    </ul>
+</footer>
+
+
+            </div>
+        </main>
+    </body></html>
