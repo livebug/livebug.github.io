@@ -99,7 +99,7 @@ https://livebug.github.io/ 崇尚某些事情，并不是拿来与他人比较�
 🆗 增加自动流程，提交文章或者网站更新后自动更新 github pages
 增加时间轴功能
 文章页功能丰富
-🆗 增加目录功能 🆗 增加标签 增加评论，点赞、转发 历史文章迁移
+🆗 增加目录功能 🆗 增加标签 🆗 增加评论 [Add Gitalk 评论组件]({&amp;lt; ref &amp;ldquo;20231014-add-gitalk.md&amp;rdquo; &amp;gt;}} &amp;ldquo;Add Gitalk 评论组件&amp;rdquo;) 点赞 转发 历史文章迁移
 🆗 文章生成脚本文件名带日期 自定义新增文章脚本</description>
     </item>
     
