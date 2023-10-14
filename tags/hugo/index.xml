@@ -6,7 +6,21 @@
     <description>Recent content in hugo on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Sep 2023 13:58:58 +0800</lastBuildDate><atom:link href="https://livebug.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Oct 2023 20:27:57 +0800</lastBuildDate><atom:link href="https://livebug.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugo new content 命令使用 &amp; 自定义新增文章脚本</title>
+      <link>https://livebug.github.io/blogs/20231014-hugo-new-content/</link>
+      <pubDate>Sat, 14 Oct 2023 20:27:57 +0800</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20231014-hugo-new-content/</guid>
+      <description>hugo new content
+创建新的内容文件并自动设置日期和标题。它将根据提供的路径猜测要创建的文件类型。
+1hugo new content [path] [flags] hugo 新建文章，基本就是路径加文件名的命令，并不能只写名字，自动补全时间戳这种，自己写一个吧
+1# 基本新建命令 2hugo new blogs/xxxxx.md hugonew.sh 脚本
+1post_name=$1 2post_name=`echo $post_name | tr -s &amp;#39;&amp;#39;` # 去除多余空格 3post_name=` echo ${post_name} | sed &amp;#39;s/[ ]/-/g&amp;#39;` # 替换空格为 - 4echo ${post_name} 5date_string=`date +%Y%m%d` # 日期字符串 6date_string=`date +%Y%m%d%H%M%S` # 毫秒字符串 7date 8hugo new blogs/${post_name}.md $@ 9cd content/blogs/ 10mv ${post_name}.md ${date_string}-${post_name}.md 执行 自动拼接日期串 可以自己替换为毫秒字符串
+1sh hugonew.sh &amp;#34;tests dsds SDASD &amp;#34; 2tests-dsds-SDASD 3Sat Oct 14 22:19:43 CST 2023 4Content &amp;#34;/home/sharif/myblog/content/blogs/tests-dsds-SDASD.</description>
+    </item>
+    
     <item>
       <title>使用 Github Actions 自动化发布博客</title>
       <link>https://livebug.github.io/blogs/20230930-github-actions/</link>

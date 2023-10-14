@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="hugo new content
+创建新的内容文件并自动设置日期和标题。它将根据提供的路径猜测要创建的文件类型。
+1hugo new content [path] [flags] hugo 新建文章，基本就是路径加文件名的命令，并不能只写名字，自动补全时间戳这种，自己写一个吧
+1# 基本新建命令 2hugo new blogs/xxxxx.md hugonew.sh 脚本
+1post_name=$1 2post_name=`echo $post_name | tr -s &#39;&#39;` # 去除多余空格 3post_name=` echo ${post_name} | sed &#39;s/[ ]/-/g&#39;` # 替换空格为 - 4echo ${post_name} 5date_string=`date &#43;%Y%m%d` # 日期字符串 6date_string=`date &#43;%Y%m%d%H%M%S` # 毫秒字符串 7date 8hugo new blogs/${post_name}.md $@ 9cd content/blogs/ 10mv ${post_name}.md ${date_string}-${post_name}.md 执行 自动拼接日期串 可以自己替换为毫秒字符串
+1sh hugonew.sh &#34;tests dsds SDASD &#34; 2tests-dsds-SDASD 3Sat Oct 14 22:19:43 CST 2023 4Content &#34;/home/sharif/myblog/content/blogs/tests-dsds-SDASD.">  
+
+  <title>
+    
+      hugo new content 命令使用 &amp; 自定义新增文章脚本
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.2c0f55ac659c1211f905ab3c3a8391ddc4c8b35b008247aab1a1642839ae8d68937f7bb12b4848d0e709b7d3114f979ad83d9898fd9a69c57171099d678cddf3.css" integrity="sha512-LA9VrGWcEhH5Bas8OoOR3cTIs1sAgkeqsaFkKDmujWiTf3uxK0hI0OcJt9MRT5ea2D2YmP2aacVxcQmdZ4zd8w==" />
+  
+</head>
+<body a="light">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">.. back to home</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-14 20:27:57 &#43;0800 &#43;0800">
+            2023-10-14
+        </time>
+    </p>
+
+    <h1>hugo new content 命令使用 &amp; 自定义新增文章脚本</h1>
+
+    
+
+    
+    
+    <aside >
+        <nav id="TableOfContents"></nav>
+    </aside>
+    
+    
+    <hr class="hr-common"> 
+
+    <p>hugo new content</p>
+<p>创建新的内容文件并自动设置日期和标题。它将根据提供的路径猜测要创建的文件类型。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>hugo new content <span style="color:#000;font-weight:bold">[</span>path<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">[</span>flags<span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><p>hugo 新建文章，基本就是路径加文件名的命令，并不能只写名字，自动补全时间戳这种，自己写一个吧</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#998;font-style:italic"># 基本新建命令</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>hugo new blogs/xxxxx.md
+</span></span></code></pre></div><p><code>hugonew.sh</code> 脚本</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#008080">post_name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#008080">$1</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#008080">post_name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">`</span><span style="color:#0086b3">echo</span> <span style="color:#008080">$post_name</span> | tr -s <span style="color:#d14">&#39;&#39;</span><span style="color:#d14">`</span> <span style="color:#998;font-style:italic"># 去除多余空格</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#008080">post_name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">`</span> <span style="color:#0086b3">echo</span> <span style="color:#d14">${</span><span style="color:#008080">post_name</span><span style="color:#d14">}</span> | sed <span style="color:#d14">&#39;s/[ ]/-/g&#39;</span><span style="color:#d14">`</span> <span style="color:#998;font-style:italic"># 替换空格为 - </span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#0086b3">echo</span> <span style="color:#d14">${</span><span style="color:#008080">post_name</span><span style="color:#d14">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#008080">date_string</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">`</span>date +%Y%m%d<span style="color:#d14">`</span> <span style="color:#998;font-style:italic"># 日期字符串</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#008080">date_string</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">`</span>date +%Y%m%d%H%M%S<span style="color:#d14">`</span> <span style="color:#998;font-style:italic"># 毫秒字符串</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>date
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>hugo new blogs/<span style="color:#d14">${</span><span style="color:#008080">post_name</span><span style="color:#d14">}</span>.md <span style="color:#008080">$@</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#0086b3">cd</span> content/blogs/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>mv <span style="color:#d14">${</span><span style="color:#008080">post_name</span><span style="color:#d14">}</span>.md <span style="color:#d14">${</span><span style="color:#008080">date_string</span><span style="color:#d14">}</span>-<span style="color:#d14">${</span><span style="color:#008080">post_name</span><span style="color:#d14">}</span>.md
+</span></span></code></pre></div><p>执行 自动拼接日期串 可以自己替换为毫秒字符串</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>sh hugonew.sh <span style="color:#d14">&#34;tests    dsds SDASD    &#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>tests-dsds-SDASD
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Sat Oct <span style="color:#099">14</span> 22:19:43 CST <span style="color:#099">2023</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>Content <span style="color:#d14">&#34;/home/sharif/myblog/content/blogs/tests-dsds-SDASD.md&#34;</span> created
+</span></span></code></pre></div><p>小问题生成之后文件中，文章名中带了日期,修改脚本，先建立文件，然后替换文件名</p>
+
+</article>
+<hr class="hr-common">
+
+<footer class="post-footer">
+    <ul class="post-tags">
+        <li><a href="https://livebug.github.io/tags/hugo/">hugo</a></li>
+    </ul>
+</footer>
+
+
+            </div>
+        </main>
+    </body></html>
