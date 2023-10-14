@@ -6,7 +6,16 @@
     <description>Recent content in 技术博客 on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Oct 2023 20:27:57 +0800</lastBuildDate><atom:link href="https://livebug.github.io/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Oct 2023 22:51:48 +0800</lastBuildDate><atom:link href="https://livebug.github.io/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Add Gitalk 评论组件</title>
+      <link>https://livebug.github.io/blogs/20231014-add-gitalk/</link>
+      <pubDate>Sat, 14 Oct 2023 22:51:48 +0800</pubDate>
+      
+      <guid>https://livebug.github.io/blogs/20231014-add-gitalk/</guid>
+      <description>1. 增加模板页在主题的目录下 themes/xxx/layouts/partials/gitalk.html 1{{ if .Site.Params.enableGitalk }} 2&amp;lt;div id=&amp;#34;gitalk-container&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; 3&amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;https://unpkg.com/gitalk/dist/gitalk.css&amp;#34;&amp;gt; 4&amp;lt;script src=&amp;#34;https://unpkg.com/gitalk/dist/gitalk.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 5&amp;lt;script&amp;gt; 6 const gitalk = new Gitalk({ 7 clientID: &amp;#39;{{ .Site.Params.Gitalk.clientID }}&amp;#39;, 8 clientSecret: &amp;#39;{{ .Site.Params.Gitalk.clientSecret }}&amp;#39;, 9 repo: &amp;#39;{{ .Site.Params.Gitalk.repo }}&amp;#39;, 10 owner: &amp;#39;{{ .Site.Params.Gitalk.owner }}&amp;#39;, 11 admin: [&amp;#39;{{ .Site.Params.Gitalk.owner }}&amp;#39;], 12 id: location.pathname, // Ensure uniqueness and length less than 50 13 distractionFreeMode: false // Facebook-like distraction free mode 14 }); 15 (function () { 16 if ([&amp;#34;localhost&amp;#34;, &amp;#34;127.</description>
+    </item>
+    
     <item>
       <title>hugo new content 命令使用 &amp; 自定义新增文章脚本</title>
       <link>https://livebug.github.io/blogs/20231014-hugo-new-content/</link>
