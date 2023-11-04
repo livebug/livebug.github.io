@@ -6,16 +6,15 @@
     <description>Recent content in css on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Oct 2023 00:36:17 +0800</lastBuildDate><atom:link href="https://livebug.github.io/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Oct 2023 00:36:17 +0800</lastBuildDate>
+    <atom:link href="https://livebug.github.io/tags/css/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>css—用户代理样式表</title>
       <link>https://livebug.github.io/blogs/20231003-css-web-browser-style/</link>
       <pubDate>Tue, 03 Oct 2023 00:36:17 +0800</pubDate>
-      
       <guid>https://livebug.github.io/blogs/20231003-css-web-browser-style/</guid>
       <description>一般处理方式怎加第一行代码
 1&amp;lt;!DOCTYPE html&amp;gt; 如果不起作用就需要在样式上使用 !important</description>
     </item>
-    
   </channel>
 </rss>

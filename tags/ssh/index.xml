@@ -6,12 +6,12 @@
     <description>Recent content in ssh on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Sep 2023 23:48:19 +0000</lastBuildDate><atom:link href="https://livebug.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Sep 2023 23:48:19 +0000</lastBuildDate>
+    <atom:link href="https://livebug.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gitee增加ssh 实现免密访问</title>
       <link>https://livebug.github.io/blogs/20230922-gitee-add-sshkey/</link>
       <pubDate>Fri, 22 Sep 2023 23:48:19 +0000</pubDate>
-      
       <guid>https://livebug.github.io/blogs/20230922-gitee-add-sshkey/</guid>
       <description>前言 其实实现这个很简单，根据提供的提示文档按部就班增加就行
 https://help.gitee.com/base/account/SSH%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE#:~:text=%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE-,SSH%20%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE,-Gitee%20%E6%8F%90%E4%BE%9B%E4%BA%86
@@ -24,12 +24,10 @@ SSH 原理 什么是SSH SSH 叫安全外壳协议（Secure Shell），是一种�
 &amp;mdash; 相关文档 &amp;mdash;
 SSH使用 第一篇 - SSH 使用 第二篇 - gitee SSH免密登录 </description>
     </item>
-    
     <item>
       <title>ssh基本介绍和问题解答</title>
       <link>https://livebug.github.io/blogs/20230827-ssh-connect/</link>
       <pubDate>Tue, 27 Jun 2023 23:48:19 +0000</pubDate>
-      
       <guid>https://livebug.github.io/blogs/20230827-ssh-connect/</guid>
       <description>SSH 简单介绍 在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：
 1ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。
@@ -38,6 +36,5 @@ SSH使用 第一篇 - SSH 使用 第二篇 - gitee SSH免密登录 </description
 1# 密钥发送 2 ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 也可以直接复制里面的内容，直接复制到服务器ssh目录下的
 防火墙 ufw 开启ssh ？ 1 41 /usr/sbin/ufw 2 47 /usr/sbin/ufw allow ssh 3 60 /usr/sbin/ufw status 4 70 /etc/init.</description>
     </item>
-    
   </channel>
 </rss>

@@ -6,17 +6,16 @@
     <description>Recent content in 随笔摘记 on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Oct 2023 22:39:48 +0800</lastBuildDate><atom:link href="https://livebug.github.io/categories/%E9%9A%8F%E7%AC%94%E6%91%98%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Oct 2023 22:39:48 +0800</lastBuildDate>
+    <atom:link href="https://livebug.github.io/categories/%E9%9A%8F%E7%AC%94%E6%91%98%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>categories和types有什么区别吗</title>
       <link>https://livebug.github.io/blogs/20231008-diff-category-tags/</link>
       <pubDate>Sun, 08 Oct 2023 22:39:48 +0800</pubDate>
-      
       <guid>https://livebug.github.io/blogs/20231008-diff-category-tags/</guid>
       <description>category是一级分类，type是二级分类。
 Category：书面用词，指归属有确切定义的种类、类别或类目。买衣服要买衬衫，牛仔裤，帽子，鞋等，这些用Category.
 Type：是常用词，侧重所属“类型“，指有相同本质特点的同类事物。衬衫要长袖，半袖，花格，白色，黑色等，这些用Type。</description>
     </item>
-    
   </channel>
 </rss>

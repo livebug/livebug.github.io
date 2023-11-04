@@ -6,12 +6,12 @@
     <description>Recent content in samba on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Apr 2023 10:36:21 +0000</lastBuildDate><atom:link href="https://livebug.github.io/tags/samba/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Apr 2023 10:36:21 +0000</lastBuildDate>
+    <atom:link href="https://livebug.github.io/tags/samba/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>fedora打开Samba端口</title>
       <link>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</link>
       <pubDate>Tue, 25 Apr 2023 10:36:21 +0000</pubDate>
-      
       <guid>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</guid>
       <description>来源：
 https://www.linuxprobe.com/fedora-centos-samba.html
@@ -20,6 +20,5 @@ https://www.linuxprobe.com/fedora-centos-samba.html
 firewall-cmd --permanent --zone=public --add-service=samba firewall-cmd --reload 注意事项：
 需要加用户密码时，使用本机已经有的账户，但秘密可以随便设置 </description>
     </item>
-    
   </channel>
 </rss>
