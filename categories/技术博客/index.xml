@@ -6,8 +6,26 @@
     <description>Recent content in 技术博客 on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Oct 2023 22:51:48 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 12 Nov 2023 09:07:42 +0800</lastBuildDate>
     <atom:link href="https://livebug.github.io/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Openiddict Base Introduce</title>
+      <link>https://livebug.github.io/blogs/20231112-openiddict-base-introduce/</link>
+      <pubDate>Sun, 12 Nov 2023 09:07:42 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20231112-openiddict-base-introduce/</guid>
+      <description>身份认证服务、多租户的实现
+用于学习的目的，必须要从identityServer开始学习
+Authentication 验证
+当应用程序需要知道当前用户的身份时，需要进行身份验证。通常，这些应用程序代表该用户管理数据，并且需要确保该用户只能访问允许他们访问的数据。
+最常见的身份验证协议是 SAML2p、WS-Federation 和 OpenID Connect - SAML2p 是最流行且部署最广泛的协议。
+OpenID Connect 是这三者中最新的一个，但被认为是未来，因为它对于现代应用程序最具潜力。它从一开始就是为移动应用场景而构建的，并且被设计为 API 友好。
+OAuth2 是一种协议，允许应用程序从安全令牌服务请求访问令牌并使用它们与 API 进行通信。由于身份验证和授权可以集中化，因此这种委派降低了客户端应用程序和 API 的复杂性。
+OpenID Connect 和 OAuth 2.0 非常相似 - 事实上 OpenID Connect 是 OAuth 2.0 之上的扩展。身份验证和 API 访问这两个基本安全问题被组合到一个协议中 - 通常与安全令牌服务进行单次往返。
+我们相信，OpenID Connect 和 OAuth 2.0 的结合是在可预见的未来保护现代应用程序安全的最佳方法。 Duende IdentityServer 是这两个协议的实现，并经过高度优化，可以解决当今移动、本机和 Web 应用程序的典型安全问题。
+Duende IdentityServer 是一个中间件，它将符合规范的 OpenID Connect 和 OAuth 2.0 端点添加到任意 ASP.NET Core 主机。
+通常，您构建（或重用）包含登录和注销页面（以及可选的同意页面，具体取决于您的需要）的应用程序，并将 IdentityServer 中间件添加到该应用程序。中间件向应用程序添加必要的协议头，以便客户端可以使用这些标准协议与其进行通信。
+Duende IdentityServer 是一个 OpenID Connect 和 OAuth 引擎 - 它实现了 OpenID Connect 和 OAuth 2.</description>
+    </item>
     <item>
       <title>Add Gitalk 评论组件</title>
       <link>https://livebug.github.io/blogs/20231014-add-gitalk/</link>
