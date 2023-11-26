@@ -57,6 +57,8 @@ Duende IdentityServer 是一个 OpenID Connect 和 OAuth 引擎 - 它实现了 O
         <li><a href="#几个好用的网站">几个好用的网站</a></li>
       </ul>
     </li>
+    <li><a href="#linux-上使用-dotnet-dev-certs-命令是失败的处理办法官网已经给了办法">linux 上使用 dotnet dev-certs 命令是失败的，处理办法官网已经给了办法！</a></li>
+    <li><a href="#c-launchsettingsjson-profiles-顺序c-launchsettingsjson-配置文件顺序">c# launchsettings.json profiles 顺序c# launchsettings.json 配置文件顺序</a></li>
   </ul>
 </nav>
     </aside>
@@ -97,7 +99,25 @@ Duende IdentityServer 是一个 OpenID Connect 和 OAuth 引擎 - 它实现了 O
 <h3 id="几个好用的网站">几个好用的网站</h3>
 <p><a href="https://source.dot.net/">https://source.dot.net/</a>  源码查看网站</p>
 <p><a href="https://www.cnblogs.com/RainingNight/p/introduce-basic-authentication-in-asp-net-core.html#microsoft.aspnetcore.authentication">ASP.NET Core 认证与授权[1]:初识认证</a></p>
-
+<h2 id="linux-上使用-dotnet-dev-certs-命令是失败的处理办法官网已经给了办法">linux 上使用 dotnet dev-certs 命令是失败的，处理办法官网已经给了办法！</h2>
+<p><a href="https://learn.microsoft.com/zh-cn/aspnet/core/security/enforcing-ssl?view=aspnetcore-8.0&amp;tabs=visual-studio%2Clinux-ubuntu#ubuntu-trust-the-certificate-for-service-to-service-communication">https://learn.microsoft.com/zh-cn/aspnet/core/security/enforcing-ssl?view=aspnetcore-8.0&amp;tabs=visual-studio%2Clinux-ubuntu#ubuntu-trust-the-certificate-for-service-to-service-communication</a></p>
+<p>以下说明不适用于某些 Ubuntu 版本，例如 20.04。 有关详细信息，请参阅 GitHub 问题 dotnet/AspNetCore.Docs #23686。</p>
+<p>安装 OpenSSL 1.1.1h 或更高版本。 有关如何更新 OpenSSL 的说明，请参阅你的发行版。</p>
+<p>运行以下命令：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>dotnet dev-certs https
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/aspnet/https.crt --format PEM
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>sudo update-ca-certificates
+</span></span></code></pre></div><p>前面的命令：</p>
+<p>确保创建了当前用户的开发人员证书。<br>
+使用当前用户的环境导出具有 ca-certificates 文件夹所需的提升权限的证书。<br>
+删除 -E 标志会导出根用户证书，并根据需要生成它。 每个新生成的证书都有不同的指纹。 以根用户身份运行时，不需要 sudo 和 -E。
+上述命令中的路径特定于 Ubuntu。 对于其他发行版，请选择相应的路径或使用证书颁发机构 (CA) 的路径。</p>
+<h2 id="c-launchsettingsjson-profiles-顺序c-launchsettingsjson-配置文件顺序">c# launchsettings.json profiles 顺序c# launchsettings.json 配置文件顺序</h2>
+<p>首先会按环境区分，生产还是开发<br>
+默认执行同项目名的配置，然后根据前后顺序</p>
+<p>可以在项目运行时指定：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>dotnet run --launch-Profile &lt;name&gt;
+</span></span></code></pre></div>
 </article>
 <hr class="hr-common">
 
