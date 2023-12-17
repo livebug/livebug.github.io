@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="1. 英语单词 Authentication vs. Authorization Authentication 一般指身份验证，又称 “验证”、“鉴权”，是指通过一定的手段，完成对用户身份的确认。
+Authorization 一般是授权、委托的意思，向… 授予职权或权力许可，批准等意思。
+2. 计算机基础 2.1 Authentication 身份验证是一个过程，用户提供凭据，然后将其与操作系统、数据库、应用程序或资源中存储的凭据进行比较。如果它们匹配， 则用户将成功进行身份验证，然后可以在授权过程中执行他们被授权执行的操作。
+2.2 Authorization 授权是指确定允许用户执行哪些操作的过程。
+asp.net 中的身份验证 在 ASP.NET Core 中，身份验证由身份验证服务 IAuthenticationService 处理，该服务由身份验证中间件使用。身份验证服务使用注册的身份验证处理程序来完成与身份验证相关的操作。
+注册的身份验证处理程序及其配置选项称为“方案(schemes)”。
+身份验证方案通过在 Program.cs 中注册身份验证服务来指定。
+1builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme) 2 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, 3 options =&gt; builder.Configuration.Bind(&#34;JwtSettings&#34;, options)) 4 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, 5 options =&gt; builder.Configuration.Bind(&#34;CookieSettings&#34;, options)); 身份验证方案可以选择哪个身份验证处理程序负责生成正确的声明集。有关详细信息，请参阅使用特定方案授权。">  
+
+  <title>
+    
+      Asp.net Auth 身份验证与授权基本认识
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.2c0f55ac659c1211f905ab3c3a8391ddc4c8b35b008247aab1a1642839ae8d68937f7bb12b4848d0e709b7d3114f979ad83d9898fd9a69c57171099d678cddf3.css" integrity="sha512-LA9VrGWcEhH5Bas8OoOR3cTIs1sAgkeqsaFkKDmujWiTf3uxK0hI0OcJt9MRT5ea2D2YmP2aacVxcQmdZ4zd8w==" />
+  
+</head>
+<body a="light">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">.. back to home</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-12-17 23:51:49 &#43;0800 &#43;0800">
+            2023-12-17
+        </time>
+    </p>
+
+    <h1>Asp.net Auth 身份验证与授权基本认识</h1>
+
+    
+
+    
+    
+    <aside >
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-英语单词-authentication-vs-authorization">1. 英语单词 Authentication vs. Authorization</a></li>
+    <li><a href="#2-计算机基础">2. 计算机基础</a>
+      <ul>
+        <li><a href="#21-authentication">2.1 Authentication</a></li>
+        <li><a href="#22-authorization">2.2 Authorization</a></li>
+      </ul>
+    </li>
+    <li><a href="#aspnet-中的身份验证">asp.net 中的身份验证</a></li>
+  </ul>
+</nav>
+    </aside>
+    
+    
+    <hr class="hr-common"> 
+
+    <h2 id="1-英语单词-authentication-vs-authorization">1. 英语单词 Authentication vs. Authorization</h2>
+<p>Authentication 一般指身份验证，又称 “验证”、“鉴权”，是指通过一定的手段，完成对用户身份的确认。</p>
+<p>Authorization 一般是授权、委托的意思，向… 授予职权或权力许可，批准等意思。</p>
+<h2 id="2-计算机基础">2. 计算机基础</h2>
+<h3 id="21-authentication">2.1 Authentication</h3>
+<p>身份验证是一个过程，用户提供凭据，然后将其与操作系统、数据库、应用程序或资源中存储的凭据进行比较。如果它们匹配，
+则用户将成功进行身份验证，然后可以在授权过程中执行他们被授权执行的操作。</p>
+<h3 id="22-authorization">2.2 Authorization</h3>
+<p>授权是指确定允许用户执行哪些操作的过程。</p>
+<h2 id="aspnet-中的身份验证">asp.net 中的身份验证</h2>
+<p>在 ASP.NET Core 中，身份验证由身份验证服务 IAuthenticationService 处理，该服务由身份验证中间件使用。身份验证服务使用注册的身份验证处理程序来完成与身份验证相关的操作。</p>
+<p>注册的身份验证处理程序及其配置选项称为“方案(<code>schemes</code>)”。</p>
+<p>身份验证方案通过在 Program.cs 中注册身份验证服务来指定。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>                    options =&gt; builder.Configuration.Bind(<span style="color:#d14">&#34;JwtSettings&#34;</span>, options))
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>                    options =&gt; builder.Configuration.Bind(<span style="color:#d14">&#34;CookieSettings&#34;</span>, options));
+</span></span></code></pre></div><p>身份验证方案可以选择哪个身份验证处理程序负责生成正确的声明集。有关详细信息，请参阅使用<a href="https://learn.microsoft.com/en-us/aspnet/core/security/authorization/limitingidentitybyscheme?view=aspnetcore-8.0">特定方案授权</a>。</p>
+
+</article>
+<hr class="hr-common">
+
+<footer class="post-footer">
+    <ul class="post-tags">
+        <li><a href="https://livebug.github.io/tags/c#/">C#</a></li>
+        <li><a href="https://livebug.github.io/tags/asp.net/">asp.net</a></li>
+    </ul>
+
+    
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '611a6636d92469d23028',
+    clientSecret: 'e33f7c182796cd46d35977af0c04dcf1cb16b49f',
+    repo: 'livebug.github.io',
+    owner: 'livebug',
+    admin: ['livebug'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function () {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+
+</footer>
+
+
+            </div>
+        </main>
+    </body></html>

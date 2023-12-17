@@ -6,25 +6,21 @@
     <description>Recent content in 技术博客 on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Nov 2023 09:07:42 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 Dec 2023 23:51:49 +0800</lastBuildDate>
     <atom:link href="https://livebug.github.io/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Asp.net Auth 身份验证与授权基本认识</title>
+      <link>https://livebug.github.io/blogs/20231217-asp.net-auth/</link>
+      <pubDate>Sun, 17 Dec 2023 23:51:49 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20231217-asp.net-auth/</guid>
+      <description>1. 英语单词 Authentication vs. Authorization Authentication 一般指身份验证，又称 “验证”、“鉴权”，是指通过一定的手段，完成对用户身份的确认。&#xA;Authorization 一般是授权、委托的意思，向… 授予职权或权力许可，批准等意思。&#xA;2. 计算机基础 2.1 Authentication 身份验证是一个过程，用户提供凭据，然后将其与操作系统、数据库、应用程序或资源中存储的凭据进行比较。如果它们匹配， 则用户将成功进行身份验证，然后可以在授权过程中执行他们被授权执行的操作。&#xA;2.2 Authorization 授权是指确定允许用户执行哪些操作的过程。&#xA;asp.net 中的身份验证 在 ASP.NET Core 中，身份验证由身份验证服务 IAuthenticationService 处理，该服务由身份验证中间件使用。身份验证服务使用注册的身份验证处理程序来完成与身份验证相关的操作。&#xA;注册的身份验证处理程序及其配置选项称为“方案(schemes)”。&#xA;身份验证方案通过在 Program.cs 中注册身份验证服务来指定。&#xA;1builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme) 2 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, 3 options =&amp;gt; builder.Configuration.Bind(&amp;#34;JwtSettings&amp;#34;, options)) 4 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, 5 options =&amp;gt; builder.Configuration.Bind(&amp;#34;CookieSettings&amp;#34;, options)); 身份验证方案可以选择哪个身份验证处理程序负责生成正确的声明集。有关详细信息，请参阅使用特定方案授权。</description>
+    </item>
     <item>
       <title>Openiddict Base Introduce</title>
       <link>https://livebug.github.io/blogs/20231112-openiddict-base-introduce/</link>
       <pubDate>Sun, 12 Nov 2023 09:07:42 +0800</pubDate>
       <guid>https://livebug.github.io/blogs/20231112-openiddict-base-introduce/</guid>
-      <description>身份认证服务、多租户的实现
-用于学习的目的，必须要从identityServer开始学习
-Authentication 验证
-当应用程序需要知道当前用户的身份时，需要进行身份验证。通常，这些应用程序代表该用户管理数据，并且需要确保该用户只能访问允许他们访问的数据。
-最常见的身份验证协议是 SAML2p、WS-Federation 和 OpenID Connect - SAML2p 是最流行且部署最广泛的协议。
-OpenID Connect 是这三者中最新的一个，但被认为是未来，因为它对于现代应用程序最具潜力。它从一开始就是为移动应用场景而构建的，并且被设计为 API 友好。
-OAuth2 是一种协议，允许应用程序从安全令牌服务请求访问令牌并使用它们与 API 进行通信。由于身份验证和授权可以集中化，因此这种委派降低了客户端应用程序和 API 的复杂性。
-OpenID Connect 和 OAuth 2.0 非常相似 - 事实上 OpenID Connect 是 OAuth 2.0 之上的扩展。身份验证和 API 访问这两个基本安全问题被组合到一个协议中 - 通常与安全令牌服务进行单次往返。
-我们相信，OpenID Connect 和 OAuth 2.0 的结合是在可预见的未来保护现代应用程序安全的最佳方法。 Duende IdentityServer 是这两个协议的实现，并经过高度优化，可以解决当今移动、本机和 Web 应用程序的典型安全问题。
-Duende IdentityServer 是一个中间件，它将符合规范的 OpenID Connect 和 OAuth 2.0 端点添加到任意 ASP.NET Core 主机。
-通常，您构建（或重用）包含登录和注销页面（以及可选的同意页面，具体取决于您的需要）的应用程序，并将 IdentityServer 中间件添加到该应用程序。中间件向应用程序添加必要的协议头，以便客户端可以使用这些标准协议与其进行通信。
-Duende IdentityServer 是一个 OpenID Connect 和 OAuth 引擎 - 它实现了 OpenID Connect 和 OAuth 2.</description>
+      <description>身份认证服务、多租户的实现&#xA;用于学习的目的，必须要从identityServer开始学习&#xA;Authentication 验证&#xA;当应用程序需要知道当前用户的身份时，需要进行身份验证。通常，这些应用程序代表该用户管理数据，并且需要确保该用户只能访问允许他们访问的数据。&#xA;最常见的身份验证协议是 SAML2p、WS-Federation 和 OpenID Connect - SAML2p 是最流行且部署最广泛的协议。&#xA;OpenID Connect 是这三者中最新的一个，但被认为是未来，因为它对于现代应用程序最具潜力。它从一开始就是为移动应用场景而构建的，并且被设计为 API 友好。&#xA;OAuth2 是一种协议，允许应用程序从安全令牌服务请求访问令牌并使用它们与 API 进行通信。由于身份验证和授权可以集中化，因此这种委派降低了客户端应用程序和 API 的复杂性。&#xA;OpenID Connect 和 OAuth 2.0 非常相似 - 事实上 OpenID Connect 是 OAuth 2.0 之上的扩展。身份验证和 API 访问这两个基本安全问题被组合到一个协议中 - 通常与安全令牌服务进行单次往返。&#xA;我们相信，OpenID Connect 和 OAuth 2.0 的结合是在可预见的未来保护现代应用程序安全的最佳方法。 Duende IdentityServer 是这两个协议的实现，并经过高度优化，可以解决当今移动、本机和 Web 应用程序的典型安全问题。&#xA;Duende IdentityServer 是一个中间件，它将符合规范的 OpenID Connect 和 OAuth 2.0 端点添加到任意 ASP.NET Core 主机。&#xA;通常，您构建（或重用）包含登录和注销页面（以及可选的同意页面，具体取决于您的需要）的应用程序，并将 IdentityServer 中间件添加到该应用程序。中间件向应用程序添加必要的协议头，以便客户端可以使用这些标准协议与其进行通信。&#xA;Duende IdentityServer 是一个 OpenID Connect 和 OAuth 引擎 - 它实现了 OpenID Connect 和 OAuth 2.</description>
     </item>
     <item>
       <title>Add Gitalk 评论组件</title>
@@ -38,136 +34,84 @@ Duende IdentityServer 是一个 OpenID Connect 和 OAuth 引擎 - 它实现了 O
       <link>https://livebug.github.io/blogs/20231014-hugo-new-content/</link>
       <pubDate>Sat, 14 Oct 2023 20:27:57 +0800</pubDate>
       <guid>https://livebug.github.io/blogs/20231014-hugo-new-content/</guid>
-      <description>hugo new content
-创建新的内容文件并自动设置日期和标题。它将根据提供的路径猜测要创建的文件类型。
-1hugo new content [path] [flags] hugo 新建文章，基本就是路径加文件名的命令，并不能只写名字，自动补全时间戳这种，自己写一个吧
-1# 基本新建命令 2hugo new blogs/xxxxx.md hugonew.sh 脚本
-1post_name=$1 2post_name=`echo $post_name | tr -s &amp;#39;&amp;#39;` # 去除多余空格 3post_name=` echo ${post_name} | sed &amp;#39;s/[ ]/-/g&amp;#39;` # 替换空格为 - 4echo ${post_name} 5date_string=`date +%Y%m%d` # 日期字符串 6date_string=`date +%Y%m%d%H%M%S` # 毫秒字符串 7date 8hugo new blogs/${post_name}.md $@ 9cd content/blogs/ 10mv ${post_name}.md ${date_string}-${post_name}.md 执行 自动拼接日期串 可以自己替换为毫秒字符串
-1sh hugonew.sh &amp;#34;tests dsds SDASD &amp;#34; 2tests-dsds-SDASD 3Sat Oct 14 22:19:43 CST 2023 4Content &amp;#34;/home/sharif/myblog/content/blogs/tests-dsds-SDASD.</description>
+      <description>hugo new content&#xA;创建新的内容文件并自动设置日期和标题。它将根据提供的路径猜测要创建的文件类型。&#xA;1hugo new content [path] [flags] hugo 新建文章，基本就是路径加文件名的命令，并不能只写名字，自动补全时间戳这种，自己写一个吧&#xA;1# 基本新建命令 2hugo new blogs/xxxxx.md hugonew.sh 脚本&#xA;1post_name=$1 2post_name=`echo $post_name | tr -s &amp;#39;&amp;#39;` # 去除多余空格 3post_name=` echo ${post_name} | sed &amp;#39;s/[ ]/-/g&amp;#39;` # 替换空格为 - 4echo ${post_name} 5date_string=`date +%Y%m%d` # 日期字符串 6date_string=`date +%Y%m%d%H%M%S` # 毫秒字符串 7date 8hugo new blogs/${post_name}.md $@ 9cd content/blogs/ 10mv ${post_name}.md ${date_string}-${post_name}.md 执行 自动拼接日期串 可以自己替换为毫秒字符串&#xA;1sh hugonew.sh &amp;#34;tests dsds SDASD &amp;#34; 2tests-dsds-SDASD 3Sat Oct 14 22:19:43 CST 2023 4Content &amp;#34;/home/sharif/myblog/content/blogs/tests-dsds-SDASD.</description>
     </item>
     <item>
       <title> Antlr4 基础介绍</title>
       <link>https://livebug.github.io/blogs/20231008-antlr-base/</link>
       <pubDate>Wed, 04 Oct 2023 09:13:17 +0800</pubDate>
       <guid>https://livebug.github.io/blogs/20231008-antlr-base/</guid>
-      <description>antlr 安装 下载 jar 包，因为生成工具是用java写的，要保证安装了java，11版本以适应最新版安装
-有大量 java C# 的案例代码
-github 地址： https://github.com/antlr/antlr4
-基础文档： getting-started-with-antlr-v4
-1$ cd /usr/local/lib 2$ curl -O https://www.antlr.org/download/antlr-4.9-complete.jar 3# 后面的写到 .bashrc 中 4$ export CLASSPATH=&amp;#34;.:/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH&amp;#34; 5$ alias antlr4=&amp;#39;java -Xmx500M -cp &amp;#34;/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH&amp;#34; org.antlr.v4.Tool&amp;#39; 6$ alias grun=&amp;#39;java -Xmx500M -cp &amp;#34;/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH&amp;#34; org.antlr.v4.gui.TestRig&amp;#39; 编译案例 1# 编译 2antlr4 -lib ./ HiveParser.g4 -o csharp -Dlanguage=CSharp -visitor -package Hive.V3 C# 项目中增加 build 工具 添加工具包 1# Antlr4BuildTasks 2&amp;lt;Project Sdk=&amp;#34;Microsoft.NET.Sdk&amp;#34;&amp;gt; 3	&amp;lt;PropertyGroup&amp;gt; 4	&amp;lt;OutputType&amp;gt;Exe&amp;lt;/OutputType&amp;gt; 5	&amp;lt;TargetFramework&amp;gt;net6.0&amp;lt;/TargetFramework&amp;gt; 6	&amp;lt;ImplicitUsings&amp;gt;enable&amp;lt;/ImplicitUsings&amp;gt; 7	&amp;lt;Nullable&amp;gt;enable&amp;lt;/Nullable&amp;gt; 8	&amp;lt;/PropertyGroup&amp;gt; 9	&amp;lt;ItemGroup&amp;gt; 10	&amp;lt;Content Include=&amp;#34;input&amp;#34;&amp;gt; 11	&amp;lt;CopyToOutputDirectory&amp;gt;Always&amp;lt;/CopyToOutputDirectory&amp;gt; 12	&amp;lt;/Content&amp;gt; 13	&amp;lt;/ItemGroup&amp;gt; 14	&amp;lt;ItemGroup&amp;gt; 15	&amp;lt;PackageReference Include=&amp;#34;Antlr4.</description>
+      <description>antlr 安装 下载 jar 包，因为生成工具是用java写的，要保证安装了java，11版本以适应最新版安装&#xA;有大量 java C# 的案例代码&#xA;github 地址： https://github.com/antlr/antlr4&#xA;基础文档： getting-started-with-antlr-v4&#xA;1$ cd /usr/local/lib 2$ curl -O https://www.antlr.org/download/antlr-4.9-complete.jar 3# 后面的写到 .bashrc 中 4$ export CLASSPATH=&amp;#34;.:/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH&amp;#34; 5$ alias antlr4=&amp;#39;java -Xmx500M -cp &amp;#34;/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH&amp;#34; org.antlr.v4.Tool&amp;#39; 6$ alias grun=&amp;#39;java -Xmx500M -cp &amp;#34;/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH&amp;#34; org.antlr.v4.gui.TestRig&amp;#39; 编译案例 1# 编译 2antlr4 -lib ./ HiveParser.g4 -o csharp -Dlanguage=CSharp -visitor -package Hive.V3 C# 项目中增加 build 工具 添加工具包 1# Antlr4BuildTasks 2&amp;lt;Project Sdk=&amp;#34;Microsoft.NET.Sdk&amp;#34;&amp;gt; 3&#x9;&amp;lt;PropertyGroup&amp;gt; 4&#x9;&amp;lt;OutputType&amp;gt;Exe&amp;lt;/OutputType&amp;gt; 5&#x9;&amp;lt;TargetFramework&amp;gt;net6.0&amp;lt;/TargetFramework&amp;gt; 6&#x9;&amp;lt;ImplicitUsings&amp;gt;enable&amp;lt;/ImplicitUsings&amp;gt; 7&#x9;&amp;lt;Nullable&amp;gt;enable&amp;lt;/Nullable&amp;gt; 8&#x9;&amp;lt;/PropertyGroup&amp;gt; 9&#x9;&amp;lt;ItemGroup&amp;gt; 10&#x9;&amp;lt;Content Include=&amp;#34;input&amp;#34;&amp;gt; 11&#x9;&amp;lt;CopyToOutputDirectory&amp;gt;Always&amp;lt;/CopyToOutputDirectory&amp;gt; 12&#x9;&amp;lt;/Content&amp;gt; 13&#x9;&amp;lt;/ItemGroup&amp;gt; 14&#x9;&amp;lt;ItemGroup&amp;gt; 15&#x9;&amp;lt;PackageReference Include=&amp;#34;Antlr4.</description>
     </item>
     <item>
       <title>css—用户代理样式表</title>
       <link>https://livebug.github.io/blogs/20231003-css-web-browser-style/</link>
       <pubDate>Tue, 03 Oct 2023 00:36:17 +0800</pubDate>
       <guid>https://livebug.github.io/blogs/20231003-css-web-browser-style/</guid>
-      <description>一般处理方式怎加第一行代码
-1&amp;lt;!DOCTYPE html&amp;gt; 如果不起作用就需要在样式上使用 !important</description>
+      <description>一般处理方式怎加第一行代码&#xA;1&amp;lt;!DOCTYPE html&amp;gt; 如果不起作用就需要在样式上使用 !important</description>
     </item>
     <item>
       <title>使用 Github Actions 自动化发布博客</title>
       <link>https://livebug.github.io/blogs/20230930-github-actions/</link>
       <pubDate>Sat, 30 Sep 2023 13:58:58 +0800</pubDate>
       <guid>https://livebug.github.io/blogs/20230930-github-actions/</guid>
-      <description>介绍背景：
-博客网站myblog仓库底下有两个子库，一个子库是用来存储markdown文章的blogs仓库，一个是用来存储public内容的github pages库 livebug.github.io仓库
-当博客网站样式更新提交，或者文章提交，触发myblog仓库的 actions ，执行完之后发布到pages仓库
-开发myblog仓库的提交 actions 1# Sample workflow for building and deploying a Hugo site to GitHub Pages 2name: Deploy Hugo site to Pages 3 4on: 5 # Runs on pushes targeting the default branch 6 push: 7 branches: [&amp;#34;master&amp;#34;] 8 9 # Allows you to run this workflow manually from the Actions tab 10 workflow_dispatch: 11 12# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages 13permissions: 14 contents: read 15 pages: write 16 id-token: write 17 18# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.</description>
+      <description>介绍背景：&#xA;博客网站myblog仓库底下有两个子库，一个子库是用来存储markdown文章的blogs仓库，一个是用来存储public内容的github pages库 livebug.github.io仓库&#xA;当博客网站样式更新提交，或者文章提交，触发myblog仓库的 actions ，执行完之后发布到pages仓库&#xA;开发myblog仓库的提交 actions 1# Sample workflow for building and deploying a Hugo site to GitHub Pages 2name: Deploy Hugo site to Pages 3 4on: 5 # Runs on pushes targeting the default branch 6 push: 7 branches: [&amp;#34;master&amp;#34;] 8 9 # Allows you to run this workflow manually from the Actions tab 10 workflow_dispatch: 11 12# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages 13permissions: 14 contents: read 15 pages: write 16 id-token: write 17 18# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.</description>
     </item>
     <item>
       <title>gitee增加ssh 实现免密访问</title>
       <link>https://livebug.github.io/blogs/20230922-gitee-add-sshkey/</link>
       <pubDate>Fri, 22 Sep 2023 23:48:19 +0000</pubDate>
       <guid>https://livebug.github.io/blogs/20230922-gitee-add-sshkey/</guid>
-      <description>前言 其实实现这个很简单，根据提供的提示文档按部就班增加就行
-https://help.gitee.com/base/account/SSH%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE#:~:text=%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE-,SSH%20%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE,-Gitee%20%E6%8F%90%E4%BE%9B%E4%BA%86
-本文主要是想说明 ssh的原理以及应用
-SSH 原理 什么是SSH SSH 叫安全外壳协议（Secure Shell），是一种加密的网络传输协议，可在不安全的网络中网络服务提供安全的传输环境。它通过在网络中创建安全隧道来实现 SSH 客户端和服务器之间的连接。
-对称加密 对方同自己用于同样的密钥，加解密时用一样的
-非对称加密 非对称加密需要一对秘钥来进行加密和解密，公开的秘钥叫公钥，私有的秘钥叫私钥。注意公钥加密的信息只有私钥才能解开（加密过程），私钥加密的信息只有公钥才能解开（验签过程）。比较常用的非对称加密算法有 RSA。
-图解， Server A 免登录到 Server B :
-在A上生成公钥、私钥 将公钥拷贝给 Server B ，将公钥拷贝到 Server A 向 Server B 发送一个连接请求。 Server B 得到 Server A 的信息后，在authorized_key中查找，如果有相应的用户名和IP，则随机生成一个字符串，并用 Server A 的公钥加密，发送给 Server A 。 Server A 得到 Server B 发来的消息后，使用私钥进行解密，然后将解密后的字符串发送给 Server B 。 Server B 进行和生成的对比，如果一致，则允许免登录。 总之 ：A要免密码登录到B，B首先要拥有A的公钥，然后B要做一次加密验证。对于非对称加密，公钥加密的密文不能公钥解开，只能私钥解开。
-&amp;mdash; 相关文档 &amp;mdash;
-SSH使用 第一篇 - SSH 使用 第二篇 - gitee SSH免密登录 </description>
+      <description>前言 其实实现这个很简单，根据提供的提示文档按部就班增加就行&#xA;https://help.gitee.com/base/account/SSH%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE#:~:text=%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE-,SSH%20%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE,-Gitee%20%E6%8F%90%E4%BE%9B%E4%BA%86&#xA;本文主要是想说明 ssh的原理以及应用&#xA;SSH 原理 什么是SSH SSH 叫安全外壳协议（Secure Shell），是一种加密的网络传输协议，可在不安全的网络中网络服务提供安全的传输环境。它通过在网络中创建安全隧道来实现 SSH 客户端和服务器之间的连接。&#xA;对称加密 对方同自己用于同样的密钥，加解密时用一样的&#xA;非对称加密 非对称加密需要一对秘钥来进行加密和解密，公开的秘钥叫公钥，私有的秘钥叫私钥。注意公钥加密的信息只有私钥才能解开（加密过程），私钥加密的信息只有公钥才能解开（验签过程）。比较常用的非对称加密算法有 RSA。&#xA;图解， Server A 免登录到 Server B :&#xA;在A上生成公钥、私钥 将公钥拷贝给 Server B ，将公钥拷贝到 Server A 向 Server B 发送一个连接请求。 Server B 得到 Server A 的信息后，在authorized_key中查找，如果有相应的用户名和IP，则随机生成一个字符串，并用 Server A 的公钥加密，发送给 Server A 。 Server A 得到 Server B 发来的消息后，使用私钥进行解密，然后将解密后的字符串发送给 Server B 。 Server B 进行和生成的对比，如果一致，则允许免登录。 总之 ：A要免密码登录到B，B首先要拥有A的公钥，然后B要做一次加密验证。对于非对称加密，公钥加密的密文不能公钥解开，只能私钥解开。&#xA;&amp;mdash; 相关文档 &amp;mdash;&#xA;SSH使用 第一篇 - SSH 使用 第二篇 - gitee SSH免密登录 </description>
     </item>
     <item>
       <title>正则表达式-先行断言(lookahead)和后行断言(lookbehind)</title>
       <link>https://livebug.github.io/blogs/20230917-regexp-lookahead/</link>
       <pubDate>Sun, 17 Sep 2023 23:48:19 +0000</pubDate>
       <guid>https://livebug.github.io/blogs/20230917-regexp-lookahead/</guid>
-      <description>正则表达式的先行断言和后行断言一共有 4 种形式：
-(?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion)
-正向先行断言 代表字符串中的一个位置，紧接该位置之后的字符序列能够匹配 pattern。
-(?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion)
-负向先行断言 代表字符串中的一个位置，紧接该位置之后的字符序列不能匹配 pattern。
-(?&amp;lt;=pattern) 零宽正向后行断言(zero-width positive lookbehind assertion)
-正向后行断言 代表字符串中的一个位置，紧接该位置之前的字符序列能够匹配 pattern。
-(?&amp;lt;!pattern) 零宽负向后行断言(zero-width negative lookbehind assertion)
-负向后行断言 代表字符串中的一个位置，紧接该位置之前的字符序列不能匹配 pattern。</description>
+      <description>正则表达式的先行断言和后行断言一共有 4 种形式：&#xA;(?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion)&#xA;正向先行断言 代表字符串中的一个位置，紧接该位置之后的字符序列能够匹配 pattern。&#xA;(?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion)&#xA;负向先行断言 代表字符串中的一个位置，紧接该位置之后的字符序列不能匹配 pattern。&#xA;(?&amp;lt;=pattern) 零宽正向后行断言(zero-width positive lookbehind assertion)&#xA;正向后行断言 代表字符串中的一个位置，紧接该位置之前的字符序列能够匹配 pattern。&#xA;(?&amp;lt;!pattern) 零宽负向后行断言(zero-width negative lookbehind assertion)&#xA;负向后行断言 代表字符串中的一个位置，紧接该位置之前的字符序列不能匹配 pattern。</description>
     </item>
     <item>
       <title>sql语言脚本开发-语法突出</title>
       <link>https://livebug.github.io/blogs/20230909-vscode-sqllang/</link>
       <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
       <guid>https://livebug.github.io/blogs/20230909-vscode-sqllang/</guid>
-      <description>语法突出显示指南：VS Code 使用文本伴侣(TextMate)语法进行语法突出显示。本指南将引导您编写简单的 TextMate 语法并将其转换为 VS Code 扩展。
-TextMate 语法 1{ 2 scopeName = &amp;#39;source.untitled&amp;#39;; 3 fileTypes = ( ); 4 foldingStartMarker = &amp;#39;\{\s*$&amp;#39;; 5 foldingStopMarker = &amp;#39;^\s*\}&amp;#39;; 6 patterns = ( 7 { name = &amp;#39;keyword.control.untitled&amp;#39;; 8 match = &amp;#39;\b(if|while|for|return)\b&amp;#39;; 9 }, 10 { name = &amp;#39;string.quoted.double.untitled&amp;#39;; 11 begin = &amp;#39;&amp;#34;&amp;#39;; 12 end = &amp;#39;&amp;#34;&amp;#39;; 13 patterns = ( 14 { name = &amp;#39;constant.character.escape.untitled&amp;#39;; 15 match = &amp;#39;\\.&amp;#39;; 16 } 17 ); 18 }, 19 ); 20} 语言语法用于为文档元素（如关键字、注释、字符串或类似元素）分配名称。这样做的目的是允许样式（语法突出显示），并使文本编辑器“智能”了解插入符号所在的上下文。例如，您可能希望击键或制表符触发器根据上下文采取不同的操作，或者您可能希望在键入文本文档中非散文的部分（例如.</description>
+      <description>语法突出显示指南：VS Code 使用文本伴侣(TextMate)语法进行语法突出显示。本指南将引导您编写简单的 TextMate 语法并将其转换为 VS Code 扩展。&#xA;TextMate 语法 1{ 2 scopeName = &amp;#39;source.untitled&amp;#39;; 3 fileTypes = ( ); 4 foldingStartMarker = &amp;#39;\{\s*$&amp;#39;; 5 foldingStopMarker = &amp;#39;^\s*\}&amp;#39;; 6 patterns = ( 7 { name = &amp;#39;keyword.control.untitled&amp;#39;; 8 match = &amp;#39;\b(if|while|for|return)\b&amp;#39;; 9 }, 10 { name = &amp;#39;string.quoted.double.untitled&amp;#39;; 11 begin = &amp;#39;&amp;#34;&amp;#39;; 12 end = &amp;#39;&amp;#34;&amp;#39;; 13 patterns = ( 14 { name = &amp;#39;constant.character.escape.untitled&amp;#39;; 15 match = &amp;#39;\\.&amp;#39;; 16 } 17 ); 18 }, 19 ); 20} 语言语法用于为文档元素（如关键字、注释、字符串或类似元素）分配名称。这样做的目的是允许样式（语法突出显示），并使文本编辑器“智能”了解插入符号所在的上下文。例如，您可能希望击键或制表符触发器根据上下文采取不同的操作，或者您可能希望在键入文本文档中非散文的部分（例如.</description>
     </item>
     <item>
       <title>wsl环境初始化-安装nvm</title>
       <link>https://livebug.github.io/blogs/20230909-wsl-init-devenv/</link>
       <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
       <guid>https://livebug.github.io/blogs/20230909-wsl-init-devenv/</guid>
-      <description>安装 nodejs 环境 1.vscode版本： 1版本: 1.82.0 (user setup) 2提交: 8b617bd08fd9e3fc94d14adb8d358b56e3f72314 3日期: 2023-09-06T22:07:07.438Z 4Electron: 25.8.0 5ElectronBuildId: 23503258 6Chromium: 114.0.5735.289 7Node.js: 18.15.0 8V8: 11.4.183.29-electron.0 9OS: Windows_NT x64 10.0.25941 2.修改host 有科学上网条件的就不用了，建议需要的上个机场
-nslookup 查看 github 的网站，修改 hosts
-1nslookup http://github.global.ssl.fastly.net 2nslookup http://github.com 3nslookup http://raw.githubusercontent.com 4 5# hosts 6199.16.158.9 http://github.global.ssl.fastly.net 7199.16.158.9 https://github.global.ssl.fastly.net 820.205.243.166 http://github.com 920.205.243.166 https://github.com 10185.199.111.133 http://raw.githubusercontent.com 11185.199.111.133 https://raw.githubusercontent.com 12185.199.110.133 http://raw.githubusercontent.com 13185.199.110.133 https://raw.githubusercontent.com 14185.199.108.133 http://raw.githubusercontent.com 15185.199.108.133 https://raw.githubusercontent.com wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以</description>
+      <description>安装 nodejs 环境 1.vscode版本： 1版本: 1.82.0 (user setup) 2提交: 8b617bd08fd9e3fc94d14adb8d358b56e3f72314 3日期: 2023-09-06T22:07:07.438Z 4Electron: 25.8.0 5ElectronBuildId: 23503258 6Chromium: 114.0.5735.289 7Node.js: 18.15.0 8V8: 11.4.183.29-electron.0 9OS: Windows_NT x64 10.0.25941 2.修改host 有科学上网条件的就不用了，建议需要的上个机场&#xA;nslookup 查看 github 的网站，修改 hosts&#xA;1nslookup http://github.global.ssl.fastly.net 2nslookup http://github.com 3nslookup http://raw.githubusercontent.com 4 5# hosts 6199.16.158.9 http://github.global.ssl.fastly.net 7199.16.158.9 https://github.global.ssl.fastly.net 820.205.243.166 http://github.com 920.205.243.166 https://github.com 10185.199.111.133 http://raw.githubusercontent.com 11185.199.111.133 https://raw.githubusercontent.com 12185.199.110.133 http://raw.githubusercontent.com 13185.199.110.133 https://raw.githubusercontent.com 14185.199.108.133 http://raw.githubusercontent.com 15185.199.108.133 https://raw.githubusercontent.com wsl 的 hosts 是复制宿主 windows的，所以要修改 windows hosts 就可以</description>
     </item>
     <item>
       <title>ssh基本介绍和问题解答</title>
       <link>https://livebug.github.io/blogs/20230827-ssh-connect/</link>
       <pubDate>Tue, 27 Jun 2023 23:48:19 +0000</pubDate>
       <guid>https://livebug.github.io/blogs/20230827-ssh-connect/</guid>
-      <description>SSH 简单介绍 在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：
-1ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。
-其实就是把自己的公钥给服务器，让服务器可以认证你
-查看有没有ssh server ？ 1/etc/init.d/ssh status 怎么生成密钥 ？ 1ssh-keygen -t rsa 查看本机的ssh密钥公钥 ？ 1-- windows 目录 2/c/Users/xxxx/.ssh 3 4cat id_rsa.pub # 这个是用rsa协议来生成的 怎么添加公钥到其他机器的 可以直接用工具传输
-1# 密钥发送 2 ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 也可以直接复制里面的内容，直接复制到服务器ssh目录下的
-防火墙 ufw 开启ssh ？ 1 41 /usr/sbin/ufw 2 47 /usr/sbin/ufw allow ssh 3 60 /usr/sbin/ufw status 4 70 /etc/init.</description>
+      <description>SSH 简单介绍 在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：&#xA;1ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。&#xA;其实就是把自己的公钥给服务器，让服务器可以认证你&#xA;查看有没有ssh server ？ 1/etc/init.d/ssh status 怎么生成密钥 ？ 1ssh-keygen -t rsa 查看本机的ssh密钥公钥 ？ 1-- windows 目录 2/c/Users/xxxx/.ssh 3 4cat id_rsa.pub # 这个是用rsa协议来生成的 怎么添加公钥到其他机器的 可以直接用工具传输&#xA;1# 密钥发送 2 ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 也可以直接复制里面的内容，直接复制到服务器ssh目录下的&#xA;防火墙 ufw 开启ssh ？ 1 41 /usr/sbin/ufw 2 47 /usr/sbin/ufw allow ssh 3 60 /usr/sbin/ufw status 4 70 /etc/init.</description>
     </item>
     <item>
       <title>fedora安装docker</title>
       <link>https://livebug.github.io/blogs/20230426-fedora-install-docker/</link>
       <pubDate>Wed, 26 Apr 2023 23:38:56 +0000</pubDate>
       <guid>https://livebug.github.io/blogs/20230426-fedora-install-docker/</guid>
-      <description>安装参考教程连接
-简单记录 安装dnf源中默认的Docker（podman-docker） 1# 运行以下命令，安装podman-docker。 2dnf -y install docker 3# 运行以下命令，查看Docker是否安装成功。 4docker images 5 权限问题 1sudo gpasswd -a $USER docekr 2newgrp docker 3docker ps -a 安装gaussdb 1docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ 2 -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ 3 enmotech/opengauss:latest 默认用户 gaussdb
-gauss 使用 1drop table sdopdb.bqqyxx; 2create table sdopdb.bqqyxx 3( 4	p_year varchar(4) not null, 5	p_type varchar(40) NOT NULL, 6	p_rank varchar(4) NOT NULL, 7	p_busi_nm varchar(100) NOT NULL, 8	p_income DECIMAL(20,6) NOT NULL 9); 10COMMENT ON TABLE sdopdb.</description>
+      <description>安装参考教程连接&#xA;简单记录 安装dnf源中默认的Docker（podman-docker） 1# 运行以下命令，安装podman-docker。 2dnf -y install docker 3# 运行以下命令，查看Docker是否安装成功。 4docker images 5 权限问题 1sudo gpasswd -a $USER docekr 2newgrp docker 3docker ps -a 安装gaussdb 1docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ 2 -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ 3 enmotech/opengauss:latest 默认用户 gaussdb&#xA;gauss 使用 1drop table sdopdb.bqqyxx; 2create table sdopdb.bqqyxx 3( 4&#x9;p_year varchar(4) not null, 5&#x9;p_type varchar(40) NOT NULL, 6&#x9;p_rank varchar(4) NOT NULL, 7&#x9;p_busi_nm varchar(100) NOT NULL, 8&#x9;p_income DECIMAL(20,6) NOT NULL 9); 10COMMENT ON TABLE sdopdb.</description>
     </item>
     <item>
       <title>fedora打开Samba端口</title>
       <link>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</link>
       <pubDate>Tue, 25 Apr 2023 10:36:21 +0000</pubDate>
       <guid>https://livebug.github.io/blogs/20230425-fedora-open-sambaport-firewall/</guid>
-      <description>来源：
-https://www.linuxprobe.com/fedora-centos-samba.html
-在CentOS/RHEL 7中打开Samba端口
-使用以下命令：
-firewall-cmd --permanent --zone=public --add-service=samba firewall-cmd --reload 注意事项：
-需要加用户密码时，使用本机已经有的账户，但秘密可以随便设置 </description>
+      <description>来源：&#xA;https://www.linuxprobe.com/fedora-centos-samba.html&#xA;在CentOS/RHEL 7中打开Samba端口&#xA;使用以下命令：&#xA;firewall-cmd --permanent --zone=public --add-service=samba firewall-cmd --reload 注意事项：&#xA;需要加用户密码时，使用本机已经有的账户，但秘密可以随便设置 </description>
     </item>
     <item>
       <title>fedora系统安装后的基本操作</title>
       <link>https://livebug.github.io/blogs/20230422-fedorainstall/</link>
       <pubDate>Sat, 22 Apr 2023 16:39:49 +0000</pubDate>
       <guid>https://livebug.github.io/blogs/20230422-fedorainstall/</guid>
-      <description>fedora 安装之后的操作 1. 换国内软件源 1sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ 2 -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ 3 -i.bak \ 4 /etc/yum.repos.d/fedora.repo \ 5 /etc/yum.repos.d/fedora-modular.repo \ 6 /etc/yum.repos.d/fedora-updates.repo \ 7 /etc/yum.repos.d/fedora-updates-modular.repo 8 9sudo dnf makecache 10sudo dnf autoremove 11sudo dnf remove --oldinstallonly 2. 设置 gnome-terminal 快捷键 ctrl+alt+t 3. 安装基本软件 2.1 edge 浏览器
-2.2 vscode
-https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-1.77.3-1681292829.el7.x86_64.rpm
-2.3 dotnet6
-2.4 nvm
-2.5 安装 GNOME 优化和扩展应用程序
-1sudo dnf install gnome-tweaks gnome-extensions-app https://extensions.gnome.org/
-安装 dash to dock 插件，可以让dock在桌面悬浮</description>
+      <description>fedora 安装之后的操作 1. 换国内软件源 1sudo sed -e &amp;#39;s|^metalink=|#metalink=|g&amp;#39; \ 2 -e &amp;#39;s|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g&amp;#39; \ 3 -i.bak \ 4 /etc/yum.repos.d/fedora.repo \ 5 /etc/yum.repos.d/fedora-modular.repo \ 6 /etc/yum.repos.d/fedora-updates.repo \ 7 /etc/yum.repos.d/fedora-updates-modular.repo 8 9sudo dnf makecache 10sudo dnf autoremove 11sudo dnf remove --oldinstallonly 2. 设置 gnome-terminal 快捷键 ctrl+alt+t 3. 安装基本软件 2.1 edge 浏览器&#xA;2.2 vscode&#xA;https://vscode.cdn.azure.cn/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-1.77.3-1681292829.el7.x86_64.rpm&#xA;2.3 dotnet6&#xA;2.4 nvm&#xA;2.5 安装 GNOME 优化和扩展应用程序&#xA;1sudo dnf install gnome-tweaks gnome-extensions-app https://extensions.gnome.org/&#xA;安装 dash to dock 插件，可以让dock在桌面悬浮</description>
     </item>
   </channel>
 </rss>

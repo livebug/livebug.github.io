@@ -13,28 +13,14 @@
       <link>https://livebug.github.io/blogs/20230922-gitee-add-sshkey/</link>
       <pubDate>Fri, 22 Sep 2023 23:48:19 +0000</pubDate>
       <guid>https://livebug.github.io/blogs/20230922-gitee-add-sshkey/</guid>
-      <description>前言 其实实现这个很简单，根据提供的提示文档按部就班增加就行
-https://help.gitee.com/base/account/SSH%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE#:~:text=%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE-,SSH%20%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE,-Gitee%20%E6%8F%90%E4%BE%9B%E4%BA%86
-本文主要是想说明 ssh的原理以及应用
-SSH 原理 什么是SSH SSH 叫安全外壳协议（Secure Shell），是一种加密的网络传输协议，可在不安全的网络中网络服务提供安全的传输环境。它通过在网络中创建安全隧道来实现 SSH 客户端和服务器之间的连接。
-对称加密 对方同自己用于同样的密钥，加解密时用一样的
-非对称加密 非对称加密需要一对秘钥来进行加密和解密，公开的秘钥叫公钥，私有的秘钥叫私钥。注意公钥加密的信息只有私钥才能解开（加密过程），私钥加密的信息只有公钥才能解开（验签过程）。比较常用的非对称加密算法有 RSA。
-图解， Server A 免登录到 Server B :
-在A上生成公钥、私钥 将公钥拷贝给 Server B ，将公钥拷贝到 Server A 向 Server B 发送一个连接请求。 Server B 得到 Server A 的信息后，在authorized_key中查找，如果有相应的用户名和IP，则随机生成一个字符串，并用 Server A 的公钥加密，发送给 Server A 。 Server A 得到 Server B 发来的消息后，使用私钥进行解密，然后将解密后的字符串发送给 Server B 。 Server B 进行和生成的对比，如果一致，则允许免登录。 总之 ：A要免密码登录到B，B首先要拥有A的公钥，然后B要做一次加密验证。对于非对称加密，公钥加密的密文不能公钥解开，只能私钥解开。
-&amp;mdash; 相关文档 &amp;mdash;
-SSH使用 第一篇 - SSH 使用 第二篇 - gitee SSH免密登录 </description>
+      <description>前言 其实实现这个很简单，根据提供的提示文档按部就班增加就行&#xA;https://help.gitee.com/base/account/SSH%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE#:~:text=%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE-,SSH%20%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE,-Gitee%20%E6%8F%90%E4%BE%9B%E4%BA%86&#xA;本文主要是想说明 ssh的原理以及应用&#xA;SSH 原理 什么是SSH SSH 叫安全外壳协议（Secure Shell），是一种加密的网络传输协议，可在不安全的网络中网络服务提供安全的传输环境。它通过在网络中创建安全隧道来实现 SSH 客户端和服务器之间的连接。&#xA;对称加密 对方同自己用于同样的密钥，加解密时用一样的&#xA;非对称加密 非对称加密需要一对秘钥来进行加密和解密，公开的秘钥叫公钥，私有的秘钥叫私钥。注意公钥加密的信息只有私钥才能解开（加密过程），私钥加密的信息只有公钥才能解开（验签过程）。比较常用的非对称加密算法有 RSA。&#xA;图解， Server A 免登录到 Server B :&#xA;在A上生成公钥、私钥 将公钥拷贝给 Server B ，将公钥拷贝到 Server A 向 Server B 发送一个连接请求。 Server B 得到 Server A 的信息后，在authorized_key中查找，如果有相应的用户名和IP，则随机生成一个字符串，并用 Server A 的公钥加密，发送给 Server A 。 Server A 得到 Server B 发来的消息后，使用私钥进行解密，然后将解密后的字符串发送给 Server B 。 Server B 进行和生成的对比，如果一致，则允许免登录。 总之 ：A要免密码登录到B，B首先要拥有A的公钥，然后B要做一次加密验证。对于非对称加密，公钥加密的密文不能公钥解开，只能私钥解开。&#xA;&amp;mdash; 相关文档 &amp;mdash;&#xA;SSH使用 第一篇 - SSH 使用 第二篇 - gitee SSH免密登录 </description>
     </item>
     <item>
       <title>ssh基本介绍和问题解答</title>
       <link>https://livebug.github.io/blogs/20230827-ssh-connect/</link>
       <pubDate>Tue, 27 Jun 2023 23:48:19 +0000</pubDate>
       <guid>https://livebug.github.io/blogs/20230827-ssh-connect/</guid>
-      <description>SSH 简单介绍 在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：
-1ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。
-其实就是把自己的公钥给服务器，让服务器可以认证你
-查看有没有ssh server ？ 1/etc/init.d/ssh status 怎么生成密钥 ？ 1ssh-keygen -t rsa 查看本机的ssh密钥公钥 ？ 1-- windows 目录 2/c/Users/xxxx/.ssh 3 4cat id_rsa.pub # 这个是用rsa协议来生成的 怎么添加公钥到其他机器的 可以直接用工具传输
-1# 密钥发送 2 ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 也可以直接复制里面的内容，直接复制到服务器ssh目录下的
-防火墙 ufw 开启ssh ？ 1 41 /usr/sbin/ufw 2 47 /usr/sbin/ufw allow ssh 3 60 /usr/sbin/ufw status 4 70 /etc/init.</description>
+      <description>SSH 简单介绍 在 Linux 系统上 SSH 是非常常用的工具，通过 SSH Client 我们可以连接到运行了 SSH Server 的远程机器上。SSH Client 的基本使用方法是：&#xA;1ssh user@remote -p port user 是你在远程机器上的用户名，如果不指定的话默认为当前用户 remote 是远程机器的地址，可以是 IP，域名，或者是后面会提到的别名 port 是 SSH Server 监听的端口，如果不指定的话就为默认值 22 免密码登入 每次 ssh 都要输入密码是不是很烦呢？与密码验证相对的，是公钥验证。也就是说，要实现免密码登入，首先要设置 SSH 钥匙。&#xA;其实就是把自己的公钥给服务器，让服务器可以认证你&#xA;查看有没有ssh server ？ 1/etc/init.d/ssh status 怎么生成密钥 ？ 1ssh-keygen -t rsa 查看本机的ssh密钥公钥 ？ 1-- windows 目录 2/c/Users/xxxx/.ssh 3 4cat id_rsa.pub # 这个是用rsa协议来生成的 怎么添加公钥到其他机器的 可以直接用工具传输&#xA;1# 密钥发送 2 ssh-copy-id -i id_rsa.pub xxx@192.168.0.103 也可以直接复制里面的内容，直接复制到服务器ssh目录下的&#xA;防火墙 ufw 开启ssh ？ 1 41 /usr/sbin/ufw 2 47 /usr/sbin/ufw allow ssh 3 60 /usr/sbin/ufw status 4 70 /etc/init.</description>
     </item>
   </channel>
 </rss>

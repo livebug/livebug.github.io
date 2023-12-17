@@ -13,8 +13,7 @@
       <link>https://livebug.github.io/blogs/20231003-css-web-browser-style/</link>
       <pubDate>Tue, 03 Oct 2023 00:36:17 +0800</pubDate>
       <guid>https://livebug.github.io/blogs/20231003-css-web-browser-style/</guid>
-      <description>一般处理方式怎加第一行代码
-1&amp;lt;!DOCTYPE html&amp;gt; 如果不起作用就需要在样式上使用 !important</description>
+      <description>一般处理方式怎加第一行代码&#xA;1&amp;lt;!DOCTYPE html&amp;gt; 如果不起作用就需要在样式上使用 !important</description>
     </item>
   </channel>
 </rss>

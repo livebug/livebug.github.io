@@ -6,25 +6,21 @@
     <description>Recent content in C# on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Nov 2023 09:07:42 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 Dec 2023 23:51:49 +0800</lastBuildDate>
     <atom:link href="https://livebug.github.io/tags/c#/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Asp.net Auth 身份验证与授权基本认识</title>
+      <link>https://livebug.github.io/blogs/20231217-asp.net-auth/</link>
+      <pubDate>Sun, 17 Dec 2023 23:51:49 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20231217-asp.net-auth/</guid>
+      <description>1. 英语单词 Authentication vs. Authorization Authentication 一般指身份验证，又称 “验证”、“鉴权”，是指通过一定的手段，完成对用户身份的确认。&#xA;Authorization 一般是授权、委托的意思，向… 授予职权或权力许可，批准等意思。&#xA;2. 计算机基础 2.1 Authentication 身份验证是一个过程，用户提供凭据，然后将其与操作系统、数据库、应用程序或资源中存储的凭据进行比较。如果它们匹配， 则用户将成功进行身份验证，然后可以在授权过程中执行他们被授权执行的操作。&#xA;2.2 Authorization 授权是指确定允许用户执行哪些操作的过程。&#xA;asp.net 中的身份验证 在 ASP.NET Core 中，身份验证由身份验证服务 IAuthenticationService 处理，该服务由身份验证中间件使用。身份验证服务使用注册的身份验证处理程序来完成与身份验证相关的操作。&#xA;注册的身份验证处理程序及其配置选项称为“方案(schemes)”。&#xA;身份验证方案通过在 Program.cs 中注册身份验证服务来指定。&#xA;1builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme) 2 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, 3 options =&amp;gt; builder.Configuration.Bind(&amp;#34;JwtSettings&amp;#34;, options)) 4 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, 5 options =&amp;gt; builder.Configuration.Bind(&amp;#34;CookieSettings&amp;#34;, options)); 身份验证方案可以选择哪个身份验证处理程序负责生成正确的声明集。有关详细信息，请参阅使用特定方案授权。</description>
+    </item>
     <item>
       <title>Openiddict Base Introduce</title>
       <link>https://livebug.github.io/blogs/20231112-openiddict-base-introduce/</link>
       <pubDate>Sun, 12 Nov 2023 09:07:42 +0800</pubDate>
       <guid>https://livebug.github.io/blogs/20231112-openiddict-base-introduce/</guid>
-      <description>身份认证服务、多租户的实现
-用于学习的目的，必须要从identityServer开始学习
-Authentication 验证
-当应用程序需要知道当前用户的身份时，需要进行身份验证。通常，这些应用程序代表该用户管理数据，并且需要确保该用户只能访问允许他们访问的数据。
-最常见的身份验证协议是 SAML2p、WS-Federation 和 OpenID Connect - SAML2p 是最流行且部署最广泛的协议。
-OpenID Connect 是这三者中最新的一个，但被认为是未来，因为它对于现代应用程序最具潜力。它从一开始就是为移动应用场景而构建的，并且被设计为 API 友好。
-OAuth2 是一种协议，允许应用程序从安全令牌服务请求访问令牌并使用它们与 API 进行通信。由于身份验证和授权可以集中化，因此这种委派降低了客户端应用程序和 API 的复杂性。
-OpenID Connect 和 OAuth 2.0 非常相似 - 事实上 OpenID Connect 是 OAuth 2.0 之上的扩展。身份验证和 API 访问这两个基本安全问题被组合到一个协议中 - 通常与安全令牌服务进行单次往返。
-我们相信，OpenID Connect 和 OAuth 2.0 的结合是在可预见的未来保护现代应用程序安全的最佳方法。 Duende IdentityServer 是这两个协议的实现，并经过高度优化，可以解决当今移动、本机和 Web 应用程序的典型安全问题。
-Duende IdentityServer 是一个中间件，它将符合规范的 OpenID Connect 和 OAuth 2.0 端点添加到任意 ASP.NET Core 主机。
-通常，您构建（或重用）包含登录和注销页面（以及可选的同意页面，具体取决于您的需要）的应用程序，并将 IdentityServer 中间件添加到该应用程序。中间件向应用程序添加必要的协议头，以便客户端可以使用这些标准协议与其进行通信。
-Duende IdentityServer 是一个 OpenID Connect 和 OAuth 引擎 - 它实现了 OpenID Connect 和 OAuth 2.</description>
+      <description>身份认证服务、多租户的实现&#xA;用于学习的目的，必须要从identityServer开始学习&#xA;Authentication 验证&#xA;当应用程序需要知道当前用户的身份时，需要进行身份验证。通常，这些应用程序代表该用户管理数据，并且需要确保该用户只能访问允许他们访问的数据。&#xA;最常见的身份验证协议是 SAML2p、WS-Federation 和 OpenID Connect - SAML2p 是最流行且部署最广泛的协议。&#xA;OpenID Connect 是这三者中最新的一个，但被认为是未来，因为它对于现代应用程序最具潜力。它从一开始就是为移动应用场景而构建的，并且被设计为 API 友好。&#xA;OAuth2 是一种协议，允许应用程序从安全令牌服务请求访问令牌并使用它们与 API 进行通信。由于身份验证和授权可以集中化，因此这种委派降低了客户端应用程序和 API 的复杂性。&#xA;OpenID Connect 和 OAuth 2.0 非常相似 - 事实上 OpenID Connect 是 OAuth 2.0 之上的扩展。身份验证和 API 访问这两个基本安全问题被组合到一个协议中 - 通常与安全令牌服务进行单次往返。&#xA;我们相信，OpenID Connect 和 OAuth 2.0 的结合是在可预见的未来保护现代应用程序安全的最佳方法。 Duende IdentityServer 是这两个协议的实现，并经过高度优化，可以解决当今移动、本机和 Web 应用程序的典型安全问题。&#xA;Duende IdentityServer 是一个中间件，它将符合规范的 OpenID Connect 和 OAuth 2.0 端点添加到任意 ASP.NET Core 主机。&#xA;通常，您构建（或重用）包含登录和注销页面（以及可选的同意页面，具体取决于您的需要）的应用程序，并将 IdentityServer 中间件添加到该应用程序。中间件向应用程序添加必要的协议头，以便客户端可以使用这些标准协议与其进行通信。&#xA;Duende IdentityServer 是一个 OpenID Connect 和 OAuth 引擎 - 它实现了 OpenID Connect 和 OAuth 2.</description>
     </item>
   </channel>
 </rss>

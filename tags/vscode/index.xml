@@ -13,8 +13,7 @@
       <link>https://livebug.github.io/blogs/20230909-vscode-sqllang/</link>
       <pubDate>Sun, 27 Aug 2023 23:48:19 +0000</pubDate>
       <guid>https://livebug.github.io/blogs/20230909-vscode-sqllang/</guid>
-      <description>语法突出显示指南：VS Code 使用文本伴侣(TextMate)语法进行语法突出显示。本指南将引导您编写简单的 TextMate 语法并将其转换为 VS Code 扩展。
-TextMate 语法 1{ 2 scopeName = &amp;#39;source.untitled&amp;#39;; 3 fileTypes = ( ); 4 foldingStartMarker = &amp;#39;\{\s*$&amp;#39;; 5 foldingStopMarker = &amp;#39;^\s*\}&amp;#39;; 6 patterns = ( 7 { name = &amp;#39;keyword.control.untitled&amp;#39;; 8 match = &amp;#39;\b(if|while|for|return)\b&amp;#39;; 9 }, 10 { name = &amp;#39;string.quoted.double.untitled&amp;#39;; 11 begin = &amp;#39;&amp;#34;&amp;#39;; 12 end = &amp;#39;&amp;#34;&amp;#39;; 13 patterns = ( 14 { name = &amp;#39;constant.character.escape.untitled&amp;#39;; 15 match = &amp;#39;\\.&amp;#39;; 16 } 17 ); 18 }, 19 ); 20} 语言语法用于为文档元素（如关键字、注释、字符串或类似元素）分配名称。这样做的目的是允许样式（语法突出显示），并使文本编辑器“智能”了解插入符号所在的上下文。例如，您可能希望击键或制表符触发器根据上下文采取不同的操作，或者您可能希望在键入文本文档中非散文的部分（例如.</description>
+      <description>语法突出显示指南：VS Code 使用文本伴侣(TextMate)语法进行语法突出显示。本指南将引导您编写简单的 TextMate 语法并将其转换为 VS Code 扩展。&#xA;TextMate 语法 1{ 2 scopeName = &amp;#39;source.untitled&amp;#39;; 3 fileTypes = ( ); 4 foldingStartMarker = &amp;#39;\{\s*$&amp;#39;; 5 foldingStopMarker = &amp;#39;^\s*\}&amp;#39;; 6 patterns = ( 7 { name = &amp;#39;keyword.control.untitled&amp;#39;; 8 match = &amp;#39;\b(if|while|for|return)\b&amp;#39;; 9 }, 10 { name = &amp;#39;string.quoted.double.untitled&amp;#39;; 11 begin = &amp;#39;&amp;#34;&amp;#39;; 12 end = &amp;#39;&amp;#34;&amp;#39;; 13 patterns = ( 14 { name = &amp;#39;constant.character.escape.untitled&amp;#39;; 15 match = &amp;#39;\\.&amp;#39;; 16 } 17 ); 18 }, 19 ); 20} 语言语法用于为文档元素（如关键字、注释、字符串或类似元素）分配名称。这样做的目的是允许样式（语法突出显示），并使文本编辑器“智能”了解插入符号所在的上下文。例如，您可能希望击键或制表符触发器根据上下文采取不同的操作，或者您可能希望在键入文本文档中非散文的部分（例如.</description>
     </item>
   </channel>
 </rss>
