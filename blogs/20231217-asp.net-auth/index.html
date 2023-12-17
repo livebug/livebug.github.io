@@ -7,10 +7,12 @@
 Authorization 一般是授权、委托的意思，向… 授予职权或权力许可，批准等意思。
 2. 计算机基础 2.1 Authentication 身份验证是一个过程，用户提供凭据，然后将其与操作系统、数据库、应用程序或资源中存储的凭据进行比较。如果它们匹配， 则用户将成功进行身份验证，然后可以在授权过程中执行他们被授权执行的操作。
 2.2 Authorization 授权是指确定允许用户执行哪些操作的过程。
-asp.net 中的身份验证 在 ASP.NET Core 中，身份验证由身份验证服务 IAuthenticationService 处理，该服务由身份验证中间件使用。身份验证服务使用注册的身份验证处理程序来完成与身份验证相关的操作。
+3. asp.net 中的身份验证 3.1 Authentication scheme 身份验证方案 身份验证方案 = 身份验证处理程序 &#43; 用于配置处理程序的特定实例的选项。
+在 ASP.NET Core 中，身份验证由身份验证服务 IAuthenticationService 处理，该服务由身份验证中间件使用。身份验证服务使用注册的身份验证处理程序来完成与身份验证相关的操作。
 注册的身份验证处理程序及其配置选项称为“方案(schemes)”。
 身份验证方案通过在 Program.cs 中注册身份验证服务来指定。
-1builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme) 2 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, 3 options =&gt; builder.Configuration.Bind(&#34;JwtSettings&#34;, options)) 4 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, 5 options =&gt; builder.Configuration.Bind(&#34;CookieSettings&#34;, options)); 身份验证方案可以选择哪个身份验证处理程序负责生成正确的声明集。有关详细信息，请参阅使用特定方案授权。">  
+1builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme) 2 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, 3 options =&gt; builder.Configuration.Bind(&#34;JwtSettings&#34;, options)) 4 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, 5 options =&gt; builder.Configuration.Bind(&#34;CookieSettings&#34;, options)); 身份验证方案可以选择哪个身份验证处理程序负责生成正确的声明集。有关详细信息，请参阅使用特定方案授权。
+3.2 Authentication handler 身份验证处理程序 Is a type that implements the behavior of a scheme.">  
 
   <title>
     
@@ -55,7 +57,12 @@ asp.net 中的身份验证 在 ASP.NET Core 中，身份验证由身份验证服
         <li><a href="#22-authorization">2.2 Authorization</a></li>
       </ul>
     </li>
-    <li><a href="#aspnet-中的身份验证">asp.net 中的身份验证</a></li>
+    <li><a href="#3-aspnet-中的身份验证">3. asp.net 中的身份验证</a>
+      <ul>
+        <li><a href="#31-authentication-scheme-身份验证方案">3.1 Authentication scheme 身份验证方案</a></li>
+        <li><a href="#32-authentication-handler-身份验证处理程序">3.2 Authentication handler 身份验证处理程序</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </aside>
@@ -72,7 +79,9 @@ asp.net 中的身份验证 在 ASP.NET Core 中，身份验证由身份验证服
 则用户将成功进行身份验证，然后可以在授权过程中执行他们被授权执行的操作。</p>
 <h3 id="22-authorization">2.2 Authorization</h3>
 <p>授权是指确定允许用户执行哪些操作的过程。</p>
-<h2 id="aspnet-中的身份验证">asp.net 中的身份验证</h2>
+<h2 id="3-aspnet-中的身份验证">3. asp.net 中的身份验证</h2>
+<h3 id="31-authentication-scheme-身份验证方案">3.1 Authentication scheme 身份验证方案</h3>
+<p>身份验证方案 = 身份验证处理程序 + 用于配置处理程序的特定实例的选项。</p>
 <p>在 ASP.NET Core 中，身份验证由身份验证服务 IAuthenticationService 处理，该服务由身份验证中间件使用。身份验证服务使用注册的身份验证处理程序来完成与身份验证相关的操作。</p>
 <p>注册的身份验证处理程序及其配置选项称为“方案(<code>schemes</code>)”。</p>
 <p>身份验证方案通过在 Program.cs 中注册身份验证服务来指定。</p>
@@ -82,6 +91,27 @@ asp.net 中的身份验证 在 ASP.NET Core 中，身份验证由身份验证服
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>                    options =&gt; builder.Configuration.Bind(<span style="color:#d14">&#34;CookieSettings&#34;</span>, options));
 </span></span></code></pre></div><p>身份验证方案可以选择哪个身份验证处理程序负责生成正确的声明集。有关详细信息，请参阅使用<a href="https://learn.microsoft.com/en-us/aspnet/core/security/authorization/limitingidentitybyscheme?view=aspnetcore-8.0">特定方案授权</a>。</p>
+<h3 id="32-authentication-handler-身份验证处理程序">3.2 Authentication handler 身份验证处理程序</h3>
+<ul>
+<li>Is a type that implements the behavior of a scheme.
+是一种实现方案行为的类型。</li>
+<li>Is derived from <code>IAuthenticationHandler</code> or <code>AuthenticationHandler&lt;TOptions&gt;</code>.
+派生自 IAuthenticationHandler 或 AuthenticationHandler。</li>
+<li>Has the primary responsibility to authenticate users.
+负有对用户进行身份验证的主要责任。</li>
+</ul>
+<p>根据身份验证方案的配置和传入请求上下文，身份验证处理程序：</p>
+<p>Construct AuthenticationTicket objects representing the user&rsquo;s identity if authentication is successful.
+如果身份验证成功，则构造代表用户身份的 AuthenticationTicket 对象。</p>
+<p>Return &rsquo;no result&rsquo; or &lsquo;failure&rsquo; if authentication is unsuccessful.
+如果身份验证不成功，则返回“无结果”或“失败”。</p>
+<p>Have methods for challenge and forbid actions for when users attempt to access resources:
+当用户尝试访问资源时提供质询和禁止操作的方法：</p>
+<pre><code>They're unauthorized to access (forbid).
+他们无权访问（禁止）。
+
+When they're unauthenticated (challenge).
+当他们未经身份验证时（挑战）。</code></pre>
 
 </article>
 <hr class="hr-common">
