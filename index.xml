@@ -9,6 +9,20 @@
     <lastBuildDate>Thu, 25 Aug 2022 21:30:04 +0800</lastBuildDate>
     <atom:link href="https://livebug.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Asp.net Identity Choose an Identity Management Solution</title>
+      <link>https://livebug.github.io/blogs/20231221-asp.net-identity-choose-an-identity-management-solution/</link>
+      <pubDate>Thu, 21 Dec 2023 22:44:40 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20231221-asp.net-identity-choose-an-identity-management-solution/</guid>
+      <description>https://learn.microsoft.com/en-us/aspnet/core/security/how-to-choose-identity-solution?view=aspnetcore-8.0&#xA;这个文章主要说了&#xA;使用 ASP.NET Core Identity 进行基本身份管理 ASP.NET Core 中内置的默认解决方案使用基于 cookie 的身份验证。 确定是否需要 OIDC 服务器 如果需要给第三方提供身份认证，或者单点登录则需要 断网离线的情况下的选择 用户登录数据的存储位置 最后如何选择解决方案：&#xA;令牌tokens被盗，可以用来访问资源吗 如果令牌（tokens）被盗，攻击者可能会利用这些令牌来访问与令牌相关联的资源。令牌的安全性是非常关键的，因为它们通常用于身份验证和授权，如果落入不法分子手中，可能导致严重的安全问题。&#xA;以下是一些防范措施，以减少令牌被盗用的风险：&#xA;使用安全传输协议：&#xA;通过使用HTTPS（SSL/TLS）等安全传输协议来加密令牌的传输，防止令牌在传输过程中被中间人攻击截获。&#xA;定期刷新令牌：&#xA;使用可刷新的令牌机制，使令牌在一段时间后失效并需要刷新。这有助于减少令牌被长时间滥用的风险。&#xA;短有效期：&#xA;设置令牌的短有效期，以降低被盗用的影响时间。短有效期可以使得即使令牌被盗，攻击者的窗口时间也被限制。&#xA;使用JWT时注意签名：&#xA;如果使用JSON Web Token（JWT），确保使用强大的签名算法，并且只信任已知和受信任的令牌颁发者（Issuer）。&#xA;安全存储：&#xA;令牌的存储应该是安全的。在客户端存储敏感信息（例如浏览器的本地存储）时，使用安全的存储方式，例如HttpOnly cookies。&#xA;使用多因素身份验证：&#xA;在可能的情况下，使用多因素身份验证，增加令牌泄露后的安全性。&#xA;监控和审计：&#xA;实施监控和审计机制，以便检测和响应令牌滥用的情况。这可以包括对异常活动的警报和记录。&#xA;访问令牌的范围控制：&#xA;确保令牌的访问范围最小化，只授予实际需要的权限。&#xA;令牌撤销机制：&#xA;考虑实施令牌的撤销机制，以便在令牌被泄露或滥用时及时失效。&#xA;虽然这些措施可以降低令牌被滥用的风险，但没有绝对的安全措施。因此，维护令牌的安全性是一个多层面的过程，需要综合考虑多种因素。</description>
+    </item>
+    <item>
+      <title>Asp.net Identity Solution</title>
+      <link>https://livebug.github.io/blogs/20231221-asp.net-identity-solution/</link>
+      <pubDate>Thu, 21 Dec 2023 21:53:07 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20231221-asp.net-identity-solution/</guid>
+      <description>总结： OAuth 2.0 和 OIDC 与 JWT啥区别 OAuth 2.0 是授权框架，用于授权访问资源。&#xA;OIDC 是建立在OAuth 2.0之上的身份层，提供身份验证和用户信息获取，使用JWT作为身份令牌的格式。&#xA;JWT 是一种通用的、自包含的令牌格式，可用于在各方之间安全地传递信息，包括身份令牌。&#xA;文章小结 身份验证概述 https://learn.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-8.0&#xA;这篇是一些概念的解释。说明了：&#xA;什么是认证（ Authentication ） 什么是认证方案（ Authentication scheme） 就是配置+处理程序 什么是身份验证处理程序（Authentication handler） 远程身份验证类（RemoteAuthenticationHandler vs AuthenticationHandler ） 然后就是介绍认证的阶段-认证（成功或者失败）、挑战（没经过验证就访问资源）、禁止（经过验证，但无权访问） ASP.NET Core 没有用于多租户身份验证的内置解决方案 虽然客户可以使用内置功能编写一个框架，但我们建议客户考虑使用 Orchard Core、ABP Framework 或 Finbuckle.MultiTenant 进行多租户身份验证。 </description>
+    </item>
+    <item>
       <title>Asp.net Auth 身份验证与授权基本认识</title>
       <link>https://livebug.github.io/blogs/20231217-asp.net-auth/</link>
       <pubDate>Sun, 17 Dec 2023 23:51:49 +0800</pubDate>

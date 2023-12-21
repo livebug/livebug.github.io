@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="https://learn.microsoft.com/en-us/aspnet/core/security/how-to-choose-identity-solution?view=aspnetcore-8.0
+这个文章主要说了
+使用 ASP.NET Core Identity 进行基本身份管理 ASP.NET Core 中内置的默认解决方案使用基于 cookie 的身份验证。 确定是否需要 OIDC 服务器 如果需要给第三方提供身份认证，或者单点登录则需要 断网离线的情况下的选择 用户登录数据的存储位置 最后如何选择解决方案：
+令牌tokens被盗，可以用来访问资源吗 如果令牌（tokens）被盗，攻击者可能会利用这些令牌来访问与令牌相关联的资源。令牌的安全性是非常关键的，因为它们通常用于身份验证和授权，如果落入不法分子手中，可能导致严重的安全问题。
+以下是一些防范措施，以减少令牌被盗用的风险：
+使用安全传输协议：
+通过使用HTTPS（SSL/TLS）等安全传输协议来加密令牌的传输，防止令牌在传输过程中被中间人攻击截获。
+定期刷新令牌：
+使用可刷新的令牌机制，使令牌在一段时间后失效并需要刷新。这有助于减少令牌被长时间滥用的风险。
+短有效期：
+设置令牌的短有效期，以降低被盗用的影响时间。短有效期可以使得即使令牌被盗，攻击者的窗口时间也被限制。
+使用JWT时注意签名：
+如果使用JSON Web Token（JWT），确保使用强大的签名算法，并且只信任已知和受信任的令牌颁发者（Issuer）。
+安全存储：
+令牌的存储应该是安全的。在客户端存储敏感信息（例如浏览器的本地存储）时，使用安全的存储方式，例如HttpOnly cookies。
+使用多因素身份验证：
+在可能的情况下，使用多因素身份验证，增加令牌泄露后的安全性。
+监控和审计：
+实施监控和审计机制，以便检测和响应令牌滥用的情况。这可以包括对异常活动的警报和记录。
+访问令牌的范围控制：
+确保令牌的访问范围最小化，只授予实际需要的权限。
+令牌撤销机制：
+考虑实施令牌的撤销机制，以便在令牌被泄露或滥用时及时失效。
+虽然这些措施可以降低令牌被滥用的风险，但没有绝对的安全措施。因此，维护令牌的安全性是一个多层面的过程，需要综合考虑多种因素。">  
+
+  <title>
+    
+      Asp.net Identity Choose an Identity Management Solution
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.2c0f55ac659c1211f905ab3c3a8391ddc4c8b35b008247aab1a1642839ae8d68937f7bb12b4848d0e709b7d3114f979ad83d9898fd9a69c57171099d678cddf3.css" integrity="sha512-LA9VrGWcEhH5Bas8OoOR3cTIs1sAgkeqsaFkKDmujWiTf3uxK0hI0OcJt9MRT5ea2D2YmP2aacVxcQmdZ4zd8w==" />
+  
+</head>
+<body a="light">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">.. back to home</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-12-21 22:44:40 &#43;0800 &#43;0800">
+            2023-12-21
+        </time>
+    </p>
+
+    <h1>Asp.net Identity Choose an Identity Management Solution</h1>
+
+    
+
+    
+    
+    <aside >
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#令牌tokens被盗可以用来访问资源吗">令牌tokens被盗，可以用来访问资源吗</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+    
+    
+    <hr class="hr-common"> 
+
+    <p><a href="https://learn.microsoft.com/en-us/aspnet/core/security/how-to-choose-identity-solution?view=aspnetcore-8.0">https://learn.microsoft.com/en-us/aspnet/core/security/how-to-choose-identity-solution?view=aspnetcore-8.0</a></p>
+<p>这个文章主要说了</p>
+<ul>
+<li>使用 ASP.NET Core Identity 进行基本身份管理
+<ul>
+<li>ASP.NET Core 中内置的默认解决方案使用基于 cookie 的身份验证。</li>
+</ul>
+</li>
+<li>确定是否需要 OIDC 服务器
+<ul>
+<li>如果需要给第三方提供身份认证，或者单点登录则需要</li>
+</ul>
+</li>
+<li>断网离线的情况下的选择</li>
+<li>用户登录数据的存储位置</li>
+</ul>
+<p>最后如何选择解决方案：</p>
+<p><img src="/img/2023-12-21-231618.png" alt=""></p>
+<h3 id="令牌tokens被盗可以用来访问资源吗">令牌tokens被盗，可以用来访问资源吗</h3>
+<p>如果令牌（tokens）被盗，攻击者可能会利用这些令牌来访问与令牌相关联的资源。令牌的安全性是非常关键的，因为它们通常用于身份验证和授权，如果落入不法分子手中，可能导致严重的安全问题。</p>
+<p>以下是一些防范措施，以减少令牌被盗用的风险：</p>
+<ul>
+<li>
+<p>使用安全传输协议：</p>
+<p>通过使用HTTPS（SSL/TLS）等安全传输协议来加密令牌的传输，防止令牌在传输过程中被中间人攻击截获。</p>
+</li>
+<li>
+<p>定期刷新令牌：</p>
+<p>使用可刷新的令牌机制，使令牌在一段时间后失效并需要刷新。这有助于减少令牌被长时间滥用的风险。</p>
+</li>
+<li>
+<p>短有效期：</p>
+<p>设置令牌的短有效期，以降低被盗用的影响时间。短有效期可以使得即使令牌被盗，攻击者的窗口时间也被限制。</p>
+</li>
+<li>
+<p>使用JWT时注意签名：</p>
+<p>如果使用JSON Web Token（JWT），确保使用强大的签名算法，并且只信任已知和受信任的令牌颁发者（Issuer）。</p>
+</li>
+<li>
+<p>安全存储：</p>
+<p>令牌的存储应该是安全的。在客户端存储敏感信息（例如浏览器的本地存储）时，使用安全的存储方式，例如HttpOnly cookies。</p>
+</li>
+<li>
+<p>使用多因素身份验证：</p>
+<p>在可能的情况下，使用多因素身份验证，增加令牌泄露后的安全性。</p>
+</li>
+<li>
+<p>监控和审计：</p>
+<p>实施监控和审计机制，以便检测和响应令牌滥用的情况。这可以包括对异常活动的警报和记录。</p>
+</li>
+<li>
+<p>访问令牌的范围控制：</p>
+<p>确保令牌的访问范围最小化，只授予实际需要的权限。</p>
+</li>
+<li>
+<p>令牌撤销机制：</p>
+<p>考虑实施令牌的撤销机制，以便在令牌被泄露或滥用时及时失效。</p>
+</li>
+</ul>
+<p>虽然这些措施可以降低令牌被滥用的风险，但没有绝对的安全措施。因此，维护令牌的安全性是一个多层面的过程，需要综合考虑多种因素。</p>
+
+</article>
+<hr class="hr-common">
+
+<footer class="post-footer">
+    <ul class="post-tags">
+        <li><a href="https://livebug.github.io/tags/c#/">C#</a></li>
+        <li><a href="https://livebug.github.io/tags/asp.net/">asp.net</a></li>
+    </ul>
+
+    
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '611a6636d92469d23028',
+    clientSecret: 'e33f7c182796cd46d35977af0c04dcf1cb16b49f',
+    repo: 'livebug.github.io',
+    owner: 'livebug',
+    admin: ['livebug'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function () {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+
+</footer>
+
+
+            </div>
+        </main>
+    </body></html>
