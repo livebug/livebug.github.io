@@ -23,6 +23,13 @@
       <description>总结： OAuth 2.0 和 OIDC 与 JWT啥区别 OAuth 2.0 是授权框架，用于授权访问资源。&#xA;OIDC 是建立在OAuth 2.0之上的身份层，提供身份验证和用户信息获取，使用JWT作为身份令牌的格式。&#xA;JWT 是一种通用的、自包含的令牌格式，可用于在各方之间安全地传递信息，包括身份令牌。&#xA;文章小结 身份验证概述 https://learn.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-8.0&#xA;这篇是一些概念的解释。说明了：&#xA;什么是认证（ Authentication ） 什么是认证方案（ Authentication scheme） 就是配置+处理程序 什么是身份验证处理程序（Authentication handler） 远程身份验证类（RemoteAuthenticationHandler vs AuthenticationHandler ） 然后就是介绍认证的阶段-认证（成功或者失败）、挑战（没经过验证就访问资源）、禁止（经过验证，但无权访问） ASP.NET Core 没有用于多租户身份验证的内置解决方案 虽然客户可以使用内置功能编写一个框架，但我们建议客户考虑使用 Orchard Core、ABP Framework 或 Finbuckle.MultiTenant 进行多租户身份验证。 </description>
     </item>
     <item>
+      <title>WSL2配置代理</title>
+      <link>https://livebug.github.io/blogs/20240108-set-wsl2-net-proxy/</link>
+      <pubDate>Thu, 21 Dec 2023 21:53:07 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20240108-set-wsl2-net-proxy/</guid>
+      <description>该方法引用自： https://www.cnblogs.com/tuilk/p/16287472.html&#xA;配置WSL2 这种配置方法适用于长期配置，也就是写一个脚本，然后可以通过命令启动代理。新建proxy.sh脚本如下：&#xA;1#!/bin/sh 2hostip=$(cat /etc/resolv.conf | grep nameserver | awk &amp;#39;{ print $2 }&amp;#39;) 3wslip=$(hostname -I | awk &amp;#39;{print $1}&amp;#39;) 4port=7890 5 6PROXY_HTTP=&amp;#34;http://${hostip}:${port}&amp;#34; 7 8set_proxy(){ 9 export http_proxy=&amp;#34;${PROXY_HTTP}&amp;#34; 10 export HTTP_PROXY=&amp;#34;${PROXY_HTTP}&amp;#34; 11 12 export https_proxy=&amp;#34;${PROXY_HTTP}&amp;#34; 13 export HTTPS_proxy=&amp;#34;${PROXY_HTTP}&amp;#34; 14 15 export ALL_PROXY=&amp;#34;${PROXY_SOCKS5}&amp;#34; 16 export all_proxy=${PROXY_SOCKS5} 17 18 git config --global http.https://github.com.proxy ${PROXY_HTTP} 19 git config --global https.https://github.com.proxy ${PROXY_HTTP} 20 21 echo &amp;#34;Proxy has been opened.&amp;#34; 22} 23 24unset_proxy(){ 25 unset http_proxy 26 unset HTTP_PROXY 27 unset https_proxy 28 unset HTTPS_PROXY 29 unset ALL_PROXY 30 unset all_proxy 31 git config --global --unset http.</description>
+    </item>
+    <item>
       <title>Asp.net Auth 身份验证与授权基本认识</title>
       <link>https://livebug.github.io/blogs/20231217-asp.net-auth/</link>
       <pubDate>Sun, 17 Dec 2023 23:51:49 +0800</pubDate>

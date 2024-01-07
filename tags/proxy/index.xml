@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>proxy on livebug&#39;s blog space</title>
+    <link>https://livebug.github.io/tags/proxy/</link>
+    <description>Recent content in proxy on livebug&#39;s blog space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Dec 2023 21:53:07 +0800</lastBuildDate>
+    <atom:link href="https://livebug.github.io/tags/proxy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL2配置代理</title>
+      <link>https://livebug.github.io/blogs/20240108-set-wsl2-net-proxy/</link>
+      <pubDate>Thu, 21 Dec 2023 21:53:07 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20240108-set-wsl2-net-proxy/</guid>
+      <description>该方法引用自： https://www.cnblogs.com/tuilk/p/16287472.html&#xA;配置WSL2 这种配置方法适用于长期配置，也就是写一个脚本，然后可以通过命令启动代理。新建proxy.sh脚本如下：&#xA;1#!/bin/sh 2hostip=$(cat /etc/resolv.conf | grep nameserver | awk &amp;#39;{ print $2 }&amp;#39;) 3wslip=$(hostname -I | awk &amp;#39;{print $1}&amp;#39;) 4port=7890 5 6PROXY_HTTP=&amp;#34;http://${hostip}:${port}&amp;#34; 7 8set_proxy(){ 9 export http_proxy=&amp;#34;${PROXY_HTTP}&amp;#34; 10 export HTTP_PROXY=&amp;#34;${PROXY_HTTP}&amp;#34; 11 12 export https_proxy=&amp;#34;${PROXY_HTTP}&amp;#34; 13 export HTTPS_proxy=&amp;#34;${PROXY_HTTP}&amp;#34; 14 15 export ALL_PROXY=&amp;#34;${PROXY_SOCKS5}&amp;#34; 16 export all_proxy=${PROXY_SOCKS5} 17 18 git config --global http.https://github.com.proxy ${PROXY_HTTP} 19 git config --global https.https://github.com.proxy ${PROXY_HTTP} 20 21 echo &amp;#34;Proxy has been opened.&amp;#34; 22} 23 24unset_proxy(){ 25 unset http_proxy 26 unset HTTP_PROXY 27 unset https_proxy 28 unset HTTPS_PROXY 29 unset ALL_PROXY 30 unset all_proxy 31 git config --global --unset http.</description>
+    </item>
+  </channel>
+</rss>
