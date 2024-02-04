@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on livebug&#39;s blog space</title>
+    <link>https://livebug.github.io/tags/git/</link>
+    <description>Recent content in git on livebug&#39;s blog space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 31 Jan 2024 14:10:21 +0800</lastBuildDate>
+    <atom:link href="https://livebug.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Github Sync 433 Error</title>
+      <link>https://livebug.github.io/blogs/20240131-github-sync-433-error/</link>
+      <pubDate>Wed, 31 Jan 2024 14:10:21 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20240131-github-sync-433-error/</guid>
+      <description>同步代码时报错,github,vscode 超时的错误&#xA;fatal: unable to access &amp;lsquo;https://github.com/livebug/myblog.git/&#39;: Failed to connect to github.com port 443 after 129947 ms: Couldn&amp;rsquo;t connect to server&#xA;后来才发现 原来单独给系统配置了代理之后，debian中的git好像没有起作用； 需要单独给git中配置代理&#xA;1git config --global http.proxy 127.0.0.1:7890 </description>
+    </item>
+  </channel>
+</rss>

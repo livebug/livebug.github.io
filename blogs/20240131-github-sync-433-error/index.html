@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="同步代码时报错,github,vscode 超时的错误
+fatal: unable to access &lsquo;https://github.com/livebug/myblog.git/&#39;: Failed to connect to github.com port 443 after 129947 ms: Couldn&rsquo;t connect to server
+后来才发现 原来单独给系统配置了代理之后，debian中的git好像没有起作用； 需要单独给git中配置代理
+1git config --global http.proxy 127.0.0.1:7890 ">  
+
+  <title>
+    
+      Github Sync 433 Error
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.a81c745f11a722b3aed7e84ac9483e0780f6bd4f140ee7a57d8e000d8b86e46b44cff9c0432948cfd38a40b2928e70083e3b01f8cadf6da47053d2639855d9b1.css" integrity="sha512-qBx0XxGnIrOu1&#43;hKyUg&#43;B4D2vU8UDuelfY4ADYuG5GtEz/nAQylIz9OKQLKSjnAIPjsB&#43;MrfbaRwU9JjmFXZsQ==" />
+  
+</head>
+<body a="light">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">.. back to home</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2024-01-31 14:10:21 &#43;0800 &#43;0800">
+            2024-01-31
+        </time>
+    </p>
+
+    <h1>Github Sync 433 Error</h1>
+
+    
+
+    
+    
+    <aside >
+        <nav id="TableOfContents"></nav>
+    </aside>
+    
+    
+    <hr class="hr-common"> 
+
+    <p>同步代码时报错,github,vscode 超时的错误</p>
+<blockquote>
+<p>fatal: unable to access &lsquo;<a href="https://github.com/livebug/myblog.git/'">https://github.com/livebug/myblog.git/'</a>: Failed to connect to github.com port 443 after 129947 ms: Couldn&rsquo;t connect to server</p>
+</blockquote>
+<p>后来才发现 原来单独给系统配置了代理之后，debian中的git好像没有起作用；
+需要单独给git中配置代理</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>git config --global http.proxy 127.0.0.1:7890
+</span></span></code></pre></div>
+</article>
+<hr class="hr-common">
+
+<footer class="post-footer">
+    <ul class="post-tags">
+        <li><a href="https://livebug.github.io/tags/github/">github</a></li>
+        <li><a href="https://livebug.github.io/tags/git/">git</a></li>
+    </ul>
+
+    
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '611a6636d92469d23028',
+    clientSecret: 'e33f7c182796cd46d35977af0c04dcf1cb16b49f',
+    repo: 'livebug.github.io',
+    owner: 'livebug',
+    admin: ['livebug'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function () {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+
+</footer>
+
+
+            </div>
+        </main>
+    </body></html>

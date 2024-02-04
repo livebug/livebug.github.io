@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://livebug.github.io/blogs/</loc>
+    <lastmod>2024-01-31T14:10:21+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/categories/</loc>
+    <lastmod>2024-01-31T14:10:21+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/tags/git/</loc>
+    <lastmod>2024-01-31T14:10:21+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/tags/github/</loc>
+    <lastmod>2024-01-31T14:10:21+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/blogs/20240131-github-sync-433-error/</loc>
+    <lastmod>2024-01-31T14:10:21+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/tags/</loc>
+    <lastmod>2024-01-31T14:10:21+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2024-01-31T14:10:21+08:00</lastmod>
+  </url><url>
     <loc>https://livebug.github.io/tags/asp.net/</loc>
     <lastmod>2023-12-21T22:44:40+08:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/blogs/20231221-asp.net-identity-choose-an-identity-management-solution/</loc>
     <lastmod>2023-12-21T22:44:40+08:00</lastmod>
   </url><url>
-    <loc>https://livebug.github.io/blogs/</loc>
-    <lastmod>2023-12-21T22:44:40+08:00</lastmod>
-  </url><url>
     <loc>https://livebug.github.io/tags/c#/</loc>
-    <lastmod>2023-12-21T22:44:40+08:00</lastmod>
-  </url><url>
-    <loc>https://livebug.github.io/categories/</loc>
-    <lastmod>2023-12-21T22:44:40+08:00</lastmod>
-  </url><url>
-    <loc>https://livebug.github.io/tags/</loc>
-    <lastmod>2023-12-21T22:44:40+08:00</lastmod>
-  </url><url>
-    <loc>https://livebug.github.io/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2023-12-21T22:44:40+08:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/blogs/20231221-asp.net-identity-solution/</loc>
@@ -73,9 +82,6 @@
   </url><url>
     <loc>https://livebug.github.io/blogs/20231003-css-web-browser-style/</loc>
     <lastmod>2023-10-03T00:36:17+08:00</lastmod>
-  </url><url>
-    <loc>https://livebug.github.io/tags/github/</loc>
-    <lastmod>2023-09-30T13:58:58+08:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/tags/github-actions/</loc>
     <lastmod>2023-09-30T13:58:58+08:00</lastmod>
