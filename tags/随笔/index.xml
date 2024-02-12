@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>随笔 on livebug&#39;s blog space</title>
+    <link>https://livebug.github.io/tags/%E9%9A%8F%E7%AC%94/</link>
+    <description>Recent content in 随笔 on livebug&#39;s blog space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 Feb 2024 23:51:55 +0800</lastBuildDate>
+    <atom:link href="https://livebug.github.io/tags/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一点想法</title>
+      <link>https://livebug.github.io/blogs/20240211-use-my-knowed/</link>
+      <pubDate>Sun, 11 Feb 2024 23:51:55 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20240211-use-my-knowed/</guid>
+      <description>从大学至今，将近十载，乱七八糟的知识学了很多，是时候总结一下&#xA;用一个项目来总结自己，web，数据，python，C#，github等等&#xA;建立一个网站&#xA;认证与授权服务单独的服务&#xA;基本的网站页面框架，用C#搭建一个，用python搭建一个，最好是能够满足界面配置&#xA;支持markdown文本说明&#xA;尽量形成配置化，增加系统健壮性，能方便扩展支持&#xA;支持任务队列，监控日志&#xA;别老是想太多，不能眼高手低</description>
+    </item>
+  </channel>
+</rss>
