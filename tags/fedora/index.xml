@@ -13,7 +13,7 @@
       <link>https://livebug.github.io/blogs/20230426-fedora-install-docker/</link>
       <pubDate>Wed, 26 Apr 2023 23:38:56 +0000</pubDate>
       <guid>https://livebug.github.io/blogs/20230426-fedora-install-docker/</guid>
-      <description>安装参考教程连接&#xA;简单记录 安装dnf源中默认的Docker（podman-docker） 1# 运行以下命令，安装podman-docker。 2dnf -y install docker 3# 运行以下命令，查看Docker是否安装成功。 4docker images 5 权限问题 1sudo gpasswd -a $USER docekr 2newgrp docker 3docker ps -a 安装gaussdb 1docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ 2 -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ 3 enmotech/opengauss:latest 默认用户 gaussdb&#xA;gauss 使用 1drop table sdopdb.bqqyxx; 2create table sdopdb.bqqyxx 3( 4&#x9;p_year varchar(4) not null, 5&#x9;p_type varchar(40) NOT NULL, 6&#x9;p_rank varchar(4) NOT NULL, 7&#x9;p_busi_nm varchar(100) NOT NULL, 8&#x9;p_income DECIMAL(20,6) NOT NULL 9); 10COMMENT ON TABLE sdopdb.</description>
+      <description>安装参考教程连接&#xA;简单记录 安装dnf源中默认的Docker（podman-docker） 1# 运行以下命令，安装podman-docker。 2dnf -y install docker 3# 运行以下命令，查看Docker是否安装成功。 4docker images 5 权限问题 1sudo gpasswd -a $USER docker 2newgrp docker 3docker ps -a 4 5# 调整权限 6# permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: 7$ sudo chmod a+rw /var/run/docker.sock 8$ sudo service docker restart 安装gaussdb 1docker run --name opengauss --privileged=true -d -e GS_PASSWORD=Enmo@123 \ 2 -v /data/opengauss:/var/lib/opengauss -u root -p 15432:5432 \ 3 enmotech/opengauss:latest 默认用户 gaussdb</description>
     </item>
     <item>
       <title>fedora打开Samba端口</title>
