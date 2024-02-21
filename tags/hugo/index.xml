@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hugo on livebug&#39;s blog space</title>
+    <title>Hugo on livebug&#39;s blog space</title>
     <link>https://livebug.github.io/tags/hugo/</link>
-    <description>Recent content in hugo on livebug&#39;s blog space</description>
+    <description>Recent content in Hugo on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 14 Oct 2023 22:51:48 +0800</lastBuildDate>

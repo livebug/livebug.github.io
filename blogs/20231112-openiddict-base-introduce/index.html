@@ -104,10 +104,15 @@ Duende IdentityServer 是一个 OpenID Connect 和 OAuth 引擎 - 它实现了 O
 <p>以下说明不适用于某些 Ubuntu 版本，例如 20.04。 有关详细信息，请参阅 GitHub 问题 dotnet/AspNetCore.Docs #23686。</p>
 <p>安装 OpenSSL 1.1.1h 或更高版本。 有关如何更新 OpenSSL 的说明，请参阅你的发行版。</p>
 <p>运行以下命令：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>dotnet dev-certs https
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/aspnet/https.crt --format PEM
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>sudo update-ca-certificates
-</span></span></code></pre></div><p>前面的命令：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>dotnet dev-certs https --clean
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>dotnet dev-certs https
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/aspnet/https.crt --format PEM
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>sudo update-ca-certificates
+</span></span></code></pre></div><blockquote>
+<p>20240220修改 : 在 wsl 中没起作用 很奇怪
+20240221 因为linux本机的代理导致的https访问问题，把代理停掉就好了，或者增加https的代理</p>
+</blockquote>
+<p>前面的命令：</p>
 <p>确保创建了当前用户的开发人员证书。<br>
 使用当前用户的环境导出具有 ca-certificates 文件夹所需的提升权限的证书。<br>
 删除 -E 标志会导出根用户证书，并根据需要生成它。 每个新生成的证书都有不同的指纹。 以根用户身份运行时，不需要 sudo 和 -E。
@@ -123,8 +128,8 @@ Duende IdentityServer 是一个 OpenID Connect 和 OAuth 引擎 - 它实现了 O
 
 <footer class="post-footer">
     <ul class="post-tags">
-        <li><a href="https://livebug.github.io/tags/openiddict/">openiddict</a></li>
-        <li><a href="https://livebug.github.io/tags/c#/">C#</a></li>
+        <li><a href="https://livebug.github.io/tags/openiddict/">Openiddict</a></li>
+        <li><a href="https://livebug.github.io/tags/c">C#</a></li>
     </ul>
 
     
