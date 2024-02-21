@@ -6,8 +6,15 @@
     <description>Recent content in Hugo on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Oct 2023 22:51:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 21 Feb 2024 13:16:55 +0800</lastBuildDate>
     <atom:link href="https://livebug.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Actions Error</title>
+      <link>https://livebug.github.io/blogs/20240221-hugo-actions-error/</link>
+      <pubDate>Wed, 21 Feb 2024 13:16:55 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20240221-hugo-actions-error/</guid>
+      <description>My point was, you didn’t state that the problem was limited to building your site on GitHub pages. That would have been helpful.&#xA;我的观点是，您没有说明问题仅限于在 GitHub 页面上构建您的网站。那本来会有所帮助。&#xA;For anyone else stumbling across this post, this is completely unrelated to v0.108.0 vs. v0.109.0.&#xA;对于偶然发现这篇文章的任何其他人，这与 v0.108.0 与 v0.109.0 完全无关。&#xA;The problem was with the GitHub pages configuration file.&#xA;问题出在 GitHub 页面配置文件上。&#xA;Incorrect: 不對：&#xA;1- name: Setup Hugo 2 uses: peaceiris/actions-hugo@v2 3 with: 4 hugo-version: &amp;#39;latest&amp;#39; 5 # extended: true Correct: 正确：</description>
+    </item>
     <item>
       <title>Add Gitalk 评论组件</title>
       <link>https://livebug.github.io/blogs/20231014-add-gitalk/</link>

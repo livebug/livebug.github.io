@@ -3,13 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://livebug.github.io/blogs/</loc>
-    <lastmod>2024-02-11T23:51:55+08:00</lastmod>
+    <lastmod>2024-02-21T13:16:55+08:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/categories/</loc>
-    <lastmod>2024-02-11T23:51:55+08:00</lastmod>
+    <lastmod>2024-02-21T13:16:55+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/tags/hugo/</loc>
+    <lastmod>2024-02-21T13:16:55+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/blogs/20240221-hugo-actions-error/</loc>
+    <lastmod>2024-02-21T13:16:55+08:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/tags/</loc>
-    <lastmod>2024-02-11T23:51:55+08:00</lastmod>
+    <lastmod>2024-02-21T13:16:55+08:00</lastmod>
+  </url><url>
+    <loc>https://livebug.github.io/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2024-02-21T13:16:55+08:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/blogs/20240211-use-my-knowed/</loc>
     <lastmod>2024-02-11T23:51:55+08:00</lastmod>
@@ -27,9 +36,6 @@
     <lastmod>2024-01-31T14:10:21+08:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/blogs/20240131-github-sync-433-error/</loc>
-    <lastmod>2024-01-31T14:10:21+08:00</lastmod>
-  </url><url>
-    <loc>https://livebug.github.io/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2024-01-31T14:10:21+08:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/tags/asp.net/</loc>
@@ -66,9 +72,6 @@
     <lastmod>2023-10-14T22:51:48+08:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/tags/gitalk/</loc>
-    <lastmod>2023-10-14T22:51:48+08:00</lastmod>
-  </url><url>
-    <loc>https://livebug.github.io/tags/hugo/</loc>
     <lastmod>2023-10-14T22:51:48+08:00</lastmod>
   </url><url>
     <loc>https://livebug.github.io/blogs/20231014-hugo-new-content/</loc>

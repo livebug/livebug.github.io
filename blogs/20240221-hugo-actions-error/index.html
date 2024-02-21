@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="My point was, you didn’t state that the problem was limited to building your site on GitHub pages. That would have been helpful.
+我的观点是，您没有说明问题仅限于在 GitHub 页面上构建您的网站。那本来会有所帮助。
+For anyone else stumbling across this post, this is completely unrelated to v0.108.0 vs. v0.109.0.
+对于偶然发现这篇文章的任何其他人，这与 v0.108.0 与 v0.109.0 完全无关。
+The problem was with the GitHub pages configuration file.
+问题出在 GitHub 页面配置文件上。
+Incorrect: 不對：
+1- name: Setup Hugo 2 uses: peaceiris/actions-hugo@v2 3 with: 4 hugo-version: &#39;latest&#39; 5 # extended: true Correct: 正确：">  
+
+  <title>
+    
+      Hugo Actions Error
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.a81c745f11a722b3aed7e84ac9483e0780f6bd4f140ee7a57d8e000d8b86e46b44cff9c0432948cfd38a40b2928e70083e3b01f8cadf6da47053d2639855d9b1.css" integrity="sha512-qBx0XxGnIrOu1&#43;hKyUg&#43;B4D2vU8UDuelfY4ADYuG5GtEz/nAQylIz9OKQLKSjnAIPjsB&#43;MrfbaRwU9JjmFXZsQ==" />
+  
+</head>
+<body a="light">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">.. back to home</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2024-02-21 13:16:55 &#43;0800 &#43;0800">
+            2024-02-21
+        </time>
+    </p>
+
+    <h1>Hugo Actions Error</h1>
+
+    
+
+    
+    
+    <aside >
+        <nav id="TableOfContents"></nav>
+    </aside>
+    
+    
+    <hr class="hr-common"> 
+
+    <p>My point was, you didn’t state that the problem was limited to building your site on GitHub pages. That would have been helpful.<br>
+我的观点是，您没有说明问题仅限于在 GitHub 页面上构建您的网站。那本来会有所帮助。</p>
+<p>For anyone else stumbling across this post, this is completely unrelated to v0.108.0 vs. v0.109.0.<br>
+对于偶然发现这篇文章的任何其他人，这与 v0.108.0 与 v0.109.0 完全无关。</p>
+<p>The problem was with the GitHub pages configuration file.<br>
+问题出在 GitHub 页面配置文件上。</p>
+<p>Incorrect: 不對：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>- <span style="color:#000080">name</span>:<span style="color:#bbb"> </span>Setup Hugo  <span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#bbb">  </span><span style="color:#000080">uses</span>:<span style="color:#bbb"> </span>peaceiris/actions-hugo@v2  <span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#bbb">  </span><span style="color:#000080">with</span>:<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#bbb">    </span><span style="color:#000080">hugo-version</span>:<span style="color:#bbb"> </span><span style="color:#d14">&#39;latest&#39;</span><span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic"># extended: true </span><span style="color:#bbb">
+</span></span></span></code></pre></div><p>Correct: 正确：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>- <span style="color:#000080">name</span>:<span style="color:#bbb"> </span>Setup Hugo  <span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#bbb">  </span><span style="color:#000080">uses</span>:<span style="color:#bbb"> </span>peaceiris/actions-hugo@v2  <span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#bbb">  </span><span style="color:#000080">with</span>:<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#bbb">    </span><span style="color:#000080">hugo-version</span>:<span style="color:#bbb"> </span><span style="color:#d14">&#39;latest&#39;</span><span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#bbb">    </span><span style="color:#000080">extended</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span></code></pre></div><p>Here’s a clone of the repo with the correction:<br>
+下面是带有更正的存储库的克隆：<br>
+<a href="https://github.com/jmooring/hugo-forum-topic-42096">https://github.com/jmooring/hugo-forum-topic-42096</a> 29</p>
+<p>And GitHib Pages builds the site as exected:<br>
+GitHib Pages 按如下方式构建网站：<br>
+<a href="https://jmooring.github.io/hugo-forum-topic-42096/">https://jmooring.github.io/hugo-forum-topic-42096/</a> 17</p>
+<p>Because you are checking the resources directory into source control, Hugo doesn’t need the extended version if the cache is warm. But when the cache is cold, Hugo needs to transpile the SASS to CSS again, and it cannot do that without the extended version.<br>
+因为你要把资源目录签入到源代码管理中，所以如果缓存是暖的，Hugo不需要扩展版本。但是当缓存很冷时，Hugo 需要再次将 SASS 转译为 CSS，如果没有扩展版本，它就无法做到这一点。</p>
+
+</article>
+<hr class="hr-common">
+
+<footer class="post-footer">
+    <ul class="post-tags">
+        <li><a href="https://livebug.github.io/tags/hugo/">Hugo</a></li>
+    </ul>
+
+    
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '611a6636d92469d23028',
+    clientSecret: 'e33f7c182796cd46d35977af0c04dcf1cb16b49f',
+    repo: 'livebug.github.io',
+    owner: 'livebug',
+    admin: ['livebug'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function () {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+
+</footer>
+
+
+            </div>
+        </main>
+    </body></html>
