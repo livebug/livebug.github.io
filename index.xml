@@ -6,8 +6,15 @@
     <description>Recent content on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Feb 2024 13:16:55 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 24 Feb 2024 22:23:49 +0800</lastBuildDate>
     <atom:link href="https://livebug.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dapr 学习路线整理</title>
+      <link>https://livebug.github.io/blogs/20240224-dapr-learning-route/</link>
+      <pubDate>Sat, 24 Feb 2024 22:23:49 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20240224-dapr-learning-route/</guid>
+      <description>这篇文章为了整理dapr从接触到试错的一步步探索。&#xA;一、简单了解 Dapr 是一种可移植、事件驱动的运行时，使任何开发人员都可以轻松构建在云和边缘运行的弹性、无状态和有状态应用程序，并支持多种语言和开发框架。&#xA;1. 具体实现就是把API包装成构建块，dapr提供组件服务这些构建块，构建块就是最小单元，也提供切面支持 Dapr 将构建微服务应用程序的最佳实践编入**开放、独立的 API（称为构建块）**中。&#xA;Dapr 的构建模块：&#xA;使您能够使用您选择的语言和框架构建可移植应用程序。 是完全独立的 对您的应用程序中使用的数量没有限制 Dapr 与平台无关，这意味着您可以运行您的应用程序，在（1）本地、（2）在任何 Kubernetes 集群上、（3）在虚拟机或物理机上、（4）在 Dapr 集成的其他托管环境中。&#xA;Dapr 提供分布式系统构建块，供您以标准方式构建微服务应用程序并部署到任何环境。 这些构建块 API 中的每一个都是独立的，这意味着您可以在应用程序中使用任意数量的它们。&#xA;dapr提供的 分布式系统构建块 ：&#xA;另外提供 AOP 切面API用于服务所有构建块&#xA;Resiliency 弹性&#x9;Dapr 提供通过弹性规范定义和应用容错弹性策略的功能。支持的规范定义了弹性模式的策略，例如超时、重试/回退和断路器 Observability 可观察性&#x9;Dapr 发出指标、日志和跟踪来调试和监控 Dapr 和用户应用程序。 Dapr 支持分布式跟踪，可以使用 W3C 跟踪上下文标准和开放遥测发送到不同的监控工具，轻松诊断和服务生产中的服务间调用。 Security 安全&#x9;Dapr 支持使用 Dapr 控制平面 Sentry 服务对 Dapr 实例之间的通信进行传输加密。您可以引入自己的证书，或者让 Dapr 自动创建并保留自签名根证书和颁发者证书。 2. 针对这些构建块，dapr的操作方式就是给每个构建块搭一个 sidecar, sidecar 包括 HTTP 和 gRPC API Dapr 将其 HTTP 和 gRPC API 作为 sidecar 架构公开，既可以作为容器，也可以作为进程，不需要应用程序代码包含任何 Dapr 运行时代码。这使得与其他运行时的 Dapr 集成变得容易，并提供应用程序逻辑的分离以提高可支持性。</description>
+    </item>
     <item>
       <title>Hugo Actions Error</title>
       <link>https://livebug.github.io/blogs/20240221-hugo-actions-error/</link>

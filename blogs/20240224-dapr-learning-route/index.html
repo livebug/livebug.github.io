@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="这篇文章为了整理dapr从接触到试错的一步步探索。
+一、简单了解 Dapr 是一种可移植、事件驱动的运行时，使任何开发人员都可以轻松构建在云和边缘运行的弹性、无状态和有状态应用程序，并支持多种语言和开发框架。
+1. 具体实现就是把API包装成构建块，dapr提供组件服务这些构建块，构建块就是最小单元，也提供切面支持 Dapr 将构建微服务应用程序的最佳实践编入**开放、独立的 API（称为构建块）**中。
+Dapr 的构建模块：
+使您能够使用您选择的语言和框架构建可移植应用程序。 是完全独立的 对您的应用程序中使用的数量没有限制 Dapr 与平台无关，这意味着您可以运行您的应用程序，在（1）本地、（2）在任何 Kubernetes 集群上、（3）在虚拟机或物理机上、（4）在 Dapr 集成的其他托管环境中。
+Dapr 提供分布式系统构建块，供您以标准方式构建微服务应用程序并部署到任何环境。 这些构建块 API 中的每一个都是独立的，这意味着您可以在应用程序中使用任意数量的它们。
+dapr提供的 分布式系统构建块 ：
+另外提供 AOP 切面API用于服务所有构建块
+Resiliency 弹性	Dapr 提供通过弹性规范定义和应用容错弹性策略的功能。支持的规范定义了弹性模式的策略，例如超时、重试/回退和断路器 Observability 可观察性	Dapr 发出指标、日志和跟踪来调试和监控 Dapr 和用户应用程序。 Dapr 支持分布式跟踪，可以使用 W3C 跟踪上下文标准和开放遥测发送到不同的监控工具，轻松诊断和服务生产中的服务间调用。 Security 安全	Dapr 支持使用 Dapr 控制平面 Sentry 服务对 Dapr 实例之间的通信进行传输加密。您可以引入自己的证书，或者让 Dapr 自动创建并保留自签名根证书和颁发者证书。 2. 针对这些构建块，dapr的操作方式就是给每个构建块搭一个 sidecar, sidecar 包括 HTTP 和 gRPC API Dapr 将其 HTTP 和 gRPC API 作为 sidecar 架构公开，既可以作为容器，也可以作为进程，不需要应用程序代码包含任何 Dapr 运行时代码。这使得与其他运行时的 Dapr 集成变得容易，并提供应用程序逻辑的分离以提高可支持性。">  
+
+  <title>
+    
+      Dapr 学习路线整理
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.a81c745f11a722b3aed7e84ac9483e0780f6bd4f140ee7a57d8e000d8b86e46b44cff9c0432948cfd38a40b2928e70083e3b01f8cadf6da47053d2639855d9b1.css" integrity="sha512-qBx0XxGnIrOu1&#43;hKyUg&#43;B4D2vU8UDuelfY4ADYuG5GtEz/nAQylIz9OKQLKSjnAIPjsB&#43;MrfbaRwU9JjmFXZsQ==" />
+  
+</head>
+<body a="light">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">.. back to home</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2024-02-24 22:23:49 &#43;0800 &#43;0800">
+            2024-02-24
+        </time>
+    </p>
+
+    <h1>Dapr 学习路线整理</h1>
+
+    
+
+    
+    
+    <aside >
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一简单了解">一、简单了解</a></li>
+        <li><a href="#二构建块-build">二、构建块 build</a></li>
+        <li><a href="#三components-组件其实就是基础服务">三、Components 组件，其实就是基础服务</a></li>
+        <li><a href="#四配置">四、配置</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+    
+    
+    <hr class="hr-common"> 
+
+    <p>这篇文章为了整理dapr从接触到试错的一步步探索。</p>
+<h3 id="一简单了解">一、简单了解</h3>
+<p>Dapr 是一种可移植、事件驱动的运行时，使任何开发人员都可以轻松构建在云和边缘运行的弹性、无状态和有状态应用程序，并支持多种语言和开发框架。</p>
+<p><img src="https://docs.dapr.io/images/overview.png" alt="dapr 介绍图"></p>
+<h4 id="1-具体实现就是把api包装成构建块dapr提供组件服务这些构建块构建块就是最小单元也提供切面支持">1. 具体实现就是把API包装成构建块，dapr提供组件服务这些构建块，构建块就是最小单元，也提供切面支持</h4>
+<p>Dapr 将构建微服务应用程序的最佳实践编入**开放、独立的 API（称为构建块）**中。</p>
+<p>Dapr 的构建模块：</p>
+<ul>
+<li>使您能够使用您选择的语言和框架构建可移植应用程序。</li>
+<li>是完全独立的</li>
+<li>对您的应用程序中使用的数量没有限制</li>
+</ul>
+<p>Dapr 与平台无关，这意味着您可以运行您的应用程序，在（1）本地、（2）在任何 Kubernetes 集群上、（3）在虚拟机或物理机上、（4）在 Dapr 集成的其他托管环境中。</p>
+<p>Dapr 提供分布式系统构建块，供您以标准方式构建微服务应用程序并部署到任何环境。
+这些构建块 API 中的每一个都是独立的，这意味着您可以在应用程序中使用任意数量的它们。</p>
+<p>dapr提供的 分布式系统构建块 ：</p>
+<!-- raw HTML omitted -->
+<p>另外提供 AOP 切面API用于服务所有构建块</p>
+<ul>
+<li><strong>Resiliency 弹性</strong>	 Dapr 提供通过弹性规范定义和应用容错弹性策略的功能。支持的规范定义了弹性模式的策略，例如超时、重试/回退和断路器</li>
+<li><strong>Observability 可观察性</strong>	 Dapr 发出指标、日志和跟踪来调试和监控 Dapr 和用户应用程序。 Dapr 支持分布式跟踪，可以使用 W3C 跟踪上下文标准和开放遥测发送到不同的监控工具，轻松诊断和服务生产中的服务间调用。</li>
+<li><strong>Security 安全</strong>	 Dapr 支持使用 Dapr 控制平面 Sentry 服务对 Dapr 实例之间的通信进行传输加密。您可以引入自己的证书，或者让 Dapr 自动创建并保留自签名根证书和颁发者证书。</li>
+</ul>
+<h4 id="2-针对这些构建块dapr的操作方式就是给每个构建块搭一个-sidecar-sidecar-包括-http-和-grpc-api">2. 针对这些构建块，dapr的操作方式就是给每个构建块搭一个 sidecar, sidecar 包括 HTTP 和 gRPC API</h4>
+<p>Dapr 将其 HTTP 和 gRPC API 作为 sidecar 架构公开，既可以作为容器，也可以作为进程，不需要应用程序代码包含任何 Dapr 运行时代码。这使得与其他运行时的 Dapr 集成变得容易，并提供应用程序逻辑的分离以提高可支持性。</p>
+<h4 id="3托管环境包括-本地和集群两个">3.托管环境包括 本地和集群两个</h4>
+<ul>
+<li>自托管本地开发<br>
+在自托管模式下，Dapr 作为单独的 sidecar 进程运行，您的服务代码可以通过 HTTP 或 gRPC 调用该进程。每个正在运行的服务都有一个 Dapr 运行时进程（或 sidecar），配置为使用状态存储、发布/订阅、绑定组件和其他构建块。</li>
+<li>k8s<br>
+生产时候，我还不太熟悉，后面再写</li>
+</ul>
+<h4 id="4-开发语言">4. 开发语言</h4>
+<p>不限制开发语言和框架</p>
+<h3 id="二构建块-build">二、构建块 build</h3>
+<p>构建块是一种 HTTP 或 gRPC API，可以从您的代码调用并使用一个或多个 Dapr 组件。 Dapr 由一组 API 构建块组成，具有添加新构建块的可扩展性。</p>
+<p><em>dapr提供了许多服务构建块的组件，已经默认好了API Endpoint，所以在自己开发的应用程序中通过相应的Endpoint调用</em></p>
+<h3 id="三components-组件其实就是基础服务">三、Components 组件，其实就是基础服务</h3>
+<p>可以根据dapr提供的标准，开发自己的可插拔组件</p>
+<p><img src="https://docs.dapr.io/images/concepts-components.png" alt=""></p>
+<p>可用的组件类型:</p>
+<ul>
+<li>State stores 状态库</li>
+<li>Name resolution 名称解析</li>
+<li>Pub/sub brokers 发布/订阅经纪人</li>
+<li>Bindings 绑定</li>
+<li>Secret stores 密钥库</li>
+<li>Configuration stores 配置存储</li>
+<li>Locks 分布式锁</li>
+<li>Workflows 工作流程</li>
+<li>Cryptography 加解密工具</li>
+<li>Middleware 中间件<br>
+Dapr 允许将自定义中间件插入 HTTP 请求处理管道。在将请求路由到用户代码或将响应返回到客户端之前，中间件可以对 HTTP 请求执行其他操作（例如身份验证、加密和消息转换）。中间件组件与服务调用构建块一起使用。</li>
+</ul>
+<h3 id="四配置">四、配置</h3>
+<p>更改 Dapr 应用程序 sidecar 的行为或在 Dapr 控制平面系统服务上进行全局更改。</p>
+
+</article>
+<hr class="hr-common">
+
+<footer class="post-footer">
+    <ul class="post-tags">
+        <li><a href="https://livebug.github.io/tags/dapr/">Dapr</a></li>
+    </ul>
+
+    
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '611a6636d92469d23028',
+    clientSecret: 'e33f7c182796cd46d35977af0c04dcf1cb16b49f',
+    repo: 'livebug.github.io',
+    owner: 'livebug',
+    admin: ['livebug'],
+    id: location.pathname, 
+    distractionFreeMode: false 
+  });
+  (function () {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+      return;
+    }
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+
+</footer>
+
+
+            </div>
+        </main>
+    </body></html>
