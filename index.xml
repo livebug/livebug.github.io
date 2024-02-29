@@ -6,8 +6,15 @@
     <description>Recent content on livebug&#39;s blog space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Feb 2024 22:23:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 25 Feb 2024 17:30:25 +0800</lastBuildDate>
     <atom:link href="https://livebug.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux 使用代理以及遇到的问题</title>
+      <link>https://livebug.github.io/blogs/20240225-linux-proxy-common-questions/</link>
+      <pubDate>Sun, 25 Feb 2024 17:30:25 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20240225-linux-proxy-common-questions/</guid>
+      <description>前提 你得有一个代理 我的场景是wsl，使用主机打开的 clash 代理&#xA;clash for windows 支持端口代理，所以在wsl中需要科学上网的场景可以走这个代理提高访问速度&#xA;理论可行，实现优点曲折。&#xA;小插曲，wsl2的网络模式与wsl1不一致，本质上是两台机器，通过网络链接，所以需要知道windows的IP,在wsl网络里的IP,&#xA;1# windows下执行 ipconfig即可看到 2&amp;gt; ipconfig 3以太网适配器 vEthernet (WSL (Hyper-V firewall)): 4 5 连接特定的 DNS 后缀 . . . . . . . : 6 本地链接 IPv6 地址. . . . . . . . : fe80::e4ec:39b6:69cb:8afe%42 7 IPv4 地址 . . . . . . . . . . . . : 172.31.192.1 8 子网掩码 . . . . .</description>
+    </item>
     <item>
       <title>Dapr 学习路线整理</title>
       <link>https://livebug.github.io/blogs/20240224-dapr-learning-route/</link>
