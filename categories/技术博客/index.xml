@@ -16,6 +16,13 @@
       <description>前提 你得有一个代理 我的场景是wsl，使用主机打开的 clash 代理&#xA;clash for windows 支持端口代理，所以在wsl中需要科学上网的场景可以走这个代理提高访问速度&#xA;理论可行，实现优点曲折。&#xA;小插曲，wsl2的网络模式与wsl1不一致，本质上是两台机器，通过网络链接，所以需要知道windows的IP,在wsl网络里的IP,&#xA;1# windows下执行 ipconfig即可看到 2&amp;gt; ipconfig 3以太网适配器 vEthernet (WSL (Hyper-V firewall)): 4 5 连接特定的 DNS 后缀 . . . . . . . : 6 本地链接 IPv6 地址. . . . . . . . : fe80::e4ec:39b6:69cb:8afe%42 7 IPv4 地址 . . . . . . . . . . . . : 172.31.192.1 8 子网掩码 . . . . .</description>
     </item>
     <item>
+      <title>自建 pip 私有源</title>
+      <link>https://livebug.github.io/blogs/20240329-pip-server-self/</link>
+      <pubDate>Sun, 25 Feb 2024 17:30:25 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20240329-pip-server-self/</guid>
+      <description>pypiserver 下载包 https://files.pythonhosted.org/packages/34/95/6c70e2f7e8375354fd7b1db08405c93674f2e4ce4e714f379fadd06a92b1/pypiserver-2.0.1-py2.py3-none-any.whl&#xA;服务器安装 1pip install pypiserver-2.0.1-py2.py3-none-any.whl 准备一个存放位置 ～/pypiserver/packages/&#xA;手工启动&#xA;1pypi-server run -p 9000 ./packages/ 访问 http://127.0.0.1:9000/ 即可&#xA;pip安装时引用：&#xA;1pip install --index-url http://127.0.0.1:9000/simple/ 服务配置（可选） 1# /etc/systemd/system/pypi_server.service 2[Unit] 3Description=A minimal PyPI server for use with pip/easy_install. 4After=network.target 5 6[Service] 7Type=simple 8# systemd requires absolute path here too. 9PIDFile=/var/run/pypiserver.pid 10User=www-data 11Group=www-data 12# 启动命令&amp;amp;日志文件存放位置 13ExecStart=/usr/local/bin/pypi-server -p 9090 -a update,download --log-file /var/log/pypiserver.log /root/home/packges 14ExecStop=/bin/kill -TERM $MAINPID 15ExecReload=/bin/kill -HUP $MAINPID 16Restart=always 17# 模块存放地址 18WorkingDirectory=/root/home/packages 19 20TimeoutStartSec=3 21RestartSec=5 22 23[Install] 24WantedBy=multi-user.</description>
+    </item>
+    <item>
       <title>Dapr 学习路线整理</title>
       <link>https://livebug.github.io/blogs/20240224-dapr-learning-route/</link>
       <pubDate>Sat, 24 Feb 2024 22:23:49 +0800</pubDate>

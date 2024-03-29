@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on livebug&#39;s blog space</title>
+    <link>https://livebug.github.io/tags/python/</link>
+    <description>Recent content in Python on livebug&#39;s blog space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Feb 2024 17:30:25 +0800</lastBuildDate>
+    <atom:link href="https://livebug.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自建 pip 私有源</title>
+      <link>https://livebug.github.io/blogs/20240329-pip-server-self/</link>
+      <pubDate>Sun, 25 Feb 2024 17:30:25 +0800</pubDate>
+      <guid>https://livebug.github.io/blogs/20240329-pip-server-self/</guid>
+      <description>pypiserver 下载包 https://files.pythonhosted.org/packages/34/95/6c70e2f7e8375354fd7b1db08405c93674f2e4ce4e714f379fadd06a92b1/pypiserver-2.0.1-py2.py3-none-any.whl&#xA;服务器安装 1pip install pypiserver-2.0.1-py2.py3-none-any.whl 准备一个存放位置 ～/pypiserver/packages/&#xA;手工启动&#xA;1pypi-server run -p 9000 ./packages/ 访问 http://127.0.0.1:9000/ 即可&#xA;pip安装时引用：&#xA;1pip install --index-url http://127.0.0.1:9000/simple/ 服务配置（可选） 1# /etc/systemd/system/pypi_server.service 2[Unit] 3Description=A minimal PyPI server for use with pip/easy_install. 4After=network.target 5 6[Service] 7Type=simple 8# systemd requires absolute path here too. 9PIDFile=/var/run/pypiserver.pid 10User=www-data 11Group=www-data 12# 启动命令&amp;amp;日志文件存放位置 13ExecStart=/usr/local/bin/pypi-server -p 9090 -a update,download --log-file /var/log/pypiserver.log /root/home/packges 14ExecStop=/bin/kill -TERM $MAINPID 15ExecReload=/bin/kill -HUP $MAINPID 16Restart=always 17# 模块存放地址 18WorkingDirectory=/root/home/packages 19 20TimeoutStartSec=3 21RestartSec=5 22 23[Install] 24WantedBy=multi-user.</description>
+    </item>
+  </channel>
+</rss>
